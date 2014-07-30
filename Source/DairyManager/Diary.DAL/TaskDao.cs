@@ -3,10 +3,138 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using Diary.Entity;
+using System.Data.Common;
+using Diary.Common;
+using System.Data;
+
 
 namespace Diary.DAL
 {
-    class TaskDao
+    public class TaskDao
     {
+        public Guid InsertTask(TaskEntity taskEntity)
+        {
+            Guid result;
+
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskInsert");
+
+            db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
+            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, taskEntity.CaseTypeId);
+            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
+            db.AddInParameter(dbCommand, "@TotalRemainingHours", DbType.Decimal, taskEntity.TotalRemainingHours);
+            db.AddInParameter(dbCommand, "@StartTime", DbType.Time, taskEntity.StartTime);
+            db.AddInParameter(dbCommand, "@EndTime", DbType.Time, taskEntity.EndTime);
+            db.AddInParameter(dbCommand, "@TotalHours", DbType.Decimal, taskEntity.TotalHours);   
+            db.AddInParameter(dbCommand, "@CreatedBy", DbType.Guid, taskEntity.CreatedBy);
+
+            db.AddOutParameter(dbCommand, "@TaskId", DbType.Guid, 30);
+
+            db.ExecuteNonQuery(dbCommand);
+
+            result = new Guid(db.GetParameterValue(dbCommand, "@TaskId").ToString());
+
+            return result;
+        }
+
+        public bool UpdateTask(TaskEntity taskEntity)
+        {
+            bool result;
+
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskUpdate");
+
+            db.AddInParameter(dbCommand, "@TaskId", DbType.DateTime, taskEntity.TaskId);
+            db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
+            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, taskEntity.CaseTypeId);
+            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
+            db.AddInParameter(dbCommand, "@TotalRemainingHours", DbType.Decimal, taskEntity.TotalRemainingHours);
+            db.AddInParameter(dbCommand, "@StartTime", DbType.Time, taskEntity.StartTime);
+            db.AddInParameter(dbCommand, "@EndTime", DbType.Time, taskEntity.EndTime);
+            db.AddInParameter(dbCommand, "@TotalHours", DbType.Decimal, taskEntity.TotalHours);
+            db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, taskEntity.UpdatedBy);
+            
+            db.ExecuteNonQuery(dbCommand);
+
+            result = true;
+
+            return result;
+        }
+
+        public DataSet SelectTaskByTaskId(Guid taskId)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskSelectById");
+
+            db.AddInParameter(command, "@TaskId", DbType.Guid, taskId);
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public DataSet SelectTaskAll()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public Guid InsertTaskType(TaskTypeEntity taskTypeEntity)
+        {
+            Guid result;
+
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskTypeInsert");
+
+            db.AddInParameter(dbCommand, "@TaskType", DbType.String, taskTypeEntity.TaskType);
+            db.AddInParameter(dbCommand, "@CreatedBy", DbType.Guid, taskTypeEntity.CreatedBy);
+
+            db.AddOutParameter(dbCommand, "@TaskTypeId", DbType.Guid, 30);
+
+            db.ExecuteNonQuery(dbCommand);
+
+            result = new Guid(db.GetParameterValue(dbCommand, "@TaskTypeId").ToString());
+
+            return result;
+        }
+
+        public bool UpdateTaskType(TaskTypeEntity taskTypeEntity)
+        {
+            bool result;
+
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskTypeUpdate");
+
+            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.String, taskTypeEntity.TaskTypeId);              
+            db.AddInParameter(dbCommand, "@TaskType", DbType.String, taskTypeEntity.TaskType);
+            db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, taskTypeEntity.UpdatedBy);
+            
+            db.ExecuteNonQuery(dbCommand);
+
+            result = true;
+
+            return result;
+        }
+
+        public DataSet SelectTaskTypeByTaskTypeId(Guid taskTypeId)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeSelectById");
+
+            db.AddInParameter(command, "@TaskTypeId", DbType.Guid, taskTypeId);
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public DataSet SelectTaskTypeAll()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeSelectAll");
+                        
+            return db.ExecuteDataSet(command);
+        }
+
     }
 }
