@@ -85,7 +85,5 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
-
-
     }
 }
