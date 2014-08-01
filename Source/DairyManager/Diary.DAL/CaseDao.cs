@@ -15,11 +15,11 @@ namespace Diary.DAL
     {
         public Guid InsertCase(CaseEntity caseEntity)
         {
-            Guid result ;
+            Guid result;
 
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseInsert");
-            
+
             db.AddInParameter(dbCommand, "@Code", DbType.String, caseEntity.Code);
             db.AddInParameter(dbCommand, "@ClientID", DbType.Guid, caseEntity.ClientId);
             db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseEntity.CaseTypeId);
@@ -27,12 +27,12 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
             db.AddInParameter(dbCommand, "@CreatedBy", DbType.Guid, caseEntity.CreatedBy);
 
-            db.AddOutParameter(dbCommand, "@CaseId", DbType.Guid, 30);           
+            db.AddOutParameter(dbCommand, "@CaseId", DbType.Guid, 30);
 
             db.ExecuteNonQuery(dbCommand);
 
-            result = new Guid( db.GetParameterValue(dbCommand, "@CaseId").ToString());
-            
+            result = new Guid(db.GetParameterValue(dbCommand, "@CaseId").ToString());
+
             return result;
         }
 
@@ -50,10 +50,10 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@Email", DbType.String, caseEntity.Email);
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
             db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, caseEntity.UpdatedBy);
-            
+
             db.ExecuteNonQuery(dbCommand);
 
-            result=true;
+            result = true;
 
             return result;
         }
@@ -119,7 +119,7 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@CaseType", DbType.String, caseTypeEntity.CaseType);
             db.AddInParameter(dbCommand, "@CaseCode", DbType.String, caseTypeEntity.CaseCode);
             db.AddInParameter(dbCommand, "@UpldatedBy", DbType.Guid, caseTypeEntity.UpdatedBy);
-            
+
             db.ExecuteNonQuery(dbCommand);
 
             result = true;
@@ -157,6 +157,25 @@ namespace Diary.DAL
 
             return db.ExecuteDataSet(command);
         }
+
+        public bool IsCaseCodeExists(string caseCode)
+        {
+            bool result = false;
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_CaseTypeIsExists");
+
+            db.AddInParameter(command, "@CaseCode", DbType.String, caseCode);
+            db.AddOutParameter(command, "@IsExists", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            result = bool.Parse(db.GetParameterValue(command, "IsExists").ToString());
+
+            return result;
+
+
+        }
+
 
 
     }

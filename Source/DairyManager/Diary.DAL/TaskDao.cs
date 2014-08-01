@@ -136,5 +136,24 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
+        public bool IsTaskTypeExists(string taskType)
+        {
+            bool result = false;
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeIsExists");
+
+            db.AddInParameter(command, "@TaskType", DbType.String, taskType);
+            db.AddOutParameter(command, "@IsExists", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            result = bool.Parse(db.GetParameterValue(command, "IsExists").ToString());
+
+            return result;
+
+
+        }
+
+
     }
 }
