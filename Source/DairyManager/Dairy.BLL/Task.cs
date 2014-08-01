@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Diary.DAL;
 using Diary.Entity;
 
-namespace Dairy.BLL
+namespace Diary.BLL
 {
     public class Task
     {
@@ -61,9 +61,9 @@ namespace Dairy.BLL
 
         }
 
-        public bool IsTaskTypeExists(string taskType)
+        public bool IsTaskTypeExists(string taskCode)
         {
-            return taskDao.IsTaskTypeExists(taskType);
+            return taskDao.IsTaskTypeExists(taskCode);
 
 
 

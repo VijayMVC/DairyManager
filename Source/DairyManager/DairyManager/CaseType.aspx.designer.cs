@@ -22,13 +22,22 @@ namespace DairyManager {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtNewCaseType control.
+        /// hdnCaseTypeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtNewCaseType;
+        protected global::System.Web.UI.WebControls.HiddenField hdnCaseTypeId;
+        
+        /// <summary>
+        /// txtCaseTypeDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtCaseTypeDescription;
         
         /// <summary>
         /// txtCaseCode control.

@@ -14,14 +14,14 @@
     <form id="form1" runat="server">
         <div>
             <h2>Case Types</h2>
-
+            <asp:HiddenField ID="hdnCaseTypeId" runat="server" />
             <div>
                 <div>
-                    <span>New Case Type</span>
+                    <span>Case Type Description</span>
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTextBox ID="txtNewCaseType" runat="server" Width="170px"></dx:ASPxTextBox>
+                    <dx:ASPxTextBox ID="txtCaseTypeDescription" runat="server" Width="170px"></dx:ASPxTextBox>
                 </div>
 
             </div>
@@ -38,7 +38,7 @@
             </div>
             <div>
                 <div>
-                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
                 </div>
                 <div>
                     <dx:ASPxButton ID="btnCancel" runat="server" Text="Cancel"></dx:ASPxButton>

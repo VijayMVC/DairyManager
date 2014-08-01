@@ -88,7 +88,8 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskTypeInsert");
 
-            db.AddInParameter(dbCommand, "@TaskType", DbType.String, taskTypeEntity.TaskType);
+            db.AddInParameter(dbCommand, "@TaskDescription", DbType.String, taskTypeEntity.TaskDescription);
+            db.AddInParameter(dbCommand, "@TaskCode", DbType.String, taskTypeEntity.TaskCode);
             db.AddInParameter(dbCommand, "@CreatedBy", DbType.Guid, taskTypeEntity.CreatedBy);
 
             db.AddOutParameter(dbCommand, "@TaskTypeId", DbType.Guid, 30);
@@ -107,8 +108,9 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskTypeUpdate");
 
-            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.String, taskTypeEntity.TaskTypeId);              
-            db.AddInParameter(dbCommand, "@TaskType", DbType.String, taskTypeEntity.TaskType);
+            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.String, taskTypeEntity.TaskTypeId);
+            db.AddInParameter(dbCommand, "@TaskDescription", DbType.String, taskTypeEntity.TaskDescription);
+            db.AddInParameter(dbCommand, "@TaskCode", DbType.String, taskTypeEntity.TaskCode);
             db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, taskTypeEntity.UpdatedBy);
             
             db.ExecuteNonQuery(dbCommand);
@@ -136,13 +138,13 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
-        public bool IsTaskTypeExists(string taskType)
+        public bool IsTaskTypeExists(string taskCode)
         {
             bool result = false;
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_TaskTypeIsExists");
 
-            db.AddInParameter(command, "@TaskType", DbType.String, taskType);
+            db.AddInParameter(command, "@TaskCode", DbType.String, taskCode);
             db.AddOutParameter(command, "@IsExists", DbType.Boolean, 1);
 
             db.ExecuteNonQuery(command);

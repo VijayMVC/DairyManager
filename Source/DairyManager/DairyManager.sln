@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DairyManager", "DairyManage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.DAL", "Diary.DAL\Diary.DAL.csproj", "{DD1362F6-C374-4AB3-95CC-B3F963426B1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dairy.BLL", "Dairy.BLL\Dairy.BLL.csproj", "{9DB422F5-5343-426D-BD0C-FDECC52D2D1B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.BLL", "Dairy.BLL\Diary.BLL.csproj", "{9DB422F5-5343-426D-BD0C-FDECC52D2D1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Entity", "Diary.Entity\Diary.Entity.csproj", "{C1E071EC-7CA2-473B-AC17-4402D8258B6A}"
 EndProject

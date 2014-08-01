@@ -9,7 +9,7 @@ namespace Diary.Entity
     public class CaseTypeEntity
     {
         public Guid CaseTypeId { get; set; }
-        public string CaseType { get; set; }
+        public string CaseDescription { get; set; }
         public string CaseCode { get; set; }
         public Guid CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }

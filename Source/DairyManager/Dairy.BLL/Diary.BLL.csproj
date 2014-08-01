@@ -7,8 +7,8 @@
     <ProjectGuid>{9DB422F5-5343-426D-BD0C-FDECC52D2D1B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Dairy.BLL</RootNamespace>
-    <AssemblyName>Dairy.BLL</AssemblyName>
+    <RootNamespace>Diary.BLL</RootNamespace>
+    <AssemblyName>Diary.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

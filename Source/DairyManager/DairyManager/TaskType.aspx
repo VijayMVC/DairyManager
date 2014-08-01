@@ -14,28 +14,29 @@
     <form id="form1" runat="server">
         <div>
             <h2>Task Types</h2>
+            <asp:HiddenField ID="hdnTaskTypeId" runat="server" />
             <div>
                 <div>
-                    <span>Task Type</span>
+                    <span>Task Description</span>
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTextBox ID="txtTaskType" runat="server" Width="170px"></dx:ASPxTextBox>
+                    <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px"></dx:ASPxTextBox>
                 </div>
             </div>
 
             <div>
                 <div>
-                    <span>Task</span>
+                    <span>Task Code</span>
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTextBox ID="txtTask" runat="server" Width="170px"></dx:ASPxTextBox>
+                    <dx:ASPxTextBox ID="txtTaskCode" runat="server" Width="170px"></dx:ASPxTextBox>
                 </div>
             </div>
             <div>
                 <div>
-                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
                 </div>
                 <div>
                     <dx:ASPxButton ID="btnCancel" runat="server" Text="Cancel"></dx:ASPxButton>
@@ -44,7 +45,6 @@
 
             </div>
             <div>
-                <dx:ASPxGridView ID="gvHistoryData" runat="server"></dx:ASPxGridView>
 
             </div>
 

@@ -22,22 +22,31 @@ namespace DairyManager {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtTaskType control.
+        /// hdnTaskTypeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskType;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTaskTypeId;
         
         /// <summary>
-        /// txtTask control.
+        /// txtTaskDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTask;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskDescription;
+        
+        /// <summary>
+        /// txtTaskCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskCode;
         
         /// <summary>
         /// btnSave control.
@@ -56,14 +65,5 @@ namespace DairyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancel;
-        
-        /// <summary>
-        /// gvHistoryData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvHistoryData;
     }
 }

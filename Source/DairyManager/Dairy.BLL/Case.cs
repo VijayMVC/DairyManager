@@ -8,7 +8,7 @@ using Diary.DAL;
 using Diary.Entity;
 
 
-namespace Dairy.BLL
+namespace Diary.BLL
 {
     public class Case
     {
