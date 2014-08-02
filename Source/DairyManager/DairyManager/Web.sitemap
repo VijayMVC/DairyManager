@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Dashboard.aspx" title="Home"  description="Home">
+    <siteMapNode url="~/Task.aspx" title="Create New Task"  description="Create New Task" />
+
+    <siteMapNode url="#" title="Settings"  description="Settings">
+      <siteMapNode url="~/Account/Register.aspx" title="Add User"  description="Add User" />
+      <siteMapNode url="~/Case.aspx" title="Case"  description="Case" />
+      <siteMapNode url="~/CaseType.aspx" title="Case Type"  description="Case Type" />
+      <siteMapNode url="~/TaskType.aspx" title="Task Type"  description="Task Type" />
+      <siteMapNode url="~/TimeRestriction.aspx" title="Time Restriction"  description="Time Restriction" />
+    </siteMapNode>
+
+  </siteMapNode>
+  
+  
+
+</siteMap>
