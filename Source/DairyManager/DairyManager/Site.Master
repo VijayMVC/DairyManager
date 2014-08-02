@@ -14,7 +14,7 @@
         <div class="header">
             <div class="title">
                 <h1>
-                    My ASP.NET Application
+                    Diary System
                 </h1>
             </div>
             <div class="loginDisplay">
@@ -29,10 +29,17 @@
                 </asp:LoginView>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false" IncludeStyleBlock="false" Orientation="Horizontal">
+                <asp:Menu ID="Menu1" runat="server">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home"/>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="About"/>
+                        <asp:MenuItem Text="Dashboard" Value="Dashboard" NavigateUrl="~/Dashboard.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Create Task" Value="CreateTask" NavigateUrl="~/Task.aspx"></asp:MenuItem>
+                        <asp:MenuItem Text="Settings" Value="Settings">
+                            <asp:MenuItem Text="Add User" Value="AddUser" NavigateUrl="~/Account/Register.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add New Case" Value="AddNewCase" NavigateUrl="~/Case.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add New Task Type" Value="AddNewTaskType" NavigateUrl="~/TaskType.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Add New Case Type" Value="AddNewCaseType" NavigateUrl="~/CaseType.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Time Restriction" Value="TimeRestriction" NavigateUrl="~/TimeRestriction.aspx"></asp:MenuItem>
+                        </asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

@@ -210,9 +210,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Dairy.BLL\Diary.BLL.csproj">
       <Project>{9db422f5-5343-426d-bd0c-fdecc52d2d1b}</Project>
       <Name>Diary.BLL</Name>
@@ -225,6 +222,9 @@
       <Project>{c1e071ec-7ca2-473b-ac17-4402d8258b6a}</Project>
       <Name>Diary.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
