@@ -27,7 +27,8 @@ namespace DairyManager
             {
                 caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
                 caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
-                caseTypeEntity.CreatedBy = new Guid();
+                caseTypeEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+
 
                 if (!currentCase.IsCaseCodeExists(caseTypeEntity.CaseCode))
                 {
@@ -42,7 +43,7 @@ namespace DairyManager
             {
                 caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
                 caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
-                caseTypeEntity.UpdatedBy = new Guid();
+                caseTypeEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
 
                 currentCase.UpdateCaseType(caseTypeEntity);
 

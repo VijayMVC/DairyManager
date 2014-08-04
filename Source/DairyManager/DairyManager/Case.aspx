@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Case.aspx.cs" Inherits="DairyManager.Case" MasterPageFile="~/Site.master" %>
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ MasterType VirtualPath="~/Site.Master"%>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
@@ -63,7 +64,8 @@
         </div>
         <div>
             <div>
-                <dx:ASPxButton ID="btnSave" runat="server" Text="Save"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
+                <asp:HiddenField ID="hdnCaseId" runat="server" />
             </div>
             <div>
                 <dx:ASPxButton ID="btnCancel" runat="server" Text="Cancel"></dx:ASPxButton>
