@@ -13,5 +13,41 @@ namespace DairyManager
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            Diary.BLL.Task currentTask = new Diary.BLL.Task();
+            Diary.Entity.TaskEntity taskEntity = new Diary.Entity.TaskEntity();
+
+            if (hdnTaskId.Value == string.Empty)
+            {
+                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
+                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
+                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
+                taskEntity.StartTime =DateTime.Parse( teStartTime.Text);
+                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
+                taskEntity.TotalHours =decimal.Parse(seTotalHours.Text);
+                taskEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+
+                currentTask.InsertTask(taskEntity);
+
+            }
+            else
+            {
+                taskEntity.TaskId = new Guid(hdnTaskId.Value);
+                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
+                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
+                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
+                taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
+                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
+                taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
+                taskEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+
+                currentTask.UpdateTask(taskEntity);
+
+
+            }
+
+        }
     }
 }

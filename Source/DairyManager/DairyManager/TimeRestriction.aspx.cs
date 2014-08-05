@@ -13,5 +13,29 @@ namespace DairyManager
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            Diary.BLL.TimeRestriction timeRestriction = new Diary.BLL.TimeRestriction();
+            Diary.Entity.TimeRestrictionEntity timeRestrictionEntity = new Diary.Entity.TimeRestrictionEntity();
+
+            if (hdnTimeRestrictionId.Value == string.Empty)
+            {
+                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(txtMaximumTime.Text);
+                timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
+                timeRestrictionEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                timeRestriction.InsertTimeRestriction(timeRestrictionEntity);
+
+            }
+            else
+            {
+                timeRestrictionEntity.TimeRestrictionId = new Guid(hdnTimeRestrictionId.Value);
+                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(txtMaximumTime.Text);
+                timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
+                timeRestrictionEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                timeRestriction.UpdateTimeRestriction(timeRestrictionEntity);
+
+            }
+        }
     }
 }

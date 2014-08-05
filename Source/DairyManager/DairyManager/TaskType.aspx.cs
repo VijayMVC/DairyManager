@@ -28,7 +28,7 @@ namespace DairyManager
             {           
                 taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
                 taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
-                taskTypeEntity.CreatedBy = new Guid();
+                taskTypeEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
 
                 if (!currentTask.IsTaskTypeExists(taskTypeEntity.TaskCode))
                 {
@@ -43,7 +43,7 @@ namespace DairyManager
             {
                 taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
                 taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
-                taskTypeEntity.UpdatedBy = new Guid();
+                taskTypeEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
 
                 currentTask.UpdateTaskType(taskTypeEntity);
 
