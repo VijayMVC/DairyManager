@@ -10,16 +10,16 @@
 namespace DairyManager {
     
     
-    public partial class CaseTypeSearch {
+    public partial class ClientSearch {
         
         /// <summary>
-        /// gvCaseTypeSearch control.
+        /// gvClientSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvCaseTypeSearch;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvClientSearch;
         
         /// <summary>
         /// btnBack control.

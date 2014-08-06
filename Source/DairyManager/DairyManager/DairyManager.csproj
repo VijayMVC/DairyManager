@@ -332,6 +332,8 @@
     <Content Include="CaseSearch.aspx" />
     <Content Include="CaseType.aspx" />
     <Content Include="CaseTypeSearch.aspx" />
+    <Content Include="Client.aspx" />
+    <Content Include="ClientSearch.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Report.aspx" />
     <Content Include="Styles\Site.css" />
@@ -418,6 +420,20 @@
     </Compile>
     <Compile Include="CaseTypeSearch.aspx.designer.cs">
       <DependentUpon>CaseTypeSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Client.aspx.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Client.aspx.designer.cs">
+      <DependentUpon>Client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClientSearch.aspx.cs">
+      <DependentUpon>ClientSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientSearch.aspx.designer.cs">
+      <DependentUpon>ClientSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>

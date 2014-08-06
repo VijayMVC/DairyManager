@@ -14,6 +14,7 @@ namespace Diary.Common
             TaskId = 2,
             CaseTypeId=3,
             TimeRestrictionId=4,
+            ClientId=5,
         }
     }
 }
