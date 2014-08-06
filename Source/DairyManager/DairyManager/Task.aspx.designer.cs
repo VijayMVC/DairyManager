@@ -94,13 +94,13 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSave;
         
         /// <summary>
-        /// btnCancel control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancel;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSearch;
         
         /// <summary>
         /// Master property.

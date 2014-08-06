@@ -8,7 +8,7 @@ namespace Diary.Common
 {
     public class Constant
     {
-        public static readonly string DiaryDBConnectionString = "";
+        public static readonly string DiaryDBConnectionString = "ApplicationServices";
 
     }
 }

@@ -67,9 +67,9 @@ namespace Diary.BLL
 
         }
 
-        public DataSet SelectAllCaseType(Guid caseTypeId)
+        public DataSet SelectAllCaseType()
         {
-            return caseDao.SelectAllCaseType(caseTypeId);
+            return caseDao.SelectAllCaseType();
 
         }
 

@@ -7,7 +7,8 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <h2>Code</h2>
+        <h2>Case</h2>
+        <asp:HiddenField ID="hdnCaseId" runat="server" />
         <div>
             <div>
                 <span>Code</span>
@@ -65,17 +66,13 @@
         <div>
             <div>
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
-                <asp:HiddenField ID="hdnCaseId" runat="server" />
+                
             </div>
             <div>
-                <dx:ASPxButton ID="btnCancel" runat="server" Text="Cancel"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/CaseSearch.aspx"></dx:ASPxButton>
             </div>
 
 
-        </div>
-        <div>
-            <dx:ASPxGridView ID="gvHistoryData" runat="server"></dx:ASPxGridView>
-
-        </div>
+        </div>   
     </div>
 </asp:Content>

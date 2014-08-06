@@ -13,6 +13,15 @@ namespace DairyManager {
     public partial class Case {
         
         /// <summary>
+        /// hdnCaseId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnCaseId;
+        
+        /// <summary>
         /// cmbCode control.
         /// </summary>
         /// <remarks>
@@ -76,31 +85,13 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSave;
         
         /// <summary>
-        /// hdnCaseId control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnCaseId;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancel;
-        
-        /// <summary>
-        /// gvHistoryData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvHistoryData;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSearch;
         
         /// <summary>
         /// Master property.

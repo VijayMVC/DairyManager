@@ -36,7 +36,7 @@
                     <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
                 </div>
                 <div>
-                    <dx:ASPxButton ID="btnCancel" runat="server" Text="Cancel"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/TaskTypeSearch.aspx"></dx:ASPxButton>
                 </div>
 
 

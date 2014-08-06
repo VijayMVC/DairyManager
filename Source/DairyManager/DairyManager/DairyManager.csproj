@@ -47,7 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxScheduler.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v12.2.Core, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Elmah">
       <HintPath>..\Library\Elmah.dll</HintPath>
     </Reference>
@@ -327,7 +329,9 @@
     <Content Include="assets\js\x-editable\ace-editable.min.js" />
     <Content Include="assets\js\x-editable\bootstrap-editable.min.js" />
     <Content Include="Case.aspx" />
+    <Content Include="CaseSearch.aspx" />
     <Content Include="CaseType.aspx" />
+    <Content Include="CaseTypeSearch.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Report.aspx" />
     <Content Include="Styles\Site.css" />
@@ -337,7 +341,9 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Task.aspx" />
+    <Content Include="TaskSearch.aspx" />
     <Content Include="TaskType.aspx" />
+    <Content Include="TaskTypeSearch.aspx" />
     <Content Include="TimeRestriction.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -392,12 +398,26 @@
     <Compile Include="Case.aspx.designer.cs">
       <DependentUpon>Case.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CaseSearch.aspx.cs">
+      <DependentUpon>CaseSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaseSearch.aspx.designer.cs">
+      <DependentUpon>CaseSearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CaseType.aspx.cs">
       <DependentUpon>CaseType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CaseType.aspx.designer.cs">
       <DependentUpon>CaseType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CaseTypeSearch.aspx.cs">
+      <DependentUpon>CaseTypeSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CaseTypeSearch.aspx.designer.cs">
+      <DependentUpon>CaseTypeSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
@@ -438,12 +458,26 @@
     <Compile Include="Task.aspx.designer.cs">
       <DependentUpon>Task.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TaskSearch.aspx.cs">
+      <DependentUpon>TaskSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskSearch.aspx.designer.cs">
+      <DependentUpon>TaskSearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TaskType.aspx.cs">
       <DependentUpon>TaskType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="TaskType.aspx.designer.cs">
       <DependentUpon>TaskType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TaskTypeSearch.aspx.cs">
+      <DependentUpon>TaskTypeSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskTypeSearch.aspx.designer.cs">
+      <DependentUpon>TaskTypeSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="TimeRestriction.aspx.cs">
       <DependentUpon>TimeRestriction.aspx</DependentUpon>

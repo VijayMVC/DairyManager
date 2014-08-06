@@ -150,7 +150,7 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
-        public DataSet SelectAllCaseType(Guid caseTypeId)
+        public DataSet SelectAllCaseType()
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_CaseTypeSelectAll");
