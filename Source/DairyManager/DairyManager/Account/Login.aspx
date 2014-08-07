@@ -1,18 +1,26 @@
-﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿
+
+<%@ Page Title="Log In" Language="C#"  AutoEventWireup="true"
     CodeBehind="Login.aspx.cs" Inherits="DairyManager.Account.Login" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-</asp:Content>
-<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>Log In
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+       <h2>Log In
     </h2>
-    <p>
+  <%--  <p>
         Please enter your username and password.
        
         <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Register</asp:HyperLink>
         if you don't have an account.
    
-    </p>
+    </p>--%>
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>
             <span class="failureNotification">
@@ -37,7 +45,7 @@
                             CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required."
                             ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                     </p>
-                    <p>
+                    <p style="display:none">
                         <asp:CheckBox ID="RememberMe" runat="server" />
                         <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline">Keep me logged in</asp:Label>
                     </p>
@@ -48,4 +56,9 @@
             </div>
         </LayoutTemplate>
     </asp:Login>
-</asp:Content>
+    </div>
+    </form>
+</body>
+</html>
+
+
