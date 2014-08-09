@@ -8,7 +8,9 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <h1>Search Case</h1>
+        <div class="page-header">
+            <h1>Search Case</h1>
+            </div>
         <div>
             <dx:ASPxGridView ID="gvCaseSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="CaseId">
                 <Columns>
@@ -38,8 +40,7 @@
             </dx:ASPxGridView>
 
         </div>
-        <div>
-
+        <div class="clearfix form-actions">
             <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/Case.aspx"></dx:ASPxButton>
         </div>
 

@@ -13,7 +13,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <div class="page-header">
             <h1>Client</h1>
+                </div>
             <asp:HiddenField ID="hdnClientId" runat="server" />
             <div>
                 <div>

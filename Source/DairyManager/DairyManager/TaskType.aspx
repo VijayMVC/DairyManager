@@ -10,14 +10,17 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-            <h2>Task Types</h2>
+        
+<div class="page-header">
+            <h1>Task Types</h1>
+    </div>
             <asp:HiddenField ID="hdnTaskTypeId" runat="server" />
-            <div>
+            <div class="form-group">
                 <div>
                     <span>Task Description</span>
                     <span>*</span>
                 </div>
-                <div>
+                <div class="input-group">
                     <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" MaxLength="50">
                         <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
@@ -26,12 +29,12 @@
                 </div>
             </div>
 
-            <div>
+            <div class="form-group">
                 <div>
                     <span>Task Code</span>
                     <span>*</span>
                 </div>
-                <div>
+                <div class="input-group">
                     <dx:ASPxTextBox ID="txtTaskCode" runat="server" Width="170px" MaxLength="20">
                         <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
@@ -39,7 +42,7 @@
                     </dx:ASPxTextBox>
                 </div>
             </div>
-            <div>
+              <div class="clearfix form-actions">
                 <div>
                     <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
                 </div>

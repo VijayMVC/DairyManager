@@ -8,13 +8,16 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <h1>Task Search</h1>
+         <div class="page-header">
+<h1>Task Search</h1>
+             </div>
+        
         <div>
             <dx:ASPxGridView ID="gvTaskSearch" runat="server">
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
         </div>
-        <div>
+          <div class="clearfix form-actions">
             <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/Task.aspx"></dx:ASPxButton>
         </div>
 

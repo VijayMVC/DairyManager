@@ -11,7 +11,9 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div class="clearfix form-actions">
     <h1>Dashboard</h1>
+        </div>
     <div>
         <dxwschs:ASPxScheduler ID="ASPxScheduler1" runat="server"></dxwschs:ASPxScheduler>
     </div>

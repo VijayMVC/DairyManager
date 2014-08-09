@@ -7,7 +7,9 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
+        <div class="page-header">
         <h1>Task Type Search</h1>
+            </div>
         <div>
             <dx:ASPxGridView ID="gvTaskTypeSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="TaskTypeId">
                 <Columns>
@@ -25,7 +27,7 @@
             </dx:ASPxGridView>
         </div>
 
-        <div>
+        <div class="clearfix form-actions">
             <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/TaskType.aspx"></dx:ASPxButton>
         </div>
 

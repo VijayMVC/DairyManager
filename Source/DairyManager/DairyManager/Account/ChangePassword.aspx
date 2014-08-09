@@ -4,9 +4,11 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h2>
+    <div class="page-header">
+            <h1>
         Change Password
-    </h2>
+    </h1>
+        </div>
     <p>
         Use the form below to change your password.
     </p>

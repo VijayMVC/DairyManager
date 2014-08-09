@@ -7,28 +7,30 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <h1>Time Restriction</h1>
+            <div class="page-header">
+                <h1>Time Restriction</h1>
+            </div>
         <asp:HiddenField ID="hdnTimeRestrictionId" runat="server" />
-        <div>
+        <div class="form-group">
             <div>
                 <span>Maximum time recording per day</span>
                 <span>*</span>
             </div>
-            <div>
+            <div class="input-group">
                 <dx:ASPxSpinEdit ID="seMaximumTime" runat="server" Height="21px" Number="0">
                 </dx:ASPxSpinEdit>
             </div>
         </div>
-        <div>
+        <div class="form-group">
             <div>
                 <span>Warning after time exceed</span>
                 <span>*</span>
             </div>
-            <div>
+            <div class="input-group">
                 <dx:ASPxTextBox ID="txtTimeExceed" runat="server" Width="170px"></dx:ASPxTextBox>
             </div>
         </div>
-        <div>
+        <div class="clearfix form-actions">
             <div>
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
             </div>
