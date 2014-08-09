@@ -708,9 +708,6 @@
     <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Themes\DevEx\ASPxButton.skin" />
     <Content Include="App_Themes\DevEx\ASPxButtonEdit.skin" />
     <Content Include="App_Themes\DevEx\ASPxCalendar.skin" />
