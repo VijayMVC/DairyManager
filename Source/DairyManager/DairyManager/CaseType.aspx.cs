@@ -34,16 +34,18 @@ namespace DairyManager
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
+            caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
+            caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
+
             if (hdnCaseTypeId.Value == string.Empty)
-            {
-                caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
-                caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
+            {                
                 caseTypeEntity.CreatedBy = new Guid();
-
-
+                
                 if (!currentCase.IsCaseCodeExists(caseTypeEntity.CaseCode))
                 {
                     currentCase.InsertCaseType(caseTypeEntity);
+                    Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+
                     this.ClearFormFields();
                 }
                 else
@@ -53,11 +55,12 @@ namespace DairyManager
             }
             else
             {
-                caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
-                caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
+                
                 caseTypeEntity.UpdatedBy = new Guid();
 
                 currentCase.UpdateCaseType(caseTypeEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+
                 this.ClearFormFields();
 
             }

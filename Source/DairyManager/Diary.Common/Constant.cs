@@ -9,6 +9,7 @@ namespace Diary.Common
     public class Constant
     {
         public static readonly string DiaryDBConnectionString = "ApplicationServices";
+        public static readonly string Message_Success = "Successfully Saved.";
 
     }
 }

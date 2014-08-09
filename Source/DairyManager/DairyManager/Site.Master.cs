@@ -11,7 +11,7 @@ namespace DairyManager
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
-
+        
         public MembershipUser LogedUser
         {
             get
@@ -36,6 +36,12 @@ namespace DairyManager
             }
 
             return returnValue;
+        }
+
+        public void ShowSuccessMessage(bool visibility, string message)
+        {
+            this.dvMasterMessage.Visible = visibility;
+            this.ltlMasterMessage.Text = message;
         }
     }
 }

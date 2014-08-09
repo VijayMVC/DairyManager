@@ -30,30 +30,29 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+
+            taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
+            taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
+            taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
+            taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
+            taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
+            taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
+
             if (hdnTaskId.Value == string.Empty)
             {
-                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
-                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
-                taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
-                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
-                taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                
+                taskEntity.CreatedBy = new Guid();
+                currentTask.InsertTask(taskEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
 
-                currentTask.InsertTask(taskEntity);    
             }
             else
             {
-                taskEntity.TaskId = new Guid(hdnTaskId.Value);
-                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
-                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
-                taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
-                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
-                taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                
+                taskEntity.UpdatedBy = new Guid();
+                currentTask.UpdateTask(taskEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
 
-                currentTask.UpdateTask(taskEntity);    
 
             }            
         }

@@ -16,7 +16,7 @@
                 <Columns>
                     <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Case Code">
                         <DataItemTemplate>
-                            <a id="clickElement" target="_blank" href="/Case.aspx?CaseId=<%# Container.KeyValue%>"><%#  Eval("Code").ToString()%> </a>
+                            <a id="clickElement" target="_self" href="/Case.aspx?CaseId=<%# Container.KeyValue%>"><%#  Eval("Code").ToString()%> </a>
                         </DataItemTemplate>
                     </dx:GridViewDataTextColumn>
 

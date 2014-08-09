@@ -195,7 +195,7 @@
                     try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
                 </script>
 
-                
+
                 <!-- /.sidebar-shortcuts -->
 
                 <%--<asp:Menu ID="Menu1" runat="server">
@@ -318,7 +318,7 @@
 
                                 <b class="arrow"></b>
                             </li>
-                             
+
                         </ul>
                     </li>
 
@@ -348,10 +348,10 @@
                         try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
                     </script>
 
-                   
+
                     <!-- /.breadcrumb -->
 
-                    
+
 
                     <!-- /section:basics/content.searchbox -->
                 </div>
@@ -359,7 +359,7 @@
                 <!-- /section:basics/content.breadcrumbs -->
                 <div class="page-content">
                     <!-- #section:settings.box -->
-                    
+
                     <!-- /.ace-settings-container -->
 
                     <!-- /section:settings.box -->
@@ -367,22 +367,17 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <div class="main">
+                                <div class="main" >
 
-                                    <div class="alert alert-block alert-success">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
+                                    <div class="alert alert-block alert-success" id="dvMasterMessage" runat="server" visible="false">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="ace-icon fa fa-times"></i>
+                                        </button>
 
-									<i class="ace-icon fa fa-check green"></i>
-
-									Welcome to
-									<strong class="green">
-										Ace
-										<small>(v1.3.1)</small>
-									</strong>,
-	the lightweight, feature-rich and easy to use admin template.
-								</div>
+                                        <i class="ace-icon fa fa-check green"></i>
+                                        <asp:Literal ID="ltlMasterMessage" runat="server"></asp:Literal>
+                                        
+                                    </div>
 
                                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                                 </div>
@@ -447,7 +442,7 @@
     </form>
     <!-- basic scripts -->
 
-    
+
     <script type="text/javascript">
         window.jQuery || document.write("<script src='./assets/js/jquery.min.js'>" + "<" + "/script>");
     </script>
