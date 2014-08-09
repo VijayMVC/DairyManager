@@ -22,13 +22,13 @@ namespace DairyManager {
         protected global::System.Web.UI.WebControls.HiddenField hdnCaseId;
         
         /// <summary>
-        /// cmbCode control.
+        /// txtCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbCode;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtCode;
         
         /// <summary>
         /// txtCase control.

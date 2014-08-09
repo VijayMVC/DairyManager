@@ -11,10 +11,11 @@ namespace Diary.Common
         public enum QueryStringParameters
         {
             CaseId = 1,
-            TaskId = 2,
+            TaskId = 2,            
             CaseTypeId=3,
             TimeRestrictionId=4,
             ClientId=5,
+            TaskTypeId=6,
         }
     }
 }

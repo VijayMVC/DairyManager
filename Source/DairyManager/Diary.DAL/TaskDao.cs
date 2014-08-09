@@ -63,12 +63,12 @@ namespace Diary.DAL
             return result;
         }
 
-        public DataSet SelectTaskByTaskId(Guid taskId)
+        public DataSet SelectTaskByTaskId(Guid taskTypeId)
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
-            DbCommand command = db.GetStoredProcCommand("usp_TaskSelectById");
+            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeSelectById");
 
-            db.AddInParameter(command, "@TaskId", DbType.Guid, taskId);
+            db.AddInParameter(command, "@TaskTypeId", DbType.Guid, taskTypeId);
 
             return db.ExecuteDataSet(command);
         }
@@ -108,7 +108,7 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskTypeUpdate");
 
-            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.String, taskTypeEntity.TaskTypeId);
+            db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskTypeEntity.TaskTypeId);
             db.AddInParameter(dbCommand, "@TaskDescription", DbType.String, taskTypeEntity.TaskDescription);
             db.AddInParameter(dbCommand, "@TaskCode", DbType.String, taskTypeEntity.TaskCode);
             db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, taskTypeEntity.UpdatedBy);

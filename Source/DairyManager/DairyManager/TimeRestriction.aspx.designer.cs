@@ -22,13 +22,13 @@ namespace DairyManager {
         protected global::System.Web.UI.WebControls.HiddenField hdnTimeRestrictionId;
         
         /// <summary>
-        /// txtMaximumTime control.
+        /// seMaximumTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtMaximumTime;
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit seMaximumTime;
         
         /// <summary>
         /// txtTimeExceed control.
@@ -47,15 +47,6 @@ namespace DairyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnSave;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnCancel;
         
         /// <summary>
         /// Master property.

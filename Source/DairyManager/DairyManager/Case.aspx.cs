@@ -14,9 +14,14 @@ namespace DairyManager
     public partial class Case : System.Web.UI.Page
     {
         CaseEntity caseEntity = new CaseEntity();
+        bll.Client currentClient = new bll.Client();
+        bll.Case currentCase = new bll.Case();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.LoadClient();
+            this.LoadCaseType();
+
             if (!IsPostBack)
             {
                 hdnCaseId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseId.ToString());
@@ -25,15 +30,15 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            caseEntity.Code = (string)cmbCode.Value;
+            caseEntity.Code = txtCode.Text.Trim();
             caseEntity.Case = txtCase.Text.Trim();
             caseEntity.ClientId = (Guid)cmbClient.Value;
             caseEntity.CaseTypeId = (Guid)cmbCaseType.Value;
             caseEntity.Email = txtEmail.Text.Trim();
             caseEntity.Contact = txtContact.Text.Trim();
 
-            caseEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
-            caseEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+            caseEntity.CreatedBy = new Guid();
+            caseEntity.UpdatedBy = new Guid();
 
             bll.Case caseBll = new bll.Case();
 
@@ -54,5 +59,23 @@ namespace DairyManager
             //Todo show save succesfully message            
 
         }
+
+        private void LoadClient()
+        {
+            cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
+            cmbClient.TextField = "Name";
+            cmbClient.ValueField = "ClientId";
+            cmbClient.DataBind();
+
+        }
+
+        private void LoadCaseType()
+        {
+            cmbCaseType.DataSource = currentCase.SelectAllCaseType().Tables[0];
+            cmbCaseType.TextField = "CaseDescription";
+            cmbCaseType.ValueField = "CaseTypeId";
+            cmbCaseType.DataBind();
+        }
+
     }
 }

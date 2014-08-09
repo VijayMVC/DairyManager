@@ -98,7 +98,7 @@ namespace Diary.DAL
 
             db.AddInParameter(dbCommand, "@CaseDescription", DbType.String, caseTypeEntity.CaseDescription);
             db.AddInParameter(dbCommand, "@CaseCode", DbType.String, caseTypeEntity.CaseCode);
-            db.AddInParameter(dbCommand, "@CreatedBy", DbType.String, caseTypeEntity.CreatedBy);
+            db.AddInParameter(dbCommand, "@CreatedBy", DbType.Guid, caseTypeEntity.CreatedBy);
 
             db.AddOutParameter(dbCommand, "@CaseTypeId", DbType.Guid, 30);
 
@@ -116,9 +116,10 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseTypeUpdate");
 
+            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseTypeEntity.CaseTypeId);            
             db.AddInParameter(dbCommand, "@CaseDescription", DbType.String, caseTypeEntity.CaseDescription);
             db.AddInParameter(dbCommand, "@CaseCode", DbType.String, caseTypeEntity.CaseCode);
-            db.AddInParameter(dbCommand, "@UpldatedBy", DbType.Guid, caseTypeEntity.UpdatedBy);
+            db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, caseTypeEntity.UpdatedBy);
 
             db.ExecuteNonQuery(dbCommand);
 

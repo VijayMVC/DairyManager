@@ -21,7 +21,7 @@ namespace DairyManager
         {
             if (!IsPostBack)
             {
-                hdnCaseTypeId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseId.ToString());
+                hdnCaseTypeId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseTypeId.ToString());
 
                 if (hdnCaseTypeId.Value != string.Empty)
                 {
@@ -38,12 +38,13 @@ namespace DairyManager
             {
                 caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
                 caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
-                caseTypeEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                caseTypeEntity.CreatedBy = new Guid();
 
 
                 if (!currentCase.IsCaseCodeExists(caseTypeEntity.CaseCode))
                 {
                     currentCase.InsertCaseType(caseTypeEntity);
+                    this.ClearFormFields();
                 }
                 else
                 {
@@ -54,9 +55,10 @@ namespace DairyManager
             {
                 caseTypeEntity.CaseDescription = txtCaseTypeDescription.Text.Trim();
                 caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
-                caseTypeEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                caseTypeEntity.UpdatedBy = new Guid();
 
                 currentCase.UpdateCaseType(caseTypeEntity);
+                this.ClearFormFields();
 
             }
         }
@@ -67,10 +69,18 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                txtCaseTypeDescription.Text = caseTypeEntity.CaseDescription;
-                txtCaseCode.Text = caseTypeEntity.CaseCode;
+                txtCaseTypeDescription.Text = ds.Tables[0].Rows[0]["CaseDescription"] != null ? ds.Tables[0].Rows[0]["CaseDescription"].ToString() : string.Empty;
+                txtCaseCode.Text = ds.Tables[0].Rows[0]["CaseCode"] != null ? ds.Tables[0].Rows[0]["CaseCode"].ToString() : string.Empty;
             }
         }
 
+        private void ClearFormFields()
+        {
+            txtCaseTypeDescription.Text = string.Empty;
+            txtCaseCode.Text = string.Empty;
+            hdnCaseTypeId.Value = string.Empty;
+            txtCaseTypeDescription.Focus();
+            
+        }
     }
 }

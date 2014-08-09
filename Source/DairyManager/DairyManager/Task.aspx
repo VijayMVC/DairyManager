@@ -13,7 +13,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxDateEdit ID="dtDate" runat="server"></dx:ASPxDateEdit>
+                    <dx:ASPxDateEdit ID="dtDate" runat="server">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxDateEdit>
                 </div>
             </div>
             <div>
@@ -22,7 +26,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String"></dx:ASPxComboBox>
+                    <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" />
+                        </ValidationSettings>
+                    </dx:ASPxComboBox>
                 </div>
             </div>
             <div>
@@ -31,7 +39,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String"></dx:ASPxComboBox>
+                    <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String">
+                        <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxComboBox>
                 </div>
             </div>
             <div>
@@ -41,6 +53,9 @@
                 </div>
                 <div>
                     <dx:ASPxSpinEdit ID="seRemaingHours" runat="server" Height="21px" Number="0">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
                     </dx:ASPxSpinEdit>
                 </div>
             </div>
@@ -50,7 +65,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTimeEdit ID="teStartTime" runat="server"></dx:ASPxTimeEdit>
+                    <dx:ASPxTimeEdit ID="teStartTime" runat="server">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxTimeEdit>
                 </div>
             </div>
             <div>
@@ -59,7 +78,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTimeEdit ID="teEndTime" runat="server"></dx:ASPxTimeEdit>
+                    <dx:ASPxTimeEdit ID="teEndTime" runat="server">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxTimeEdit>
                 </div>
             </div>
             <div>
@@ -69,12 +92,15 @@
                 </div>
                 <div>
                     <dx:ASPxSpinEdit ID="seTotalHours" runat="server" Height="21px" Number="0">
+                        <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
                     </dx:ASPxSpinEdit>
                 </div>
             </div>
             <div>
                 <div>
-                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
                 </div>
                 <div>
                     <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/TaskSearch.aspx"></dx:ASPxButton>

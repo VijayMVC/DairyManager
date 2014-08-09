@@ -18,12 +18,10 @@ namespace DairyManager
         {
             if (!IsPostBack)
             {
-                hdnTimeRestrictionId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.TimeRestrictionId.ToString());
 
-                if (hdnTimeRestrictionId.Value != string.Empty)
-                {
-                    this.DisplayRecord(new Guid(hdnTimeRestrictionId.Value));
-                }
+                this.DisplayRecord();
+
+
 
             }
         }
@@ -33,31 +31,32 @@ namespace DairyManager
 
             if (hdnTimeRestrictionId.Value == string.Empty)
             {
-                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(txtMaximumTime.Text);
+                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(seMaximumTime.Text);
                 timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
-                timeRestrictionEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
-                currentTimeRestriction.InsertTimeRestriction(timeRestrictionEntity);
+                timeRestrictionEntity.CreatedBy = new Guid();
+                hdnTimeRestrictionId.Value = currentTimeRestriction.InsertTimeRestriction(timeRestrictionEntity).ToString();
 
             }
             else
             {
                 timeRestrictionEntity.TimeRestrictionId = new Guid(hdnTimeRestrictionId.Value);
-                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(txtMaximumTime.Text);
+                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(seMaximumTime.Text);
                 timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
-                timeRestrictionEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                timeRestrictionEntity.UpdatedBy = new Guid();
                 currentTimeRestriction.UpdateTimeRestriction(timeRestrictionEntity);
 
             }
         }
 
-        private void DisplayRecord(Guid id)
+        private void DisplayRecord()
         {
-            DataSet ds = currentTimeRestriction.SelectTimeRestrictionByTimeRestrictionId(id);
+            DataSet ds = currentTimeRestriction.SelectTimeRestrictionAll();
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                txtMaximumTime.Text = timeRestrictionEntity.MaximumRecordingPerDay.ToString();
-                txtTimeExceed.Text = timeRestrictionEntity.WarningAfterLimitExceed;
+                hdnTimeRestrictionId.Value = ds.Tables[0].Rows[0]["TimeRestrictionId"].ToString();
+                seMaximumTime.Text = ds.Tables[0].Rows[0]["MaximumRecordingPerDay"] != null ? ds.Tables[0].Rows[0]["MaximumRecordingPerDay"].ToString() : "0";
+                txtTimeExceed.Text = ds.Tables[0].Rows[0]["WarningAfterLimitExceed"] != null ? ds.Tables[0].Rows[0]["WarningAfterLimitExceed"].ToString() : string.Empty;
             }
         }
 

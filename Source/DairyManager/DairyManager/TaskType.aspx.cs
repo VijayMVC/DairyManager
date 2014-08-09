@@ -21,7 +21,7 @@ namespace DairyManager
         {
             if (!IsPostBack)
             {
-                hdnTaskTypeId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseId.ToString());
+                hdnTaskTypeId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.TaskTypeId.ToString());
 
                 if (hdnTaskTypeId.Value != string.Empty)
                 {
@@ -39,11 +39,12 @@ namespace DairyManager
             {
                 taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
                 taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
-                taskTypeEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                taskTypeEntity.CreatedBy = new Guid();
 
                 if (!currentTask.IsTaskTypeExists(taskTypeEntity.TaskCode))
                 {
                     currentTask.InsertTaskType(taskTypeEntity);
+                    this.ClearFormFields();
                 }
                 else
                 {
@@ -52,12 +53,13 @@ namespace DairyManager
             }
             else
             {
+                taskTypeEntity.TaskTypeId = new Guid(this.hdnTaskTypeId.Value);
                 taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
                 taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
-                taskTypeEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                taskTypeEntity.UpdatedBy = new Guid();
 
                 currentTask.UpdateTaskType(taskTypeEntity);
-
+                this.ClearFormFields();
             }
 
 
@@ -69,9 +71,17 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                txtTaskDescription.Text = taskTypeEntity.TaskDescription;
-                txtTaskCode.Text = taskTypeEntity.TaskCode;
+                txtTaskDescription.Text = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
+                txtTaskCode.Text = ds.Tables[0].Rows[0]["TaskCode"] != null ? ds.Tables[0].Rows[0]["TaskCode"].ToString() : string.Empty;
             }
+        }
+
+        private void ClearFormFields()
+        {
+            this.txtTaskDescription.Text = string.Empty;
+            this.txtTaskCode.Text = string.Empty;
+            this.hdnTaskTypeId.Value = string.Empty;
+            this.txtTaskDescription.Focus();
         }
     }
 }

@@ -18,7 +18,11 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px"></dx:ASPxTextBox>
+                    <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" MaxLength="50">
+                        <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxTextBox>
                 </div>
             </div>
 
@@ -28,15 +32,19 @@
                     <span>*</span>
                 </div>
                 <div>
-                    <dx:ASPxTextBox ID="txtTaskCode" runat="server" Width="170px"></dx:ASPxTextBox>
+                    <dx:ASPxTextBox ID="txtTaskCode" runat="server" Width="170px" MaxLength="20">
+                        <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                            <RequiredField ErrorText="Required" IsRequired="True" />
+                        </ValidationSettings>
+                    </dx:ASPxTextBox>
                 </div>
             </div>
             <div>
                 <div>
-                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
                 </div>
                 <div>
-                    <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/TaskTypeSearch.aspx"></dx:ASPxButton>
+                    <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/TaskTypeSearch.aspx" CausesValidation="False"></dx:ASPxButton>
                 </div>
 
 

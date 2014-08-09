@@ -13,7 +13,7 @@
                 <Columns>
                     <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Task Code">
                         <DataItemTemplate>
-                            <a id="clickElement" target="_blank" href="/TaskType.aspx?TaskTypeId=<%# Container.KeyValue%>"><%#  Eval("TaskCode").ToString()%> </a>
+                            <a id="clickElement" target="_self" href="/TaskType.aspx?TaskTypeId=<%# Container.KeyValue%>"><%#  Eval("TaskCode").ToString()%> </a>
                         </DataItemTemplate>
                     </dx:GridViewDataTextColumn>
 
