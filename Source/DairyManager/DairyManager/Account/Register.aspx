@@ -12,14 +12,14 @@
         <WizardSteps>
             <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
                 <ContentTemplate>
-                    <h2>Create a New Account
+                    <%--<h2>Create a New Account
                     </h2>
                     <p>
                         Use the form below to create a new account.
                     </p>
                     <p>
                         Passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
-                    </p>
+                    </p>--%>
                     <span class="failureNotification">
                         <asp:Literal ID="ErrorMessage" runat="server"></asp:Literal>
                     </span>
