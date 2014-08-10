@@ -55,7 +55,7 @@ namespace DairyManager
             if (hdnCaseId.Value == string.Empty)
             {
                 caseBll.InsertCase(caseEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage( Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
 
             }
@@ -63,7 +63,7 @@ namespace DairyManager
             {
                 caseEntity.CaseId = new Guid( hdnCaseId.Value);
                 caseBll.UpdateCase(caseEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
 
             }

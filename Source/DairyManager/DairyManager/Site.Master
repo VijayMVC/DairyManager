@@ -378,15 +378,26 @@
                                 <!-- PAGE CONTENT BEGINS -->
                                 <div class="main" >
 
-                                    <div class="alert alert-block alert-success" id="dvMasterMessage" runat="server" visible="false">
+                                    <div class="alert alert-block alert-success" id="dvSuccessMessage" runat="server" visible="false">
                                         <button type="button" class="close" data-dismiss="alert">
                                             <i class="ace-icon fa fa-times"></i>
                                         </button>
 
                                         <i class="ace-icon fa fa-check green"></i>
-                                        <asp:Literal ID="ltlMasterMessage" runat="server"></asp:Literal>
+                                        <asp:Literal ID="ltlSuccesMessage" runat="server"></asp:Literal>
                                         
                                     </div>
+
+                                    <div class="alert alert-block alert-warning" id="dvWarningMessage" runat="server" visible="false">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="ace-icon fa fa-times"></i>
+                                        </button>
+
+                                        <i class="ace-icon fa fa-info red"></i>
+                                        <asp:Literal ID="ltlWariningMessage" runat="server"></asp:Literal>
+                                        
+                                    </div>
+
 
                                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                                 </div>

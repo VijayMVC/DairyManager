@@ -47,7 +47,7 @@ namespace DairyManager
 
             }
 
-            Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+            Master.ShowMessage( Diary.Common.Constant.Message_Success);
 
         }
 

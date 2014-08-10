@@ -1,3 +1,6 @@
+using System.Collections.Specialized;
+using System.Web;
+using Diary.Common;
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -58,10 +61,25 @@ using Diary.Common;namespace DairyManager
             return returnValue;
         }
 
-        public void ShowSuccessMessage(bool visibility, string message)
+        public void ShowMessage(string message)
         {
-            this.dvMasterMessage.Visible = visibility;
-            this.ltlMasterMessage.Text = message;
+
+            if (message==Constant.Message_Success)
+            {
+                this.dvSuccessMessage.Visible = true;
+                this.ltlSuccesMessage.Text = message;
+
+                this.dvWarningMessage.Visible = false;
+
+            }
+            else if (message == Constant.Message_AlreadyExists)
+            {
+                this.dvWarningMessage.Visible = true;
+                this.ltlWariningMessage.Text = message;
+                this.dvSuccessMessage.Visible = false;
+
+            }
+
         }
     }
 }

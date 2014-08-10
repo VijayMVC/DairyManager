@@ -12,6 +12,7 @@ namespace Diary.Common
         public static readonly string Message_Success = "Successfully Saved.";
         public static readonly string URL_LOGIN = "~/Login.aspx";
         public static readonly string URL_DEFAULTBACKPAGE = "=/Defauld.aspx";
+        public static readonly string Message_AlreadyExists= "Record Already Exists";
 
         #region Session Names
 
@@ -24,5 +25,6 @@ namespace Diary.Common
         public static readonly int GRID_PAGESIZE = 15;
 
         #endregion
+
     }
 }

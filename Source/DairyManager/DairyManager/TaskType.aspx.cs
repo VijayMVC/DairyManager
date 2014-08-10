@@ -44,7 +44,7 @@ namespace DairyManager
                 if (!currentTask.IsTaskTypeExists(taskTypeEntity.TaskCode))
                 {
                     currentTask.InsertTaskType(taskTypeEntity);
-                    Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                    Master.ShowMessage( Diary.Common.Constant.Message_Success);
                     this.ClearFormFields();
                 }
                 else
@@ -58,7 +58,7 @@ namespace DairyManager
                 taskTypeEntity.UpdatedBy = new Guid();
 
                 currentTask.UpdateTaskType(taskTypeEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage( Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
             }
 
