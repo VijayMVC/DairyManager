@@ -46,9 +46,8 @@ namespace DairyManager
 
             if (hdnTaskId.Value == string.Empty)
             {
-<<<<<<< HEAD
                 taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
+                //taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
                 taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
                 taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
                 taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
@@ -56,34 +55,30 @@ namespace DairyManager
                 taskEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
 
                 currentTask.InsertTask(taskEntity);    
-=======
 
                 taskEntity.CreatedBy = new Guid();
                 currentTask.InsertTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
 
->>>>>>> 2b30694d6e68d86e23c70347b134806999ab24a4
             }
             else
             {
 
                 taskEntity.TaskId = new Guid(hdnTaskId.Value);
-<<<<<<< HEAD
+
                 taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
+                //taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
                 taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
                 taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
                 taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
                 taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
                 taskEntity.UpdatedBy = (Guid)Master.LoggedUser.UserId.Value;
-=======
+
                 taskEntity.UpdatedBy = new Guid();
                 currentTask.UpdateTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
->>>>>>> 2b30694d6e68d86e23c70347b134806999ab24a4
-
 
             }
         }
