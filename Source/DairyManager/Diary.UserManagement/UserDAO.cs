@@ -90,7 +90,7 @@ namespace Diary.UserManagement
 
                 db.AddInParameter(dbCommand, "@UserName", DbType.String, userName);
                 db.AddInParameter(dbCommand, "@Password", DbType.String, password);
-                db.AddOutParameter(dbCommand, "@UserId", DbType.Guid, 30);
+                db.AddOutParameter(dbCommand, "@UserId", DbType.Guid, 40);
 
                 db.ExecuteNonQuery(dbCommand);
 

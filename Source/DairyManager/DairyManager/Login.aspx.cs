@@ -49,9 +49,9 @@ namespace DairyManager
                     FailureText.Visible = true;
                 }
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-
+                throw ex;
             }
         }
     }

@@ -49,7 +49,7 @@ namespace Diary.UserManagement
 
         public List<Right> SelectRightsByUserId(Guid userId)
         {
-            return Dairy.Utility.Generic.GetAllByFieldValue<Right>("UsersId", userId.ToString());
+            return Dairy.Utility.Generic.GetAllByFieldValue<Right>("UserId", userId.ToString());
         }
 
         #endregion
