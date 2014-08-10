@@ -59,7 +59,7 @@ namespace DairyManager
                 taskEntity.CreatedBy = new Guid();
                 currentTask.InsertTask(taskEntity);
                 this.ClearFormFields();
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage( Diary.Common.Constant.Message_Success);
 
             }
             else
@@ -78,7 +78,7 @@ namespace DairyManager
                 taskEntity.UpdatedBy = new Guid();
                 currentTask.UpdateTask(taskEntity);
                 this.ClearFormFields();
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage( Diary.Common.Constant.Message_Success);
 
             }
         }

@@ -54,7 +54,7 @@ namespace DairyManager
                 clientEntity.ContactPerson = txtContactPerson.Text.Trim();
                 clientEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
                 currentclient.InsertClient(clientEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormData();
             }
             else
@@ -71,7 +71,7 @@ namespace DairyManager
                 clientEntity.ClientId = new Guid(hdnClientId.Value);
                 clientEntity.UpdatedBy = new Guid();
                 currentclient.UpdateClient(clientEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormData();
 
             }     

@@ -49,22 +49,40 @@ namespace DairyManager {
         protected global::System.Web.UI.WebControls.SiteMapPath SiteMapPath1;
         
         /// <summary>
-        /// dvMasterMessage control.
+        /// dvSuccessMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvMasterMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvSuccessMessage;
         
         /// <summary>
-        /// ltlMasterMessage control.
+        /// ltlSuccesMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlMasterMessage;
+        protected global::System.Web.UI.WebControls.Literal ltlSuccesMessage;
+        
+        /// <summary>
+        /// dvWarningMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvWarningMessage;
+        
+        /// <summary>
+        /// ltlWariningMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlWariningMessage;
         
         /// <summary>
         /// MainContent control.

@@ -44,13 +44,13 @@ namespace DairyManager
                 if (!currentCase.IsCaseCodeExists(caseTypeEntity.CaseCode))
                 {
                     currentCase.InsertCaseType(caseTypeEntity);
-                    Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                    Master.ShowMessage( Diary.Common.Constant.Message_Success);
 
                     this.ClearFormFields();
                 }
                 else
                 {
-                    //message already exists.
+                    Master.ShowMessage(Diary.Common.Constant.Message_AlreadyExists);                
                 }
             }
             else
@@ -59,7 +59,7 @@ namespace DairyManager
                 caseTypeEntity.UpdatedBy = new Guid();
 
                 currentCase.UpdateCaseType(caseTypeEntity);
-                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                Master.ShowMessage( Diary.Common.Constant.Message_Success);                
 
                 this.ClearFormFields();
 
