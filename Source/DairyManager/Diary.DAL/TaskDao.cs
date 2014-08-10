@@ -22,7 +22,7 @@ namespace Diary.DAL
             DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskInsert");
 
             db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
-            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, taskEntity.CaseTypeId);
+            db.AddInParameter(dbCommand, "@CaseId", DbType.Guid, taskEntity.CaseId);
             db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
             db.AddInParameter(dbCommand, "@TotalRemainingHours", DbType.Decimal, taskEntity.TotalRemainingHours);
             db.AddInParameter(dbCommand, "@StartTime", DbType.Time, taskEntity.StartTime);
@@ -46,9 +46,9 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_TaskUpdate");
 
-            db.AddInParameter(dbCommand, "@TaskId", DbType.DateTime, taskEntity.TaskId);
+            db.AddInParameter(dbCommand, "@TaskId", DbType.Guid, taskEntity.TaskId);
             db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
-            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, taskEntity.CaseTypeId);
+            db.AddInParameter(dbCommand, "@CaseId", DbType.Guid, taskEntity.CaseId);
             db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
             db.AddInParameter(dbCommand, "@TotalRemainingHours", DbType.Decimal, taskEntity.TotalRemainingHours);
             db.AddInParameter(dbCommand, "@StartTime", DbType.Time, taskEntity.StartTime);
@@ -63,12 +63,12 @@ namespace Diary.DAL
             return result;
         }
 
-        public DataSet SelectTaskByTaskId(Guid taskTypeId)
+        public DataSet SelectTaskByTaskId(Guid taskId)
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
-            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeSelectById");
+            DbCommand command = db.GetStoredProcCommand("usp_TaskSelectById");
 
-            db.AddInParameter(command, "@TaskTypeId", DbType.Guid, taskTypeId);
+            db.AddInParameter(command, "@TaskId", DbType.Guid, taskId);
 
             return db.ExecuteDataSet(command);
         }

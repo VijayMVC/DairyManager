@@ -40,13 +40,13 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbCase;
         
         /// <summary>
-        /// cmbCaseType control.
+        /// cmbTaskType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbCaseType;
+        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbTaskType;
         
         /// <summary>
         /// seRemaingHours control.

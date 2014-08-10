@@ -16,7 +16,7 @@
                     <span>*</span>
                 </div>
                 <div class="input-group">
-                    <dx:ASPxDateEdit ID="dtDate" runat="server">
+                    <dx:ASPxDateEdit ID="dtDate" runat="server" EditFormat="DateTime" EditFormatString="dd-MMM-yy">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
                         </ValidationSettings>
@@ -31,18 +31,18 @@
                 <div class="input-group">
                     <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                            <RequiredField ErrorText="Required" />
+                            <RequiredField ErrorText="Required" IsRequired="True" />
                         </ValidationSettings>
                     </dx:ASPxComboBox>
                 </div>
             </div>
             <div class="form-group">
                 <div>
-                    <span>Case Type</span>
+                    <span>Task Type</span>
                     <span>*</span>
                 </div>
                 <div class="input-group">
-                    <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String">
+                    <dx:ASPxComboBox ID="cmbTaskType" runat="server" ValueType="System.String">
                         <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
                         </ValidationSettings>
@@ -52,7 +52,7 @@
             <div class="form-group">
                 <div>
                     <span>Total number of hours remaining</span>
-                    <span>*</span>
+                    <span></span>
                 </div>
                 <div class="input-group">
                     <dx:ASPxSpinEdit ID="seRemaingHours" runat="server" Height="21px" Number="0">
@@ -68,7 +68,7 @@
                     <span>*</span>
                 </div>
                 <div class="input-group">
-                    <dx:ASPxTimeEdit ID="teStartTime" runat="server">
+                    <dx:ASPxTimeEdit ID="teStartTime" runat="server" EditFormatString="HH:mm">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
                         </ValidationSettings>
@@ -81,7 +81,7 @@
                     <span>*</span>
                 </div>
                 <div class="input-group">
-                    <dx:ASPxTimeEdit ID="teEndTime" runat="server">
+                    <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm">
                         <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                             <RequiredField ErrorText="Required" IsRequired="True" />
                         </ValidationSettings>
@@ -91,7 +91,7 @@
             <div class="form-group">
                 <div>
                     <span>Total number of hours</span>
-                    <span>*</span>
+                    <span></span>
                 </div>
                 <div class="input-group">
                     <dx:ASPxSpinEdit ID="seTotalHours" runat="server" Height="21px" Number="0">

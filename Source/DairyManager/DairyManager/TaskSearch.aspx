@@ -8,16 +8,42 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-         <div class="page-header">
-<h1>Task Search</h1>
-             </div>
-        
+        <div class="page-header">
+            <h1>Task Search</h1>
+        </div>
+
         <div>
-            <dx:ASPxGridView ID="gvTaskSearch" runat="server">
+            <dx:ASPxGridView ID="gvTaskSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="TaskId">
+                <Columns>
+                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Task Date">
+                        <DataItemTemplate>
+                            <a id="clickElement" target="_self" href="/Task.aspx?TaskId=<%#  Container.KeyValue %>"><%# Convert.ToDateTime(Eval("TaskDate")).ToString("dd-MMMM-yy") %> </a>
+                        </DataItemTemplate>
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Case Type" FieldName="Case">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Type" FieldName="TaskDescription">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Remaining Hours" FieldName="TotalRemainingHours">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Start Time" FieldName="StartTime">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="6" Caption="End Time" FieldName="EndTime">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Total Hours" FieldName="TotalHours">
+                    </dx:GridViewDataTextColumn>
+
+                </Columns>
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
         </div>
-          <div class="clearfix form-actions">
+        <div class="clearfix form-actions">
             <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/Task.aspx"></dx:ASPxButton>
         </div>
 
