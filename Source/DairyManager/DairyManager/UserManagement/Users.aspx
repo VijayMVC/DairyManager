@@ -172,7 +172,7 @@
                 </td>
                 <td>
                     <dx:ASPxComboBox ID="ddlRoles" runat="server" EnableIncrementalFiltering="True" IncrementalFilteringMode="StartsWith"
-                        TextFormatString="{0}" ValueType="System.Int32">
+                        TextFormatString="{0}" ValueType="System.Guid">
                         <Columns>
                             <dx:ListBoxColumn Caption="RoleName" FieldName="RoleName" />
                             <dx:ListBoxColumn Caption="RoleDescription" FieldName="RoleDescription" />

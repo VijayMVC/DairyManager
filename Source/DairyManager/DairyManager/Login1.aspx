@@ -1,55 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="DairyManager.Login" %>
+﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+    CodeBehind="Login1.aspx.cs" Inherits="DairyManager.Login1" %>
 
-<!DOCTYPE html>
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+</asp:Content>
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    
-    <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css" />
-
-    <!-- page specific plugin styles -->
-
-    <!-- text fonts -->
-    <link rel="stylesheet" href="~/assets/css/ace-fonts.css" />
-
-    <!-- ace styles -->
-    <link rel="stylesheet" href="~/assets/css/ace.min.css" />
-
-    <!--[if lte IE 9]>
-			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
-		<![endif]-->
-    <link rel="stylesheet" href="~/assets/css/ace-skins.min.css" />
-    <link rel="stylesheet" href="~/assets/css/ace-rtl.min.css" />
-
-    <!--[if lte IE 9]>
-		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
-		<![endif]-->
-
-    <!-- inline styles related to this page -->
-
-    <!-- ace settings handler -->
-    <script src="./assets/js/ace-extra.min.js"></script>
-
-    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
-    <!--[if lte IE 8]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-
-    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
-    <title></title>
-</head>
-<body class="no-skin">
-    <form id="form1" runat="server">
-    <div>
-     <div class="login-container">
+    <div class="login-container">
         <div class="center">
             <h1>
                 <i class="ace-icon fa fa-leaf green"></i>
@@ -151,7 +107,4 @@
         <!-- /.position-relative -->
 
     </div>
-    </div>
-    </form>
-</body>
-</html>
+</asp:Content>

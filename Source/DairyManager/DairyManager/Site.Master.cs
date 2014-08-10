@@ -30,8 +30,7 @@ using Diary.Common;namespace DairyManager
                 {
                     user = null;
                     Session[Constant.SESSION_LOGGEDUSER] = null;
-                    //Response.Redirect(Constant.URL_LOGIN, false);
-                    //Todo:
+                    Response.Redirect(Constant.URL_LOGIN, false);
                 }
 
                 return user;
@@ -40,7 +39,10 @@ using Diary.Common;namespace DairyManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (LoggedUser == null)
+            {
+                return;
+            }
     
         }
 

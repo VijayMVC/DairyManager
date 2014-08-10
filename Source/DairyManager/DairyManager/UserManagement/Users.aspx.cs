@@ -54,7 +54,7 @@ namespace DairyManager.UserManagement
             ddlRoles.TextField = "RoleName";
             ddlRoles.DataBind();
 
-            ddlGrade.DataSource = Dairy.Utility.Generic.GetAll<JobEntity>();
+            ddlGrade.DataSource = Dairy.Utility.Generic.GetAll<GradeEntity>();
             ddlGrade.ValueField = "GradeId";
             ddlGrade.TextField = "GradeName";
             ddlGrade.DataBind();

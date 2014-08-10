@@ -10,6 +10,8 @@ namespace Diary.Common
     {
         public static readonly string DiaryDBConnectionString = "ApplicationServices";
         public static readonly string Message_Success = "Successfully Saved.";
+        public static readonly string URL_LOGIN = "~/Login.aspx";
+        public static readonly string URL_DEFAULTBACKPAGE = "=/Defauld.aspx";
 
         #region Session Names
 

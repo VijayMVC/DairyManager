@@ -90,13 +90,14 @@ namespace Diary.UserManagement
 
                 db.AddInParameter(dbCommand, "@UserName", DbType.String, userName);
                 db.AddInParameter(dbCommand, "@Password", DbType.String, password);
-                db.AddOutParameter(dbCommand, "@UsersId", DbType.Guid, 30);
+                db.AddOutParameter(dbCommand, "@UserId", DbType.Guid, 30);
 
                 db.ExecuteNonQuery(dbCommand);
 
-                if (db.GetParameterValue(dbCommand, "@UserId") != null)
+                object returnVal = db.GetParameterValue(dbCommand, "@UserId");
+                if (returnVal != null && returnVal.ToString().Trim() != string.Empty)
                 {
-                    UsersId = new Guid((db.GetParameterValue(dbCommand, "@UserId").ToString()));
+                    UsersId = new Guid(returnVal.ToString().Trim());
                 }
                 else
                 {
