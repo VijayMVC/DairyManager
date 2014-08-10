@@ -3,5 +3,7 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <h1>Reports</h1>
+
+    <div class="page-header">
+            <h1>Reports</h1>
 </asp:Content>

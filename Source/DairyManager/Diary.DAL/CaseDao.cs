@@ -20,8 +20,11 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseInsert");
 
+            db.AddInParameter(dbCommand, "@Case", DbType.String, caseEntity.Case);
             db.AddInParameter(dbCommand, "@Code", DbType.String, caseEntity.Code);
             db.AddInParameter(dbCommand, "@ClientID", DbType.Guid, caseEntity.ClientId);
+            db.AddInParameter(dbCommand, "@OffenceTypeId", DbType.Guid, caseEntity.OffenceTypeId);
+            db.AddInParameter(dbCommand, "@CourtId", DbType.Guid, caseEntity.CourtId);
             db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseEntity.CaseTypeId);
             db.AddInParameter(dbCommand, "@Email", DbType.String, caseEntity.Email);
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
@@ -41,11 +44,14 @@ namespace Diary.DAL
             bool result = false;
 
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
-            DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseInsert");
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseUpdate");
 
             db.AddInParameter(dbCommand, "@CaseId", DbType.Guid, caseEntity.CaseId);
             db.AddInParameter(dbCommand, "@Code", DbType.String, caseEntity.Code);
+            db.AddInParameter(dbCommand, "@Case", DbType.String, caseEntity.Case);
             db.AddInParameter(dbCommand, "@ClientID", DbType.Guid, caseEntity.ClientId);
+            db.AddInParameter(dbCommand, "@OffenceTypeId", DbType.Guid, caseEntity.OffenceTypeId);
+            db.AddInParameter(dbCommand, "@CourtId", DbType.Guid, caseEntity.CourtId);
             db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseEntity.CaseTypeId);
             db.AddInParameter(dbCommand, "@Email", DbType.String, caseEntity.Email);
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
@@ -116,7 +122,7 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_CaseTypeUpdate");
 
-            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseTypeEntity.CaseTypeId);            
+            db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseTypeEntity.CaseTypeId);
             db.AddInParameter(dbCommand, "@CaseDescription", DbType.String, caseTypeEntity.CaseDescription);
             db.AddInParameter(dbCommand, "@CaseCode", DbType.String, caseTypeEntity.CaseCode);
             db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, caseTypeEntity.UpdatedBy);
@@ -177,6 +183,21 @@ namespace Diary.DAL
 
         }
 
+        public DataSet SelectAllOffence()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_OffenceSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public DataSet SelectAllCourt()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_CourtSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
 
 
     }

@@ -55,5 +55,11 @@ using Diary.Common;namespace DairyManager
 
             return returnValue;
         }
+
+        public void ShowSuccessMessage(bool visibility, string message)
+        {
+            this.dvMasterMessage.Visible = visibility;
+            this.ltlMasterMessage.Text = message;
+        }
     }
 }

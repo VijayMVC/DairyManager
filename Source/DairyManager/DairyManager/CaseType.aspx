@@ -7,14 +7,16 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-        <h2>Case Types</h2>
+        <div class="page-header">
+            <h1>Case Types</h1>
+            </div>
         <asp:HiddenField ID="hdnCaseTypeId" runat="server" />
-        <div>
+        <div class="form-group">
             <div>
                 <span>Case Type Description</span>
                 <span>*</span>
             </div>
-            <div>
+            <div class="input-group">
                 <dx:ASPxTextBox ID="txtCaseTypeDescription" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings CausesValidation="True" Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
@@ -24,12 +26,12 @@
 
         </div>
 
-        <div>
+        <div class="form-group">
             <div>
                 <span>Case Code</span>
                 <span>*</span>
             </div>
-            <div>
+            <div class="input-group">
                 <dx:ASPxTextBox ID="txtCaseCode" runat="server" Width="170px" MaxLength="20">
                     <ValidationSettings CausesValidation="True" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
@@ -38,7 +40,7 @@
             </div>
 
         </div>
-        <div>
+        <div class="clearfix form-actions">
             <div>
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
             </div>

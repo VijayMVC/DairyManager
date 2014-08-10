@@ -79,5 +79,15 @@ namespace Diary.BLL
 
         }
 
+        public DataSet SelectAllOffence()
+        {
+            return caseDao.SelectAllOffence();
+        }
+
+        public DataSet SelectAllCourt()
+        {
+            return caseDao.SelectAllCourt();
+        }
+
     }
 }

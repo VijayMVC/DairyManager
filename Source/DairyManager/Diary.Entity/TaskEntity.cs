@@ -10,8 +10,9 @@ namespace Diary.Entity
     {
         public Guid TaskId { get; set; }
         public DateTime TaskDate { get; set; }
-        public Guid CaseTypeId { get; set; }
+        public Guid CaseId { get; set; }
         public Guid TaskTypeId { get; set; }
+        public string TaskDescription { get; set; }
         public decimal TotalRemainingHours { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }

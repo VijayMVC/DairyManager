@@ -34,16 +34,17 @@ namespace DairyManager
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
+            taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
+            taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
 
             if (hdnTaskTypeId.Value == string.Empty)
-            {
-                taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
-                taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
+            {                
                 taskTypeEntity.CreatedBy = new Guid();
 
                 if (!currentTask.IsTaskTypeExists(taskTypeEntity.TaskCode))
                 {
                     currentTask.InsertTaskType(taskTypeEntity);
+                    Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
                     this.ClearFormFields();
                 }
                 else
@@ -53,12 +54,11 @@ namespace DairyManager
             }
             else
             {
-                taskTypeEntity.TaskTypeId = new Guid(this.hdnTaskTypeId.Value);
-                taskTypeEntity.TaskDescription = txtTaskDescription.Text.Trim();
-                taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
+                taskTypeEntity.TaskTypeId = new Guid(this.hdnTaskTypeId.Value);             
                 taskTypeEntity.UpdatedBy = new Guid();
 
                 currentTask.UpdateTaskType(taskTypeEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
             }
 
@@ -67,7 +67,7 @@ namespace DairyManager
 
         private void DisplayRecord(Guid id)
         {
-            DataSet ds = currentTask.SelectTaskByTaskId(id);
+            DataSet ds = currentTask.SelectTaskTypeByTaskTypeId(id);
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {

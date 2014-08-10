@@ -103,7 +103,6 @@
 
                                         <i class="ace-icon fa fa-caret-down"></i>
                                     </a>
-
                                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                                         <li>
                                             <a href="#">
@@ -111,14 +110,12 @@
                                                 Settings
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="profile.html">
                                                 <i class="ace-icon fa fa-user"></i>
                                                 Profile
                                             </a>
                                         </li>
-
                                         <li class="divider"></li>
 
                                         <li>
@@ -198,7 +195,7 @@
                     try { ace.settings.check('sidebar', 'fixed') } catch (e) { }
                 </script>
 
-                
+
                 <!-- /.sidebar-shortcuts -->
 
                 <%--<asp:Menu ID="Menu1" runat="server">
@@ -290,6 +287,15 @@
                                 <b class="arrow"></b>
                             </li>
 
+                            <li class="">
+                                <a href="/Client.aspx">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Add New Client
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
                         </ul>
                     </li>
 
@@ -321,7 +327,7 @@
 
                                 <b class="arrow"></b>
                             </li>
-                             
+
                         </ul>
                     </li>
 
@@ -351,10 +357,10 @@
                         try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
                     </script>
 
-                   
+
                     <!-- /.breadcrumb -->
 
-                    
+
 
                     <!-- /section:basics/content.searchbox -->
                 </div>
@@ -362,7 +368,7 @@
                 <!-- /section:basics/content.breadcrumbs -->
                 <div class="page-content">
                     <!-- #section:settings.box -->
-                    
+
                     <!-- /.ace-settings-container -->
 
                     <!-- /section:settings.box -->
@@ -370,7 +376,18 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <!-- PAGE CONTENT BEGINS -->
-                                <div class="main">
+                                <div class="main" >
+
+                                    <div class="alert alert-block alert-success" id="dvMasterMessage" runat="server" visible="false">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="ace-icon fa fa-times"></i>
+                                        </button>
+
+                                        <i class="ace-icon fa fa-check green"></i>
+                                        <asp:Literal ID="ltlMasterMessage" runat="server"></asp:Literal>
+                                        
+                                    </div>
+
                                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                                 </div>
                                 <!-- PAGE CONTENT ENDS -->
@@ -434,7 +451,7 @@
     </form>
     <!-- basic scripts -->
 
-    
+
     <script type="text/javascript">
         window.jQuery || document.write("<script src='./assets/js/jquery.min.js'>" + "<" + "/script>");
     </script>

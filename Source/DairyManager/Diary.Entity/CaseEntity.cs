@@ -13,6 +13,8 @@ namespace Diary.Entity
         public string Case { get; set; }
         public Guid ClientId { get; set; }
         public Guid CaseTypeId { get; set; }
+        public Guid OffenceTypeId { get; set; }
+        public Guid CourtId { get; set; }
         public string Email { get; set; }
         public string Contact { get; set; }
         public Guid CreatedBy { get; set; }

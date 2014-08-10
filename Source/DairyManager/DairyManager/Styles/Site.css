@@ -1,1 +1,5 @@
-﻿
+﻿.form-actions > div {
+    display: block;
+    float: left;
+    margin-right: 15px;
+}

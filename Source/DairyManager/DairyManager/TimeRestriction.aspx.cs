@@ -46,6 +46,9 @@ namespace DairyManager
                 currentTimeRestriction.UpdateTimeRestriction(timeRestrictionEntity);
 
             }
+
+            Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+
         }
 
         private void DisplayRecord()

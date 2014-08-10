@@ -49,7 +49,7 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_ClientUpdate");
 
-            db.AddInParameter(dbCommand, "@ClientId", DbType.String, clientEntity.ClientId);
+            db.AddInParameter(dbCommand, "@ClientId", DbType.Guid, clientEntity.ClientId);
             db.AddInParameter(dbCommand, "@Name", DbType.String, clientEntity.Name);
             db.AddInParameter(dbCommand, "@AddressLine1", DbType.String, clientEntity.AddressLine1);
             db.AddInParameter(dbCommand, "@AddressLine2", DbType.String, clientEntity.AddressLine2);
