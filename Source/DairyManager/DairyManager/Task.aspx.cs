@@ -38,6 +38,7 @@ namespace DairyManager
             taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
             taskEntity.CaseId = new Guid(cmbCase.Value.ToString());
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
+            taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
             taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
             taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
             taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
@@ -71,9 +72,10 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                dtDate.Text = Convert.ToDateTime( ds.Tables[0].Rows[0]["TaskDate"].ToString()).ToString("dd-MMM-yy");
+                dtDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString()).ToString("dd-MMM-yy");
                 cmbCase.Value = ds.Tables[0].Rows[0]["CaseId"].ToString();
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
+                txtTaskDescription.Text = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
                 seRemaingHours.Text = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
                 teStartTime.Text = ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0";
                 teEndTime.Text = ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0";
@@ -97,11 +99,13 @@ namespace DairyManager
             cmbTaskType.DataBind();
         }
 
+
         private void ClearFormFields()
         {
             dtDate.Text = string.Empty;
             cmbCase.SelectedIndex = -1;
             cmbTaskType.SelectedIndex = -1;
+            txtTaskDescription.Text = string.Empty;
             seRemaingHours.Text = "0";
             teStartTime.Text = "0";
             teEndTime.Text = "0";

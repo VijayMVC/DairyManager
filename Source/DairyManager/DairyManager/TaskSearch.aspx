@@ -15,16 +15,26 @@
         <div>
             <dx:ASPxGridView ID="gvTaskSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="TaskId">
                 <Columns>
-                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Task Date">
+                    <%--<dx:GridViewDataTextColumn VisibleIndex="0" Caption="Task Date" Width="100px">                        
+                        
                         <DataItemTemplate>
                             <a id="clickElement" target="_self" href="/Task.aspx?TaskId=<%#  Container.KeyValue %>"><%# Convert.ToDateTime(Eval("TaskDate")).ToString("dd-MMMM-yy") %> </a>
                         </DataItemTemplate>
-                    </dx:GridViewDataTextColumn>
+                    </dx:GridViewDataTextColumn>--%>
+
+                     <dx:GridViewDataHyperLinkColumn Caption="Task Date" FieldName="TaskId" VisibleIndex="1">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="/Task.aspx?TaskId={0}" TextField="TaskDate" TextFormatString="dd-MMM-yy">
+                        </PropertiesHyperLinkEdit>
+                         <Settings FilterMode="DisplayText" />
+                    </dx:GridViewDataHyperLinkColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Case Type" FieldName="Case">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Type" FieldName="TaskDescription">
+                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Task Type" FieldName="TaskDescription">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Description" FieldName="TaskDescription1">
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Remaining Hours" FieldName="TotalRemainingHours">
@@ -36,8 +46,10 @@
                     <dx:GridViewDataTextColumn VisibleIndex="6" Caption="End Time" FieldName="EndTime">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Total Hours" FieldName="TotalHours">
+                    <dx:GridViewDataTextColumn VisibleIndex="8" Caption="Total Hours" FieldName="TotalHours">
                     </dx:GridViewDataTextColumn>
+
+                   
 
                 </Columns>
                 <Settings ShowFilterRow="True" />

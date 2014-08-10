@@ -14,11 +14,17 @@
         <div>
             <dx:ASPxGridView ID="gvCaseSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="CaseId">
                 <Columns>
-                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Case Code">
+                   <%-- <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Case Code">
                         <DataItemTemplate>
                             <a id="clickElement" target="_self" href="/Case.aspx?CaseId=<%# Container.KeyValue%>"><%#  Eval("Code").ToString()%> </a>
                         </DataItemTemplate>
-                    </dx:GridViewDataTextColumn>
+                    </dx:GridViewDataTextColumn>--%>
+
+                      <dx:GridViewDataHyperLinkColumn Caption="Case Code" FieldName="CaseId" VisibleIndex="1">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="/Case.aspx?CaseId={0}" TextField="Code" >
+                        </PropertiesHyperLinkEdit>
+                          <Settings FilterMode="DisplayText" />
+                    </dx:GridViewDataHyperLinkColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Case" FieldName="Case" ShowInCustomizationForm="True">
                     </dx:GridViewDataTextColumn>

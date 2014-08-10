@@ -49,6 +49,15 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbTaskType;
         
         /// <summary>
+        /// txtTaskDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskDescription;
+        
+        /// <summary>
         /// seRemaingHours control.
         /// </summary>
         /// <remarks>
