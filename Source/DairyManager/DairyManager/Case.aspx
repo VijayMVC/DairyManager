@@ -14,7 +14,7 @@
         <asp:HiddenField ID="hdnCaseId" runat="server" />
         <div class="form-group">
             <div>
-                <span>Code</span>
+                <span>UFN</span>
                 <span>*</span>
             </div>
             <div class="input-group">
@@ -25,7 +25,7 @@
                 </dx:ASPxTextBox>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <div>
                 <span>Case</span>
                 <span>*</span>
@@ -36,6 +36,32 @@
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <span>Court</span>
+                <span>*</span>
+            </div>
+            <div class="input-group">
+                <dx:ASPxComboBox ID="cmbCourt" runat="server" ValueType="System.String">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <span>Offence</span>
+                <span>*</span>
+            </div>
+            <div class="input-group">
+                <dx:ASPxComboBox ID="cmbOffence" runat="server" ValueType="System.String">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
             </div>
         </div>
         <div class="form-group">
@@ -64,7 +90,7 @@
                 </dx:ASPxComboBox>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <div>
                 <span>Email</span>
                 <span></span>
@@ -77,7 +103,7 @@
                 </dx:ASPxTextBox>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <div>
                 <span>Contact</span>
                 <span></span>

@@ -8,6 +8,7 @@
       <siteMapNode url="~/CaseType.aspx" title="Case Type"  description="Case Type" />
       <siteMapNode url="~/TaskType.aspx" title="Task Type"  description="Task Type" />
       <siteMapNode url="~/TimeRestriction.aspx" title="Time Restriction"  description="Time Restriction" />
+      <siteMapNode url="~/Client.aspx" title="Client"  description="Client" />
     </siteMapNode>
 
       <siteMapNode  title="User Managment"  description="User Management">

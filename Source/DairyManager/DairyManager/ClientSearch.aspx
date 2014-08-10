@@ -8,16 +8,24 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
+        <div class="page-header">
         <h1>Client Search</h1>
+            </div>
         <div>
             <dx:ASPxGridView ID="gvClientSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="ClientId">
                 <Columns>
-                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Name">
+                    <%--<dx:GridViewDataTextColumn VisibleIndex="1" Caption="Name">
                         <DataItemTemplate>
                             <a id="clickElement" target="_blank" href="/Client.aspx?ClientId=<%# Container.KeyValue%>"><%#  Eval("Name").ToString()%> </a>
                         </DataItemTemplate>
-                    </dx:GridViewDataTextColumn>
+                    </dx:GridViewDataTextColumn>--%>
 
+
+                     <dx:GridViewDataHyperLinkColumn Caption="Name" FieldName="ClientId" VisibleIndex="1">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="/Client.aspx?ClientId={0}" TextField="Name">
+                        </PropertiesHyperLinkEdit>
+                        <Settings FilterMode="DisplayText" />
+                    </dx:GridViewDataHyperLinkColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Address Line 1" FieldName="AddressLine1" ShowInCustomizationForm="True">
                     </dx:GridViewDataTextColumn>
@@ -44,8 +52,8 @@
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
         </div>
-        <div>
-            <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/CaseType.aspx"></dx:ASPxButton>
+        <div class="clearfix form-actions">
+            <dx:ASPxButton ID="btnBack" runat="server" Text="Back" PostBackUrl="~/Client.aspx"></dx:ASPxButton>
         </div>
 
     </div>

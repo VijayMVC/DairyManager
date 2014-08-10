@@ -23,6 +23,8 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@Case", DbType.String, caseEntity.Case);
             db.AddInParameter(dbCommand, "@Code", DbType.String, caseEntity.Code);
             db.AddInParameter(dbCommand, "@ClientID", DbType.Guid, caseEntity.ClientId);
+            db.AddInParameter(dbCommand, "@OffenceTypeId", DbType.Guid, caseEntity.OffenceTypeId);
+            db.AddInParameter(dbCommand, "@CourtId", DbType.Guid, caseEntity.CourtId);
             db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseEntity.CaseTypeId);
             db.AddInParameter(dbCommand, "@Email", DbType.String, caseEntity.Email);
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
@@ -48,6 +50,8 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@Code", DbType.String, caseEntity.Code);
             db.AddInParameter(dbCommand, "@Case", DbType.String, caseEntity.Case);
             db.AddInParameter(dbCommand, "@ClientID", DbType.Guid, caseEntity.ClientId);
+            db.AddInParameter(dbCommand, "@OffenceTypeId", DbType.Guid, caseEntity.OffenceTypeId);
+            db.AddInParameter(dbCommand, "@CourtId", DbType.Guid, caseEntity.CourtId);
             db.AddInParameter(dbCommand, "@CaseTypeId", DbType.Guid, caseEntity.CaseTypeId);
             db.AddInParameter(dbCommand, "@Email", DbType.String, caseEntity.Email);
             db.AddInParameter(dbCommand, "@Contact", DbType.String, caseEntity.Contact);
@@ -179,6 +183,21 @@ namespace Diary.DAL
 
         }
 
+        public DataSet SelectAllOffence()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_OffenceSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public DataSet SelectAllCourt()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_CourtSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
 
 
     }

@@ -21,7 +21,7 @@ namespace DairyManager
         {
             if (!IsPostBack)
             {
-                hdnClientId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseId.ToString());
+                hdnClientId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.ClientId.ToString());
 
                 if (hdnClientId.Value != string.Empty)
                 {
@@ -33,33 +33,31 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            clientEntity.Name = txtName.Text.Trim();
+            clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
+            clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
+            clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
+            clientEntity.Telephone = txtTelephone.Text.Trim();
+            clientEntity.Fax = txtFax.Text.Trim();
+            clientEntity.Email = txtEmail.Text.Trim();
+            clientEntity.ContactPerson = txtContactPerson.Text.Trim();
+
             if (hdnClientId.Value == string.Empty)
             {
-                clientEntity.Name = txtName.Text.Trim();
-                clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
-                clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
-                clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
-                clientEntity.Telephone = txtTelephone.Text.Trim();
-                clientEntity.Fax = txtFax.Text.Trim();
-                clientEntity.Email = txtEmail.Text.Trim();
-                clientEntity.ContactPerson = txtContactPerson.Text.Trim();    
-                clientEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
-
+                
+                clientEntity.CreatedBy = new Guid();
                 currentclient.InsertClient(clientEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                this.ClearFormData();
             }
             else
             {
-                clientEntity.Name = txtName.Text.Trim();
-                clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
-                clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
-                clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
-                clientEntity.Telephone = txtTelephone.Text.Trim();
-                clientEntity.Fax = txtFax.Text.Trim();
-                clientEntity.Email = txtEmail.Text.Trim();
-                clientEntity.ContactPerson = txtContactPerson.Text.Trim();
-                clientEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
 
+                clientEntity.ClientId = new Guid(hdnClientId.Value);
+                clientEntity.UpdatedBy = new Guid();
                 currentclient.UpdateClient(clientEntity);
+                Master.ShowSuccessMessage(true, Diary.Common.Constant.Message_Success);
+                this.ClearFormData();
 
             }     
         }
@@ -70,15 +68,29 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                txtName.Text = clientEntity.Name;
-                txtAddressLine1.Text = clientEntity.AddressLine1;
-                txtAddressLine2.Text = clientEntity.AddressLine2;
-                txtAddressLine3.Text = clientEntity.AddressLine3;
-                txtTelephone.Text = clientEntity.Telephone;
-                txtFax.Text = clientEntity.Fax;
-                txtEmail.Text = clientEntity.Email;
-                txtContactPerson.Text = clientEntity.ContactPerson;    
+                txtName.Text = ds.Tables[0].Rows[0]["Name"] != null ? ds.Tables[0].Rows[0]["Name"].ToString() : string.Empty;
+                txtAddressLine1.Text = ds.Tables[0].Rows[0]["AddressLine1"] != null ? ds.Tables[0].Rows[0]["AddressLine1"].ToString() : string.Empty;
+                txtAddressLine2.Text = ds.Tables[0].Rows[0]["AddressLine2"] != null ? ds.Tables[0].Rows[0]["AddressLine2"].ToString() : string.Empty;
+                txtAddressLine3.Text = ds.Tables[0].Rows[0]["AddressLine3"] != null ? ds.Tables[0].Rows[0]["AddressLine3"].ToString() : string.Empty;
+                txtTelephone.Text = ds.Tables[0].Rows[0]["Telephone"] != null ? ds.Tables[0].Rows[0]["Telephone"].ToString() : string.Empty;
+                txtFax.Text = ds.Tables[0].Rows[0]["Fax"] != null ? ds.Tables[0].Rows[0]["Fax"].ToString() : string.Empty;
+                txtEmail.Text = ds.Tables[0].Rows[0]["Email"] != null ? ds.Tables[0].Rows[0]["Email"].ToString() : string.Empty;
+                txtContactPerson.Text = ds.Tables[0].Rows[0]["ContactPerson"] != null ? ds.Tables[0].Rows[0]["ContactPerson"].ToString() : string.Empty;
             }
+        }
+
+        private void ClearFormData()
+        {
+            txtName.Text = string.Empty;
+            txtAddressLine1.Text = string.Empty;
+            txtAddressLine2.Text = string.Empty;
+            txtAddressLine3.Text = string.Empty;
+            txtTelephone.Text = string.Empty;
+            txtFax.Text = string.Empty;
+            txtEmail.Text = string.Empty;            
+            txtContactPerson.Text = string.Empty;
+            hdnClientId.Value = string.Empty;
+            txtName.Focus();
         }
 
     }
