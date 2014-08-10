@@ -42,8 +42,8 @@ namespace DairyManager
                 clientEntity.Telephone = txtTelephone.Text.Trim();
                 clientEntity.Fax = txtFax.Text.Trim();
                 clientEntity.Email = txtEmail.Text.Trim();
-                clientEntity.ContactPerson = txtContactPerson.Text.Trim();    
-                clientEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                clientEntity.ContactPerson = txtContactPerson.Text.Trim();
+                clientEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
 
                 currentclient.InsertClient(clientEntity);
             }
@@ -57,7 +57,7 @@ namespace DairyManager
                 clientEntity.Fax = txtFax.Text.Trim();
                 clientEntity.Email = txtEmail.Text.Trim();
                 clientEntity.ContactPerson = txtContactPerson.Text.Trim();
-                clientEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                clientEntity.UpdatedBy = (Guid)Master.LoggedUser.UserId.Value;
 
                 currentclient.UpdateClient(clientEntity);
 

@@ -38,7 +38,7 @@ namespace DairyManager
                 taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
                 taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
                 taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.CreatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                taskEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
 
                 currentTask.InsertTask(taskEntity);    
             }
@@ -51,7 +51,7 @@ namespace DairyManager
                 taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
                 taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
                 taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.UpdatedBy = (Guid)Master.LogedUser.ProviderUserKey;
+                taskEntity.UpdatedBy = (Guid)Master.LoggedUser.UserId.Value;
 
                 currentTask.UpdateTask(taskEntity);    
 

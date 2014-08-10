@@ -54,6 +54,18 @@
       <HintPath>..\Library\Elmah.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Diary.DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Diary.DAL\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Diary.DAL\bin\Debug\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -73,7 +85,7 @@
     <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
-    <Content Include="Account\Login.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="assets\avatars\avatar.png" />
@@ -347,6 +359,10 @@
     <Content Include="TaskType.aspx" />
     <Content Include="TaskTypeSearch.aspx" />
     <Content Include="TimeRestriction.aspx" />
+    <Content Include="UserManagement\Roles.aspx" />
+    <Content Include="UserManagement\RoleSearch.aspx" />
+    <Content Include="UserManagement\Users.aspx" />
+    <Content Include="UserManagement\UserSearch.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -379,11 +395,11 @@
     <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
       <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account\Register.aspx.cs">
@@ -502,6 +518,34 @@
     <Compile Include="TimeRestriction.aspx.designer.cs">
       <DependentUpon>TimeRestriction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\RoleSearch.aspx.cs">
+      <DependentUpon>RoleSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\RoleSearch.aspx.designer.cs">
+      <DependentUpon>RoleSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\UserSearch.aspx.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserManagement\UserSearch.aspx.designer.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -520,6 +564,10 @@
       <Project>{9db422f5-5343-426d-bd0c-fdecc52d2d1b}</Project>
       <Name>Diary.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dairy.Utility\Dairy.Utility.csproj">
+      <Project>{cf8b2166-2c24-4b3c-8ef8-bf57b4d69dc1}</Project>
+      <Name>Dairy.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Diary.Common\Diary.Common.csproj">
       <Project>{acb1a16a-2150-4e42-9cb9-4e1e828a138e}</Project>
       <Name>Diary.Common</Name>
@@ -527,6 +575,10 @@
     <ProjectReference Include="..\Diary.Entity\Diary.Entity.csproj">
       <Project>{c1e071ec-7ca2-473b-ac17-4402d8258b6a}</Project>
       <Name>Diary.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Diary.UserManagement\Diary.UserManagement.csproj">
+      <Project>{6fb6ecc5-93f1-4675-804b-b13852f9beb5}</Project>
+      <Name>Diary.UserManagement</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -772,6 +824,9 @@
     <Content Include="App_Themes\DevEx\WebChartControl.skin" />
     <Content Include="App_Themes\DevEx\WeekDaysEdit.skin" />
     <Content Include="App_Themes\DevEx\WeekOfMonthEdit.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

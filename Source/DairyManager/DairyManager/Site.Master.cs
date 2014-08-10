@@ -6,17 +6,35 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using UM = Diary.UserManagement;
 
-namespace DairyManager
+using Diary.Common;namespace DairyManager
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
 
-        public MembershipUser LogedUser
+        /// <summary>
+        /// Logged User
+        /// </summary>
+        public UM.User LoggedUser
         {
             get
             {
-                return Membership.GetUser();
+                UM.User user;
+
+                if (Session[Constant.SESSION_LOGGEDUSER] != null)
+                {
+                    user = (UM.User)Session[Constant.SESSION_LOGGEDUSER];
+                }
+                else
+                {
+                    user = null;
+                    Session[Constant.SESSION_LOGGEDUSER] = null;
+                    //Response.Redirect(Constant.URL_LOGIN, false);
+                    //Todo:
+                }
+
+                return user;
             }
         }
 

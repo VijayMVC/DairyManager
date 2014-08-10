@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Entity", "Diary.Entit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Common", "Diary.Common\Diary.Common.csproj", "{ACB1A16A-2150-4E42-9CB9-4E1E828A138E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.UserManagement", "Diary.UserManagement\Diary.UserManagement.csproj", "{6FB6ECC5-93F1-4675-804B-B13852F9BEB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dairy.Utility", "Dairy.Utility\Dairy.Utility.csproj", "{CF8B2166-2C24-4B3C-8EF8-BF57B4D69DC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{ACB1A16A-2150-4E42-9CB9-4E1E828A138E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB1A16A-2150-4E42-9CB9-4E1E828A138E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB1A16A-2150-4E42-9CB9-4E1E828A138E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FB6ECC5-93F1-4675-804B-B13852F9BEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FB6ECC5-93F1-4675-804B-B13852F9BEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FB6ECC5-93F1-4675-804B-B13852F9BEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FB6ECC5-93F1-4675-804B-B13852F9BEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF8B2166-2C24-4B3C-8EF8-BF57B4D69DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF8B2166-2C24-4B3C-8EF8-BF57B4D69DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF8B2166-2C24-4B3C-8EF8-BF57B4D69DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF8B2166-2C24-4B3C-8EF8-BF57B4D69DC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
