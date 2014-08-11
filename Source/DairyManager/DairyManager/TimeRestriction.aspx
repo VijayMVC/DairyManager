@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TimeRestriction.aspx.cs" Inherits="DairyManager.TimeRestriction" MasterPageFile="~/Site.master" %>
+
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
@@ -6,9 +7,9 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
-            <div class="page-header">
-                <h1>Time Restriction</h1>
-            </div>
+        <div class="page-header">
+            <h1>Time Restriction</h1>
+        </div>
         <asp:HiddenField ID="hdnTimeRestrictionId" runat="server" />
         <div class="form-group">
             <div>

@@ -10,63 +10,45 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ MasterType VirtualPath="~/Site.Master" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-     <style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-    </style>
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="wrapper-inner">
-        <h2 class="w875">
-            Add Roles</h2>
-        <table class="role-tbl">
-            <tr>
-                <td>
-                    <table class="role-search-tbl">
-                        <tr>
-                            <td height="21">
-                                Role Name<span class="reqfield">*</span>
-                                <asp:HiddenField ID="hdnRoleId" runat="server" />
-                            </td>
-                            <td>
-                                <dx:ASPxTextBox ID="txtRoleName" runat="server" Width="170px" MaxLength="50">
+<asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div>
+          <div class="page-header">
+            <h1>Add Roles</h1>
+               <asp:HiddenField ID="hdnRoleId" runat="server" />
+        </div>
+
+        <div class="form-group">
+            <div>
+                <span>Role Name</span>
+                <span>*</span>
+            </div>
+            <div class="input-group">
+                <dx:ASPxTextBox ID="txtRoleName" runat="server" Width="170px" MaxLength="50">
                                     <ValidationSettings Display="Dynamic" ValidationGroup="vgSave" ErrorDisplayMode="ImageWithTooltip">
                                         <RequiredField IsRequired="True" ErrorText="Required" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td height="21">
-                                Role Description<span class="reqfield">*</span>
-                            </td>
-                            <td>
-                                <dx:ASPxTextBox ID="txtRoleDescription" runat="server" Width="170px" MaxLength="50">
+            </div>
+        </div>
+
+          <div class="form-group">
+            <div>
+                <span>Role Description</span>
+                <span>*</span>
+            </div>
+            <div class="input-group">
+                  <dx:ASPxTextBox ID="txtRoleDescription" runat="server" Width="170px" MaxLength="50">
                                     <ValidationSettings Display="Dynamic" ValidationGroup="vgSave" ErrorDisplayMode="ImageWithTooltip">
                                         <RequiredField IsRequired="True" ErrorText="Required" />
                                     </ValidationSettings>
                                 </dx:ASPxTextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;
-                            </td>
-                            <td>
-                                &nbsp;
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h2 class="w875">
-                        Rights List</h2>
-                    <dx:ASPxGridView ID="gvRights" runat="server" Width="100%" AutoGenerateColumns="False"
+            </div>
+        </div>
+
+        <div class="form-group">
+            <dx:ASPxGridView ID="gvRights" runat="server" Width="100%" AutoGenerateColumns="False"
                         KeyFieldName="RightId">
                         <Columns>
                             <dx:GridViewCommandColumn ShowSelectCheckbox="True" VisibleIndex="0" Width="100px">
@@ -89,18 +71,18 @@
                         </Columns>
                         <SettingsBehavior AllowDragDrop="False" />
                     </dx:ASPxGridView>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br />
-                    <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"
-                        HorizontalAlign="Center" ImageSpacing="15px" VerticalAlign="Middle" UseSubmitBehavior="False">
-                        <Image Url="~/Images/Save.png">
-                        </Image>
-                    </dx:ASPxButton>
-                </td>
-            </tr>
-        </table>
+
+        </div>
+         <div class="clearfix form-actions">
+            <div>
+                <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
+            </div>
+        </div>
+
     </div>
+
+
 </asp:Content>
+
+
+     
