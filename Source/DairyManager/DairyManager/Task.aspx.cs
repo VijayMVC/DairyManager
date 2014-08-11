@@ -46,17 +46,8 @@ namespace DairyManager
 
             if (hdnTaskId.Value == string.Empty)
             {
-                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                //taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
-                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
-                taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
-                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
-                taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
-
-                currentTask.InsertTask(taskEntity);    
-
-                taskEntity.CreatedBy = new Guid();
+                taskEntity.CreatedBy = Master.LoggedUser.UserId.Value;
+                currentTask.InsertTask(taskEntity);                                       
                 currentTask.InsertTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowMessage( Diary.Common.Constant.Message_Success);
@@ -64,18 +55,8 @@ namespace DairyManager
             }
             else
             {
-
-                taskEntity.TaskId = new Guid(hdnTaskId.Value);
-
-                taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
-                //taskEntity.CaseTypeId = (Guid)cmbCaseType.Value;
-                taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
-                taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
-                taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
-                taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
-                taskEntity.UpdatedBy = (Guid)Master.LoggedUser.UserId.Value;
-
-                taskEntity.UpdatedBy = new Guid();
+                taskEntity.TaskId = new Guid(hdnTaskId.Value);             
+                taskEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
                 currentTask.UpdateTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowMessage( Diary.Common.Constant.Message_Success);

@@ -30,7 +30,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -43,7 +43,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbTaskType" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbTaskType" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>

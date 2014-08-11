@@ -38,8 +38,8 @@ namespace DairyManager
             taskTypeEntity.TaskCode = txtTaskCode.Text.Trim();
 
             if (hdnTaskTypeId.Value == string.Empty)
-            {                
-                taskTypeEntity.CreatedBy = new Guid();
+            {
+                taskTypeEntity.CreatedBy = Master.LoggedUser.UserId.Value; 
 
                 if (!currentTask.IsTaskTypeExists(taskTypeEntity.TaskCode))
                 {
@@ -54,8 +54,8 @@ namespace DairyManager
             }
             else
             {
-                taskTypeEntity.TaskTypeId = new Guid(this.hdnTaskTypeId.Value);             
-                taskTypeEntity.UpdatedBy = new Guid();
+                taskTypeEntity.TaskTypeId = new Guid(this.hdnTaskTypeId.Value);
+                taskTypeEntity.UpdatedBy =  Master.LoggedUser.UserId.Value; 
 
                 currentTask.UpdateTaskType(taskTypeEntity);
                 Master.ShowMessage( Diary.Common.Constant.Message_Success);

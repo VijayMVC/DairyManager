@@ -44,7 +44,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbCourt" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbCourt" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -57,7 +57,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbOffence" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbOffence" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -70,7 +70,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbClient" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbClient" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -83,7 +83,7 @@
                 <span>*</span>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String">
+                <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>

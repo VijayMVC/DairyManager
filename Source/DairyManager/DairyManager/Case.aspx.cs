@@ -47,8 +47,8 @@ namespace DairyManager
             caseEntity.Email = txtEmail.Text.Trim();
             caseEntity.Contact = txtContact.Text.Trim();
 
-            caseEntity.CreatedBy = new Guid();
-            caseEntity.UpdatedBy = new Guid();
+            caseEntity.CreatedBy = Master.LoggedUser.UserId.Value;
+            caseEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
 
             bll.Case caseBll = new bll.Case();
 
@@ -67,9 +67,6 @@ namespace DairyManager
                 this.ClearFormFields();
 
             }
-
-
-
 
         }
 

@@ -38,8 +38,8 @@ namespace DairyManager
             caseTypeEntity.CaseCode = txtCaseCode.Text.Trim();
 
             if (hdnCaseTypeId.Value == string.Empty)
-            {                
-                caseTypeEntity.CreatedBy = new Guid();
+            {
+                caseTypeEntity.CreatedBy = Master.LoggedUser.UserId.Value; 
                 
                 if (!currentCase.IsCaseCodeExists(caseTypeEntity.CaseCode))
                 {
@@ -55,8 +55,8 @@ namespace DairyManager
             }
             else
             {
-                
-                caseTypeEntity.UpdatedBy = new Guid();
+
+                caseTypeEntity.UpdatedBy = Master.LoggedUser.UserId.Value; 
 
                 currentCase.UpdateCaseType(caseTypeEntity);
                 Master.ShowMessage( Diary.Common.Constant.Message_Success);                

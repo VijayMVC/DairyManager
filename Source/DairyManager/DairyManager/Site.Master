@@ -242,14 +242,14 @@
                         <ul class="submenu">
 
 
-                            <li class="">
+<%--                            <li class="">
                                 <a href="/Account/Register.aspx">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     Add User
                                 </a>
 
                                 <b class="arrow"></b>
-                            </li>
+                            </li>--%>
 
                             <li class="">
                                 <a href="/Case.aspx">

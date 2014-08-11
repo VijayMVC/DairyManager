@@ -21,28 +21,26 @@ namespace DairyManager
 
                 this.DisplayRecord();
 
-
-
             }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            timeRestrictionEntity.TimeRestrictionId = new Guid(hdnTimeRestrictionId.Value);
+            timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(seMaximumTime.Text);
+            timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
 
             if (hdnTimeRestrictionId.Value == string.Empty)
             {
-                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(seMaximumTime.Text);
-                timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
-                timeRestrictionEntity.CreatedBy = new Guid();
+              
+                timeRestrictionEntity.CreatedBy = Master.LoggedUser.UserId.Value;
                 hdnTimeRestrictionId.Value = currentTimeRestriction.InsertTimeRestriction(timeRestrictionEntity).ToString();
 
             }
             else
             {
-                timeRestrictionEntity.TimeRestrictionId = new Guid(hdnTimeRestrictionId.Value);
-                timeRestrictionEntity.MaximumRecordingPerDay = Decimal.Parse(seMaximumTime.Text);
-                timeRestrictionEntity.WarningAfterLimitExceed = txtTimeExceed.Text.Trim();
-                timeRestrictionEntity.UpdatedBy = new Guid();
+             
+                timeRestrictionEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
                 currentTimeRestriction.UpdateTimeRestriction(timeRestrictionEntity);
 
             }

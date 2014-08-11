@@ -43,15 +43,7 @@ namespace DairyManager
             clientEntity.ContactPerson = txtContactPerson.Text.Trim();
 
             if (hdnClientId.Value == string.Empty)
-            {
-                clientEntity.Name = txtName.Text.Trim();
-                clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
-                clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
-                clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
-                clientEntity.Telephone = txtTelephone.Text.Trim();
-                clientEntity.Fax = txtFax.Text.Trim();
-                clientEntity.Email = txtEmail.Text.Trim();
-                clientEntity.ContactPerson = txtContactPerson.Text.Trim();
+            {                 
                 clientEntity.CreatedBy = (Guid)Master.LoggedUser.UserId.Value;
                 currentclient.InsertClient(clientEntity);
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
@@ -59,17 +51,7 @@ namespace DairyManager
             }
             else
             {
-                clientEntity.Name = txtName.Text.Trim();
-                clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
-                clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
-                clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
-                clientEntity.Telephone = txtTelephone.Text.Trim();
-                clientEntity.Fax = txtFax.Text.Trim();
-                clientEntity.Email = txtEmail.Text.Trim();
-                clientEntity.ContactPerson = txtContactPerson.Text.Trim();
-                clientEntity.UpdatedBy = (Guid)Master.LoggedUser.UserId.Value;
-                clientEntity.ClientId = new Guid(hdnClientId.Value);
-                clientEntity.UpdatedBy = new Guid();
+                clientEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
                 currentclient.UpdateClient(clientEntity);
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormData();
