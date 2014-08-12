@@ -3,7 +3,7 @@
   <siteMapNode url="~/Dashboard.aspx" title="Home"  description="Home">
     <siteMapNode url="~/Task.aspx" title="Create New Task"  description="Create New Task" />
 
-    <siteMapNode  title="Settings"  description="Settings">      
+    <siteMapNode  title="Settings"  description="Settings">
       <siteMapNode url="~/Case.aspx" title="Case"  description="Case" />
       <siteMapNode url="~/CaseType.aspx" title="Case Type"  description="Case Type" />
       <siteMapNode url="~/TaskType.aspx" title="Task Type"  description="Task Type" />
@@ -11,13 +11,16 @@
       <siteMapNode url="~/Client.aspx" title="Client"  description="Client" />
     </siteMapNode>
 
-      <siteMapNode  title="User Managment"  description="User Management">
-      <siteMapNode url="~/Account/Register.aspx" title="Add User"  description="Add User" />
-      <siteMapNode url="~/Account/ChangePassword.aspx" title="Change Password"  description="Change Password" />      
+    <siteMapNode  title="User Managment"  description="User Management">
+      <siteMapNode url="~/UserManagement/Roles.aspx" title="Add Role"  description="Add Role" />
+      <siteMapNode url="~/UserManagement/RoleSearch.aspx" title="Search Role"  description="Search Role" />
+      <siteMapNode url="~/UserManagement/Users.aspx" title="Add User"  description="Add User" />
+      <siteMapNode url="~/UserManagement/UserSearch.aspx" title="Search User"  description="Search Role" />
+
     </siteMapNode>
-  
+
   </siteMapNode>
-  
-  
+
+
 
 </siteMap>
