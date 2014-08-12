@@ -1,17 +1,11 @@
+using System;
 using System.Collections.Specialized;
 using System.Web;
 using Diary.Common;
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using UM = Diary.UserManagement;
+using System.Web.UI.WebControls;
 
-using Diary.Common;namespace DairyManager
+namespace DairyManager
 {
     public partial class SiteMaster : System.Web.UI.MasterPage
     {
@@ -46,6 +40,9 @@ using Diary.Common;namespace DairyManager
             {
                 return;
             }
+
+            Label lblUserName = (Label) HeadLoginView.Controls[0].Controls[0].FindControl("lblLoggedName");
+            lblUserName.Text = this.LoggedUser.UserName;
     
         }
 
@@ -62,8 +59,8 @@ using Diary.Common;namespace DairyManager
         }
 
         public void ShowMessage(string message)
-        {
-
+        {           
+                     
             if (message==Constant.Message_Success)
             {
                 this.dvSuccessMessage.Visible = true;

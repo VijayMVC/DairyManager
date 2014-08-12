@@ -93,18 +93,19 @@
                             <AnonymousTemplate>
                                 <li class="light-blue">
                                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                        <img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />
+                                        <%--<img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />--%>
                                         <span class="user-info">
                                             <small>Welcome,</small>
                                             <span class="bold">
-                                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                                <asp:LoginName ID="HeadLoginName" runat="server"  />
+                                                <asp:Label ID="lblLoggedName" runat="server" Text="" ></asp:Label>
                                             </span>
                                         </span>
 
                                         <i class="ace-icon fa fa-caret-down"></i>
                                     </a>
                                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                                        <li>
+                                      <%--  <li>
                                             <a href="#">
                                                 <i class="ace-icon fa fa-cog"></i>
                                                 Settings
@@ -116,12 +117,12 @@
                                                 Profile
                                             </a>
                                         </li>
-                                        <li class="divider"></li>
+                                        <li class="divider"></li>--%>
 
                                         <li>
-                                            <a href="#">
+                                            <a href="/Login.aspx">
                                                 <i class="ace-icon fa fa-power-off"></i>
-                                                <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                                                <%--<asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />--%>
                                             </a>
                                         </li>
                                     </ul>
@@ -130,11 +131,12 @@
                             <LoggedInTemplate>
                                 <li class="light-blue">
                                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                        <img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />
+                                        <%--<img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />--%>
                                         <span class="user-info">
                                             <small>Welcome,</small>
                                             <span class="bold">
                                                 <asp:LoginName ID="HeadLoginName" runat="server" />
+
                                             </span>
                                         </span>
 
@@ -142,7 +144,7 @@
                                     </a>
 
                                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-                                        <li>
+                                  <%--<%--      <li>
                                             <a href="#">
                                                 <i class="ace-icon fa fa-cog"></i>
                                                 Settings
@@ -154,14 +156,14 @@
                                                 <i class="ace-icon fa fa-user"></i>
                                                 Profile
                                             </a>
-                                        </li>
+                                        </li>--%>
 
-                                        <li class="divider"></li>
+                                        <li class="divider"></li>--%>
 
                                         <li>
-                                            <a href="#">
+                                            <a href="/Login.aspx">
                                                 <i class="ace-icon fa fa-power-off"></i>
-                                                <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                                                <%--<asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/Login.aspx" />--%>
                                             </a>
                                         </li>
                                     </ul>
