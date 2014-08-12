@@ -21,11 +21,11 @@
                     <dx:GridViewDataTextColumn Caption="Role Name" FieldName="RoleName"
                         Visible="False" VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
-               <%--     <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Role Name" FieldName="RoleId">
+                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Role Name" FieldName="RoleId">
                         <DataItemTemplate>
-                            <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" NavigateUrl="/Roles.aspx?RoleId='<%# Eval("RoleId") %>'" Text='<%# Eval("RoleName") %>' />
+                            <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" NavigateUrl='<%# Diary.Common.Constant.CreateURLQueryString("~/UserManagement/Roles.aspx?RoleId=",Eval("RoleId"))%>' Text='<%# Eval("RoleName") %>' />
                         </DataItemTemplate>
-                    </dx:GridViewDataTextColumn>--%>
+                    </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Role Description" FieldName="RoleDescription"
                         VisibleIndex="3">
                     </dx:GridViewDataTextColumn>

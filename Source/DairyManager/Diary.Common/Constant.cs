@@ -26,5 +26,10 @@ namespace Diary.Common
 
         #endregion
 
+        public static string CreateURLQueryString(string urlToNavigate, object mykey)
+        {
+            string url = urlToNavigate + (object)(mykey.ToString()).ToString();
+            return url;
+        }
     }
 }

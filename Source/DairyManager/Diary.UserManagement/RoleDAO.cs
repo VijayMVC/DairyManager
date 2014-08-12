@@ -16,14 +16,13 @@ namespace Diary.UserManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_RoleInsert");
 
+            roles.RoleId = Guid.NewGuid();
             db.AddInParameter(command, "@RoleName", DbType.String, roles.RoleName);
             db.AddInParameter(command, "@RoleDescription", DbType.String, roles.RoleDescription);
             db.AddInParameter(command, "@CreatedBy", DbType.Guid, roles.CreatedBy);
-            db.AddOutParameter(command, "@RoleId", DbType.Int32, 8);
+            db.AddInParameter(command, "@RoleId", DbType.Guid, roles.RoleId);
 
             db.ExecuteNonQuery(command, transaction);
-
-            roles.RoleId = new Guid(db.GetParameterValue(command, "@RoleId").ToString());
 
             return true;
         }

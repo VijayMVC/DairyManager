@@ -23,7 +23,7 @@ namespace Diary.UserManagement
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand dbCommand = db.GetStoredProcCommand("usp_RightSelectByRoleId");
-            db.AddInParameter(dbCommand, "@RoleId", DbType.Int32, right.RoleId);
+            db.AddInParameter(dbCommand, "@RoleId", DbType.Guid, right.RoleId);
             return db.ExecuteDataSet(dbCommand);
         }
     }
