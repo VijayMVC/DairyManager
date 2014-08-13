@@ -4,6 +4,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Diary.DAL;
+using Diary.Entity;
 
 namespace Diary.UserManagement
 {
@@ -22,7 +24,7 @@ namespace Diary.UserManagement
         public string Contact { get; set; }
 
         public int JobId { get; set; }
-        public int GradeId { get; set; }
+        public int? GradeId { get; set; }
         public int LocationId { get; set; }
 
         public string EmailAddress { get; set; }
@@ -48,6 +50,7 @@ namespace Diary.UserManagement
             {
                 if (this.UserId.HasValue)
                 {
+                    AddGradeHistory();
                     result = (new UserDAO()).Update(this);
                 }
                 else
@@ -61,6 +64,20 @@ namespace Diary.UserManagement
                 throw;
             }
             return result;
+        }
+
+        private void AddGradeHistory()
+        {
+            User user = Dairy.Utility.Generic.Get<User>(this.UserId.Value);
+            if (user.GradeId != this.GradeId)
+            {
+                GradeHistoryEntity gradeHistory = new GradeHistoryEntity();
+                gradeHistory.UserId = this.UpdatedBy;
+                gradeHistory.OldGradeId = user.GradeId;
+                gradeHistory.NewGradeId = this.GradeId.Value;
+                gradeHistory.CreatedBy = this.UpdatedBy;
+                new GradeHistoryDao().Insert(gradeHistory);
+            }
         }
 
         #endregion

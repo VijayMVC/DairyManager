@@ -18,13 +18,13 @@
            <dx:ASPxGridView ID="gvUsers" runat="server" Width="100%" AutoGenerateColumns="False"
                         KeyFieldName="UserId" OnRowDeleting="gvUsers_RowDeleting">
                         <Columns>
-                         <%--   <dx:GridViewDataTextColumn VisibleIndex="1" Caption="User Name" FieldName="UserId"
+                            <dx:GridViewDataTextColumn VisibleIndex="1" Caption="User Name" FieldName="UserId"
                                 Width="100px">
                                 <DataItemTemplate>
-                                    <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" NavigateUrl="Users.aspx?UserId='<%# Eval("UserId") %>'"
+                                    <dx:ASPxHyperLink ID="ASPxHyperLink1" runat="server" NavigateUrl='<%# Diary.Common.Constant.CreateURLQueryString("~/UserManagement/Users.aspx?UserId=",Eval("UserId"))%>'
                                         Text='<%# Eval("UserName") %>' />
                                 </DataItemTemplate>
-                            </dx:GridViewDataTextColumn>--%>
+                            </dx:GridViewDataTextColumn>
                             <dx:GridViewDataTextColumn Caption="User Name" FieldName="UserName"
                                 VisibleIndex="2" Visible="False">
                             </dx:GridViewDataTextColumn>

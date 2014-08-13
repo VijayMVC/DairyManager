@@ -74,6 +74,10 @@
       <Project>{dd1362f6-c374-4ab3-95cc-b3f963426b1b}</Project>
       <Name>Diary.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Diary.Entity\Diary.Entity.csproj">
+      <Project>{c1e071ec-7ca2-473b-ac17-4402d8258b6a}</Project>
+      <Name>Diary.Entity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

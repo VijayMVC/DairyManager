@@ -18,7 +18,7 @@
         <div class="form-group">
             <div>
                 <span>Code</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtUserName" runat="server" Width="170px" MaxLength="50">
@@ -35,7 +35,7 @@
         <div class="form-group">
             <div>
                 <span>Password</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtPassword" runat="server" Password="True" Width="170px" MaxLength="50"
@@ -56,7 +56,7 @@
          <div class="form-group">
             <div>
                 <span>Confirm Password</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                   <dx:ASPxTextBox ID="txtConfirmPassword" runat="server" Password="True" Width="170px"
@@ -87,7 +87,7 @@
         <div class="form-group">
             <div>
                 <span>First Name</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
              <dx:ASPxTextBox ID="txtFirstName" runat="server" Width="170px" MaxLength="50">
@@ -101,7 +101,7 @@
          <div class="form-group">
             <div>
                 <span>Last Name</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
             <dx:ASPxTextBox ID="txtLastName" runat="server" Width="170px" MaxLength="50">
@@ -115,7 +115,7 @@
          <div class="form-group">
             <div>
                 <span>Job Title</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                <dx:ASPxComboBox ID="ddlJob" runat="server" EnableIncrementalFiltering="True" IncrementalFilteringMode="StartsWith"
@@ -133,7 +133,7 @@
            <div class="form-group">
             <div>
                 <span>Location</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                <dx:ASPxComboBox ID="ddlLocation" runat="server" EnableIncrementalFiltering="True" IncrementalFilteringMode="StartsWith"
@@ -152,7 +152,7 @@
             <div class="form-group">
             <div>
                 <span>Grade</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                <dx:ASPxComboBox ID="ddlGrade" runat="server" EnableIncrementalFiltering="True" IncrementalFilteringMode="StartsWith"
@@ -170,7 +170,7 @@
             <div class="form-group">
             <div>
                 <span>Email</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
            <dx:ASPxTextBox ID="txtEmail" runat="server" Width="170px" MaxLength="50">
@@ -186,7 +186,7 @@
           <div class="form-group">
             <div>
                 <span>Contact</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
             <dx:ASPxTextBox ID="txtContact" runat="server" Width="170px" MaxLength="50">
@@ -200,7 +200,7 @@
          <div class="form-group">
             <div>
                 <span>User Type</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
              <dx:ASPxComboBox ID="ddlRoles" runat="server" EnableIncrementalFiltering="True" IncrementalFilteringMode="StartsWith"

@@ -43,6 +43,7 @@
     <Compile Include="CaseTypeEntity.cs" />
     <Compile Include="ClientEntity.cs" />
     <Compile Include="GradeEntity.cs" />
+    <Compile Include="GradeHistoryEntity.cs" />
     <Compile Include="JobEntity.cs" />
     <Compile Include="LocationEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

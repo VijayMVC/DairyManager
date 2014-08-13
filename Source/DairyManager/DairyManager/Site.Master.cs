@@ -42,8 +42,10 @@ namespace DairyManager
             }
 
             Label lblUserName = (Label) HeadLoginView.Controls[0].Controls[0].FindControl("lblLoggedName");
-            lblUserName.Text = this.LoggedUser.UserName;
-    
+            if (lblUserName != null)
+            {
+                lblUserName.Text = this.LoggedUser.UserName;
+            }
         }
 
         public string GetQueryStringValueByKey(HttpRequest request, string name)
