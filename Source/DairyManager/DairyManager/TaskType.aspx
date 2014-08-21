@@ -18,7 +18,7 @@
             <div class="form-group">
                 <div>
                     <span>Task Description</span>
-                    <span>*</span>
+                    <em>*</em>
                 </div>
                 <div class="input-group">
                     <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" MaxLength="50">
@@ -32,7 +32,7 @@
             <div class="form-group">
                 <div>
                     <span>Task Code</span>
-                    <span>*</span>
+                    <em>*</em>
                 </div>
                 <div class="input-group">
                     <dx:ASPxTextBox ID="txtTaskCode" runat="server" Width="170px" MaxLength="20">

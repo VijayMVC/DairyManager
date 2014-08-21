@@ -43,6 +43,12 @@ namespace Diary.BLL
 
         }
 
+        public bool IsCaseExists(string code)
+        {
+
+            return caseDao.IsCaseExists(code);
+        }
+
         public Guid InsertCaseType(CaseTypeEntity caseTypeEntity)
         {
             return caseDao.InsertCaseType(caseTypeEntity);

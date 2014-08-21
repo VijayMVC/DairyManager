@@ -17,7 +17,7 @@
         <div class="form-group">
             <div>
                 <span>Name</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtName" runat="server" Width="170px">
@@ -31,7 +31,7 @@
         <div class="form-group">
             <div>
                 <span>Address Line 1</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine1" runat="server" Width="170px">
@@ -69,7 +69,7 @@
         <div class="form-group">
             <div>
                 <span>Telephone</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtTelephone" runat="server" Width="170px">

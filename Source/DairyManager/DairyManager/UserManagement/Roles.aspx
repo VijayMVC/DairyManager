@@ -22,7 +22,7 @@
         <div class="form-group">
             <div>
                 <span>Role Name</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtRoleName" runat="server" Width="170px" MaxLength="50">
@@ -36,7 +36,7 @@
           <div class="form-group">
             <div>
                 <span>Role Description</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                   <dx:ASPxTextBox ID="txtRoleDescription" runat="server" Width="170px" MaxLength="50">

@@ -95,6 +95,23 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
+        public bool IsCaseExists(string code)
+        {
+            bool result = false;
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_CaseIsExists");
+
+            db.AddInParameter(command, "@Code", DbType.String, code);
+            db.AddOutParameter(command, "@IsExists", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            result = bool.Parse(db.GetParameterValue(command, "IsExists").ToString());
+
+            return result;
+
+        }
+
         public Guid InsertCaseType(CaseTypeEntity caseTypeEntity)
         {
             Guid result;

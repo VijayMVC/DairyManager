@@ -15,7 +15,8 @@
         <div class="form-group">
             <div>
                 <span>UFN</span>
-                <span>*</span>
+                <em>*</em>
+                
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtCode" runat="server" Width="170px" MaxLength="50">
@@ -28,7 +29,7 @@
         <div class="form-group" style="display:none">
             <div>
                 <span>Case</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtCase" runat="server" Width="170px" MaxLength="50">
@@ -41,7 +42,7 @@
         <div class="form-group">
             <div>
                 <span>Court</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbCourt" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
@@ -54,7 +55,7 @@
         <div class="form-group">
             <div>
                 <span>Offence</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbOffence" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
@@ -67,7 +68,7 @@
         <div class="form-group">
             <div>
                 <span>Client</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbClient" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
@@ -80,7 +81,7 @@
         <div class="form-group">
             <div>
                 <span>Case Type</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbCaseType" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">

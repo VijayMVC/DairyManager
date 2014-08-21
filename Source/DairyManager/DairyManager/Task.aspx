@@ -14,7 +14,7 @@
         <div class="form-group">
             <div>
                 <span>Date</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxDateEdit ID="dtDate" runat="server" EditFormat="DateTime" EditFormatString="dd-MMM-yy">
@@ -27,7 +27,7 @@
         <div class="form-group">
             <div>
                 <span>Case</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
@@ -40,7 +40,7 @@
         <div class="form-group">
             <div>
                 <span>Task Type</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbTaskType" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
@@ -54,7 +54,7 @@
         <div class="form-group">
             <div>
                 <span>Task Description</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" MaxLength="100">
@@ -81,7 +81,7 @@
         <div class="form-group">
             <div>
                 <span>Task start time</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTimeEdit ID="teStartTime" runat="server" EditFormatString="HH:mm">
@@ -94,7 +94,7 @@
         <div class="form-group">
             <div>
                 <span>Task end time</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm">

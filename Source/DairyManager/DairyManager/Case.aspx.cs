@@ -54,14 +54,21 @@ namespace DairyManager
 
             if (hdnCaseId.Value == string.Empty)
             {
-                caseBll.InsertCase(caseEntity);
-                Master.ShowMessage( Diary.Common.Constant.Message_Success);
-                this.ClearFormFields();
+                if (!caseBll.IsCaseExists(caseEntity.Code))
+                {
+                    caseBll.InsertCase(caseEntity);
+                    Master.ShowMessage(Diary.Common.Constant.Message_Success);
+                    this.ClearFormFields();
+                }
+                else
+                {
+                    Master.ShowMessage(Diary.Common.Constant.Message_AlreadyExists);    
+                }                
 
             }
             else
             {
-                caseEntity.CaseId = new Guid( hdnCaseId.Value);
+                caseEntity.CaseId = new Guid(hdnCaseId.Value);
                 caseBll.UpdateCase(caseEntity);
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
@@ -103,7 +110,6 @@ namespace DairyManager
             cmbOffence.DataBind();
         }
 
-
         private void ClearFormFields()
         {
             txtCode.Text = string.Empty;
@@ -127,7 +133,7 @@ namespace DairyManager
             {
                 txtCode.Text = ds.Tables[0].Rows[0]["Code"] != null ? ds.Tables[0].Rows[0]["Code"].ToString() : string.Empty;
                 txtCase.Text = ds.Tables[0].Rows[0]["Case"] != null ? ds.Tables[0].Rows[0]["Case"].ToString() : string.Empty;
-                cmbClient.Value = ds.Tables[0].Rows[0]["ClientId"] != null ? ds.Tables[0].Rows[0]["ClientId"].ToString() : string.Empty; 
+                cmbClient.Value = ds.Tables[0].Rows[0]["ClientId"] != null ? ds.Tables[0].Rows[0]["ClientId"].ToString() : string.Empty;
                 cmbOffence.Value = ds.Tables[0].Rows[0]["OffenceTypeId"] != null ? ds.Tables[0].Rows[0]["OffenceTypeId"].ToString() : string.Empty;
                 cmbCourt.Value = ds.Tables[0].Rows[0]["CourtId"] != null ? ds.Tables[0].Rows[0]["CourtId"].ToString() : string.Empty;
                 cmbCaseType.Value = ds.Tables[0].Rows[0]["CaseTypeId"].ToString();

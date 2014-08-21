@@ -14,7 +14,7 @@
         <div class="form-group">
             <div>
                 <span>Case Type Description</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtCaseTypeDescription" runat="server" Width="170px" MaxLength="50">
@@ -29,7 +29,7 @@
         <div class="form-group">
             <div>
                 <span>Case Code</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtCaseCode" runat="server" Width="170px" MaxLength="20">

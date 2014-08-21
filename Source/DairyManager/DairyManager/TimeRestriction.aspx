@@ -14,7 +14,7 @@
         <div class="form-group">
             <div>
                 <span>Maximum time recording per day</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxSpinEdit ID="seMaximumTime" runat="server" Height="21px" Number="0">
@@ -27,7 +27,7 @@
         <div class="form-group">
             <div>
                 <span>Warning after time exceed</span>
-                <span>*</span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtTimeExceed" runat="server" Width="170px">
