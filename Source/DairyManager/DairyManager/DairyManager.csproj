@@ -835,10 +835,10 @@
     <Content Include="App_Themes\DevEx\WeekOfMonthEdit.skin" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <None Include="Properties\PublishProfiles\DairyPublish.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\DairyPublish.pubxml" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

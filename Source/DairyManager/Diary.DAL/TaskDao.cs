@@ -23,6 +23,8 @@ namespace Diary.DAL
 
             db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
             db.AddInParameter(dbCommand, "@CaseId", DbType.Guid, taskEntity.CaseId);
+            db.AddInParameter(dbCommand, "@TaskCreator", DbType.Guid, taskEntity.TaskCreator);
+            db.AddInParameter(dbCommand, "@FeeEarner", DbType.Guid, taskEntity.FeeEarner);
             db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
             db.AddInParameter(dbCommand, "@TaskDescription", DbType.String, taskEntity.TaskDescription);
             db.AddInParameter(dbCommand, "@TotalRemainingHours", DbType.Decimal, taskEntity.TotalRemainingHours);
@@ -49,6 +51,8 @@ namespace Diary.DAL
 
             db.AddInParameter(dbCommand, "@TaskId", DbType.Guid, taskEntity.TaskId);
             db.AddInParameter(dbCommand, "@TaskDate", DbType.DateTime, taskEntity.TaskDate);
+            db.AddInParameter(dbCommand, "@TaskCreator", DbType.Guid, taskEntity.TaskCreator);
+            db.AddInParameter(dbCommand, "@FeeEarner", DbType.Guid, taskEntity.FeeEarner);
             db.AddInParameter(dbCommand, "@CaseId", DbType.Guid, taskEntity.CaseId);
             db.AddInParameter(dbCommand, "@TaskTypeId", DbType.Guid, taskEntity.TaskTypeId);
             db.AddInParameter(dbCommand, "@TaskDescription", DbType.String, taskEntity.TaskDescription);

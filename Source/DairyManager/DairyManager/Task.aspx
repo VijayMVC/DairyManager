@@ -17,13 +17,42 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxDateEdit ID="dtDate" runat="server" EditFormat="DateTime" EditFormatString="dd-MMM-yy">
+                <dx:ASPxDateEdit ID="dtDate" runat="server" EditFormat="DateTime" EditFormatString="dd-MMM-yy HH:mm" UseMaskBehavior="True">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxDateEdit>
             </div>
         </div>
+
+        <div class="form-group">
+            <div>
+                <span>Task Creator</span>
+                <em>*</em>
+            </div>
+            <div class="input-group">
+                <dx:ASPxComboBox ID="cmbTaskCreator" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
+                    <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
+                <span>Fee Earner</span>
+                <em>*</em>
+            </div>
+            <div class="input-group">
+                <dx:ASPxComboBox ID="cmbFeeEarner" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
+                    <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
+            </div>
+        </div>
+
         <div class="form-group">
             <div>
                 <span>Case</span>

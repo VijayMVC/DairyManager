@@ -22,28 +22,32 @@
                         </DataItemTemplate>
                     </dx:GridViewDataTextColumn>--%>
 
-                     <dx:GridViewDataHyperLinkColumn Caption="Task Date" FieldName="TaskId" VisibleIndex="1">
+                     <dx:GridViewDataHyperLinkColumn Caption="Task Date" FieldName="TaskId" VisibleIndex="0">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/Task.aspx?TaskId={0}" TextField="TaskDate" TextFormatString="dd-MMM-yy">
                         </PropertiesHyperLinkEdit>
                          <Settings FilterMode="DisplayText" />
                     </dx:GridViewDataHyperLinkColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Case Type" FieldName="Case">
+                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Task Creator" FieldName="TaskCreator">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Task Type" FieldName="TaskDescription">
+                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Fee Earner" FieldName="FeeEarner">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Description" FieldName="TaskDescription1">
+<dx:GridViewDataTextColumn FieldName="Case" ShowInCustomizationForm="True" Caption="Case Type" VisibleIndex="1"></dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Task Type" FieldName="TaskDescription">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Remaining Hours" FieldName="TotalRemainingHours">
+<dx:GridViewDataTextColumn FieldName="TaskDescription1" ShowInCustomizationForm="True" Caption="Task Description" VisibleIndex="4"></dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Remaining Hours" FieldName="TotalRemainingHours">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Start Time" FieldName="StartTime">
+                    <dx:GridViewDataTextColumn VisibleIndex="6" Caption="Start Time" FieldName="StartTime">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="6" Caption="End Time" FieldName="EndTime">
+                    <dx:GridViewDataTextColumn VisibleIndex="7" Caption="End Time" FieldName="EndTime">
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="8" Caption="Total Hours" FieldName="TotalHours">

@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using com = Diary.Common;
 
+
 namespace DairyManager
 {
     public partial class Task : System.Web.UI.Page
@@ -15,10 +16,14 @@ namespace DairyManager
         Diary.BLL.Case currentCase = new Diary.BLL.Case();
         Diary.Entity.TaskEntity taskEntity = new Diary.Entity.TaskEntity();
 
+        Diary.UserManagement.User currentUser = new Diary.UserManagement.User();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoadCase();
             this.LoadTaskType();
+            this.LoadTaskCreator();
+            this.LoadFeeEarner();
 
             if (!IsPostBack)
             {
@@ -37,6 +42,8 @@ namespace DairyManager
 
             taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
             taskEntity.CaseId = new Guid(cmbCase.Value.ToString());
+            taskEntity.TaskCreator = new Guid(cmbTaskCreator.Value.ToString());
+            taskEntity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
             taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
             taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
@@ -70,8 +77,10 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                dtDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString()).ToString("dd-MMM-yy");
+                dtDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString()).ToString("dd-MMM-yy HH:mm");
                 cmbCase.Value = ds.Tables[0].Rows[0]["CaseId"].ToString();
+                cmbTaskCreator.Value = ds.Tables[0].Rows[0]["TaskCreator"].ToString();
+                cmbFeeEarner.Value = ds.Tables[0].Rows[0]["FeeEarner"].ToString();
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
                 txtTaskDescription.Text = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
                 seRemaingHours.Text = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
@@ -97,11 +106,28 @@ namespace DairyManager
             cmbTaskType.DataBind();
         }
 
+        private void LoadTaskCreator()
+        {
+            cmbTaskCreator.DataSource = currentUser.SelectAllDataset().Tables[0];
+            cmbTaskCreator.TextField = "UserName";
+            cmbTaskCreator.ValueField = "UserId";
+            cmbTaskCreator.DataBind();
+        }
+
+        private void LoadFeeEarner()
+        {
+            cmbFeeEarner.DataSource = currentUser.SelectAllDataset().Tables[0];
+            cmbFeeEarner.TextField = "UserName";
+            cmbFeeEarner.ValueField = "UserId";
+            cmbFeeEarner.DataBind();
+        }
 
         private void ClearFormFields()
         {
             dtDate.Text = string.Empty;
             cmbCase.SelectedIndex = -1;
+            cmbTaskCreator.SelectedIndex = -1;
+            cmbFeeEarner.SelectedIndex = -1;
             cmbTaskType.SelectedIndex = -1;
             txtTaskDescription.Text = string.Empty;
             seRemaingHours.Text = "0";

@@ -10,6 +10,8 @@ namespace Diary.Entity
     {
         public Guid TaskId { get; set; }
         public DateTime TaskDate { get; set; }
+        public Guid TaskCreator { get; set; }
+        public Guid FeeEarner { get; set; }
         public Guid CaseId { get; set; }
         public Guid TaskTypeId { get; set; }
         public string TaskDescription { get; set; }
