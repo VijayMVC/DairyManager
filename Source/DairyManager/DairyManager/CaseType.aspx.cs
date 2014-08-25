@@ -29,6 +29,18 @@ namespace DairyManager
                 }
 
             }
+            this.AuthoriseUser();
+        }
+
+        private void AuthoriseUser()
+        {
+            btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Add)
+                || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Edit));
+
+            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_View))
+            {
+                Response.Redirect(com.Constant.URL_UNAUTHORISEDACTION, false);
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

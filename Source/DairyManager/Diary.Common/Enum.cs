@@ -34,6 +34,40 @@ namespace Diary.Common
             UserManagement_Roles_View = 8,
             UserManagement_User_Search = 9,
             UserManagement_Roles_Search = 10,
+            //Case Relted
+            Case_Case_Add = 11,
+            Case_Case_Edit = 12,
+            Case_Case_Delete = 13,
+            Case_Case_View = 14,
+            Case_Case_Search = 15,
+
+            //Case Type
+            Case_CaseType_Add = 16,
+            Case_CaseType_Edit = 17,
+            Case_CaseType_Delete = 18,
+            Case_CaseType_View = 19,
+            Case_CaseType_Search = 20,
+
+            //Client
+            Client_Client_Add = 21,
+            Client_Client_Edit = 22,
+            Client_Client_Delete = 23,
+            Client_Client_View = 24,
+            Client_Client_Search = 25,
+
+            //Task
+            Task_Task_Add = 26,
+            Task_Task_Edit = 27,
+            Task_Task_Delete = 28,
+            Task_Task_View = 29,
+            Task_Task_Search = 30,
+
+            //Task Type
+            Task_TaskType_Add = 31,
+            Task_TaskType_Edit = 32,
+            Task_TaskType_Delete = 33,
+            Task_TaskType_View = 34,
+            Task_TaskType_Search = 35,
         }
     }
 }

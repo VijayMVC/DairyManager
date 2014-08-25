@@ -14,6 +14,18 @@ namespace DairyManager
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoadData();
+            this.AuthoriseUser();
+        }
+
+        private void AuthoriseUser()
+        {
+            btnBack.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_Add));
+            gvCaseSearch.Columns["CaseId"].Visible = Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_Edit) || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_View);
+
+            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_Search))
+            {
+                Response.Redirect(com.Constant.URL_UNAUTHORISEDACTION, false);
+            }
         }
 
         private void LoadData()

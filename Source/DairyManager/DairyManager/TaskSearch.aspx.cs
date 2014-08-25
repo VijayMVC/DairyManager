@@ -14,7 +14,20 @@ namespace DairyManager
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoadData();
+            this.AuthoriseUser();
         }
+
+        private void AuthoriseUser()
+        {
+            btnBack.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Add));
+            gvTaskSearch.Columns["TaskId"].Visible = Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Edit);
+
+            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Search))
+            {
+                Response.Redirect(com.Constant.URL_UNAUTHORISEDACTION, false);
+            }
+        }
+
         private void LoadData()
         {
             bll.Task currentTask = new bll.Task();

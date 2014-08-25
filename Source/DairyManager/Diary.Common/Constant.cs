@@ -13,6 +13,7 @@ namespace Diary.Common
         public static readonly string URL_LOGIN = "~/Login.aspx";
         public static readonly string URL_DEFAULTBACKPAGE = "~/Default.aspx";
         public static readonly string Message_AlreadyExists= "Record Already Exists";
+        public static readonly string URL_UNAUTHORISEDACTION = "~/UnauthorisedAction.aspx";
 
         #region Session Names
 
