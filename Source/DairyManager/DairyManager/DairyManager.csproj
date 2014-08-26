@@ -350,6 +350,7 @@
     <Content Include="ClientSearch.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Report.aspx" />
+    <Content Include="Reports.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -484,6 +485,13 @@
     </Compile>
     <Compile Include="Report.aspx.designer.cs">
       <DependentUpon>Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
