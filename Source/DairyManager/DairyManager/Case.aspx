@@ -76,6 +76,18 @@
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxComboBox>
+                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting">
+                    <Columns>
+                        <dx:GridViewCommandColumn VisibleIndex="0">
+                            <DeleteButton Visible="True">
+                            </DeleteButton>
+                        </dx:GridViewCommandColumn>
+                        <dx:GridViewDataComboBoxColumn Caption="Client" VisibleIndex="1">
+                            <PropertiesComboBox TextField="Name" ValueField="ClientId" ValueType="System.Guid">
+                            </PropertiesComboBox>
+                        </dx:GridViewDataComboBoxColumn>
+                    </Columns>
+                </dx:ASPxGridView>
             </div>
         </div>
         <div class="form-group">

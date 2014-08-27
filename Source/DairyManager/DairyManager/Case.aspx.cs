@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -6,6 +7,8 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DevExpress.Web.ASPxEditors;
+using DevExpress.Web.ASPxGridView;
 using Diary.Entity;
 using bll = Diary.BLL;
 using com = Diary.Common;
@@ -18,9 +21,19 @@ namespace DairyManager
         bll.Client currentClient = new bll.Client();
         bll.Case currentCase = new bll.Case();
 
+        DataSet dsData = new DataSet();
+        DataSet dsclients= new DataSet();
+
+
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            this.LoadClients();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.LoadClient();
+            
             this.LoadCaseType();
             this.LoadCourt();
             this.LoadOffence();
@@ -89,14 +102,14 @@ namespace DairyManager
 
         }
 
-        private void LoadClient()
-        {
-            cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
-            cmbClient.TextField = "Name";
-            cmbClient.ValueField = "ClientId";
-            cmbClient.DataBind();
+        //private void LoadClient()
+        //{
+        //    cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
+        //    cmbClient.TextField = "Name";
+        //    cmbClient.ValueField = "ClientId";
+        //    cmbClient.DataBind();
 
-        }
+        //}
 
         private void LoadCaseType()
         {
@@ -120,6 +133,28 @@ namespace DairyManager
             cmbOffence.TextField = "Offence";
             cmbOffence.ValueField = "OffenceTypeId";
             cmbOffence.DataBind();
+        }
+
+        protected void LoadClients()
+        {
+            try
+            {
+
+                //cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
+                //cmbClient.TextField = "Name";
+                //cmbClient.ValueField = "ClientId";
+                //cmbClient.DataBind();
+
+                dsclients = currentClient.SelectClientAll();
+                dsclients.Tables[0].TableName = "clients";
+                ((GridViewDataComboBoxColumn)gvClients.Columns["ClientId"]).PropertiesComboBox.DataSource = dsclients.Tables[0];
+
+            }
+            catch (System.Exception)
+            {
+
+
+            }
         }
 
         private void ClearFormFields()
@@ -153,6 +188,56 @@ namespace DairyManager
                 txtContact.Text = ds.Tables[0].Rows[0]["Contact"] != null ? ds.Tables[0].Rows[0]["Contact"].ToString() : string.Empty;
 
             }
+        }
+
+        protected void gvClients_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        {
+            dsData = Session["ClientData"] as DataSet;
+            ASPxGridView gridView = sender as ASPxGridView;
+            DataRow row = dsData.Tables[0].NewRow();
+            Random rd = new Random();
+            e.NewValues["ClientId"] = rd.Next();            
+            //e.NewValues["CreatedUser"] = SessionHandler.LoggedUser.UsersId;
+
+            IDictionaryEnumerator enumerator = e.NewValues.GetEnumerator();
+            enumerator.Reset();
+            while (enumerator.MoveNext())
+            {
+                if (enumerator.Key.ToString() != "Count")
+                {
+                    row[enumerator.Key.ToString()] = enumerator.Value == null ? DBNull.Value : enumerator.Value;
+                }
+            }
+            gridView.CancelEdit();
+            e.Cancel = true;
+
+            dsData.Tables[0].Rows.Add(row);
+
+           
+        }
+
+        protected void gvClients_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            int i = gvClients.FindVisibleIndexByKeyValue(e.Keys[gvClients.KeyFieldName]);
+            e.Cancel = true;
+            dsData = Session["ClientData"] as DataSet;
+            //dsData.Tables[0].Rows.Remove(dsData.Tables[0].Rows.Find(e.Keys[gvData.KeyFieldName]));
+
+            dsData.Tables[0].DefaultView.Delete(dsData.Tables[0].Rows.IndexOf(dsData.Tables[0].Rows.Find(e.Keys[gvClients.KeyFieldName])));
+
+
+            //if (additionalService.Save(dsData))
+            //{
+            //    this.LoadAdditionalService();
+            //}
+        }
+
+        protected void gvClients_CellEditorInitialize(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewEditorEventArgs e)
+        {
+            if (e.Column.FieldName != "ClientId" ) return;
+
+            ASPxComboBox combo = e.Editor as ASPxComboBox;
+            combo.DataBindItems();
         }
 
     }
