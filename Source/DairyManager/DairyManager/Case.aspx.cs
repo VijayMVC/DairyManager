@@ -25,7 +25,6 @@ namespace DairyManager
         DataSet dsclients= new DataSet();
 
 
-
         protected void Page_Init(object sender, EventArgs e)
         {
             this.LoadClients();
@@ -101,16 +100,7 @@ namespace DairyManager
             }
 
         }
-
-        //private void LoadClient()
-        //{
-        //    cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
-        //    cmbClient.TextField = "Name";
-        //    cmbClient.ValueField = "ClientId";
-        //    cmbClient.DataBind();
-
-        //}
-
+        
         private void LoadCaseType()
         {
             cmbCaseType.DataSource = currentCase.SelectAllCaseType().Tables[0];
@@ -238,6 +228,25 @@ namespace DairyManager
 
             ASPxComboBox combo = e.Editor as ASPxComboBox;
             combo.DataBindItems();
+        }
+
+        protected void gvClients_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        {
+            dsData = Session["ClientData"] as DataSet;
+            ASPxGridView gridView = sender as ASPxGridView;
+            DataTable dataTable = dsData.Tables[0];
+            DataRow row = dataTable.Rows.Find(e.Keys[0]);
+            //  e.NewValues["StatusId"] = (int)Enums.HBMStatus.Modify;
+            // e.NewValues["UpdatedUser"] = SessionHandler.LoggedUser.UsersId;
+            IDictionaryEnumerator enumerator = e.NewValues.GetEnumerator();
+            enumerator.Reset();
+            while (enumerator.MoveNext())
+            {
+                row[enumerator.Key.ToString()] = enumerator.Value == null ? DBNull.Value : enumerator.Value;
+            }
+
+            gridView.CancelEdit();
+            e.Cancel = true;
         }
 
     }

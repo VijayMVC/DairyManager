@@ -10,13 +10,13 @@
     <div>
         <div class="page-header">
             <h1>Case</h1>
-            </div>
+        </div>
         <asp:HiddenField ID="hdnCaseId" runat="server" />
         <div class="form-group">
             <div>
                 <span>UFN</span>
                 <em>*</em>
-                
+
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtCode" runat="server" Width="170px" MaxLength="50">
@@ -26,7 +26,7 @@
                 </dx:ASPxTextBox>
             </div>
         </div>
-        <div class="form-group" style="display:none">
+        <div class="form-group" style="display: none">
             <div>
                 <span>Case</span>
                 <em>*</em>
@@ -76,14 +76,21 @@
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxComboBox>
-                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting">
+                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" OnRowUpdating="gvClients_RowUpdating">
                     <Columns>
                         <dx:GridViewCommandColumn VisibleIndex="0">
+                            <NewButton Visible="True">
+                            </NewButton>
                             <DeleteButton Visible="True">
                             </DeleteButton>
                         </dx:GridViewCommandColumn>
-                        <dx:GridViewDataComboBoxColumn Caption="Client" VisibleIndex="1">
-                            <PropertiesComboBox TextField="Name" ValueField="ClientId" ValueType="System.Guid">
+                        <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
+                            VisibleIndex="3">
+                            <PropertiesComboBox TextField="Name" ValueField="ClientId"
+                                ValueType="System.Guid">
+                                <ValidationSettings>
+                                    <RequiredField ErrorText="Required" IsRequired="True" />
+                                </ValidationSettings>
                             </PropertiesComboBox>
                         </dx:GridViewDataComboBoxColumn>
                     </Columns>
@@ -103,7 +110,7 @@
                 </dx:ASPxComboBox>
             </div>
         </div>
-        <div class="form-group" style="display:none">
+        <div class="form-group" style="display: none">
             <div>
                 <span>Email</span>
                 <span></span>
@@ -116,7 +123,7 @@
                 </dx:ASPxTextBox>
             </div>
         </div>
-        <div class="form-group" style="display:none">
+        <div class="form-group" style="display: none">
             <div>
                 <span>Contact</span>
                 <span></span>
