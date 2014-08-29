@@ -32,9 +32,11 @@ namespace Diary.DAL
 
             db.AddOutParameter(dbCommand, "@CaseId", DbType.Guid, 30);
 
-            db.ExecuteNonQuery(dbCommand);
+            db.ExecuteNonQuery(dbCommand);                       
 
             result = new Guid(db.GetParameterValue(dbCommand, "@CaseId").ToString());
+            caseEntity.CaseId = result;
+            this.InsertUpdateDelete(caseEntity);
 
             return result;
         }
@@ -58,6 +60,8 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, caseEntity.UpdatedBy);
 
             db.ExecuteNonQuery(dbCommand);
+            
+            this.InsertUpdateDelete(caseEntity);
 
             result = true;
 
@@ -212,6 +216,40 @@ namespace Diary.DAL
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_CourtSelectAll");
+
+            return db.ExecuteDataSet(command);
+        }
+
+        private bool InsertUpdateDelete(CaseEntity caseEntity)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand commandInsert = db.GetStoredProcCommand("usp_CaseDescriptionInsert");
+
+            db.AddInParameter(commandInsert, "@CaseId", DbType.Guid,  caseEntity.CaseId);
+            db.AddInParameter(commandInsert, "@ClientId", DbType.Guid, "ClientId", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "@CreatedBy", DbType.Guid, "CreatedBy", DataRowVersion.Current);
+
+
+            DbCommand commandUpdate = db.GetStoredProcCommand("usp_CaseDescriptionUpdate");
+            db.AddInParameter(commandUpdate, "@CaseDescriptionId", DbType.Int32, "CaseDescriptionId", DataRowVersion.Current);
+            db.AddInParameter(commandUpdate, "@CaseId", DbType.Guid, "CaseId", DataRowVersion.Current);
+            db.AddInParameter(commandUpdate, "@ClientId", DbType.Guid, "ClientId", DataRowVersion.Current);
+            db.AddInParameter(commandUpdate, "@UpdatedBy", DbType.Guid, "UpdatedBy", DataRowVersion.Current);
+
+            DbCommand commandDelete = db.GetStoredProcCommand("usp_CaseDescriptionDelete");
+            db.AddInParameter(commandDelete, "@CaseDescriptionId", DbType.Int64, "CaseDescriptionId", DataRowVersion.Current);
+
+            db.UpdateDataSet(caseEntity.Clients, caseEntity.Clients.Tables[0].TableName, commandInsert, commandUpdate, commandDelete, UpdateBehavior.Transactional);
+
+            return true;
+        }
+
+        public DataSet SelectClientDescriptionByCaseId(Guid caseId)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_CaseDescriptionSelectByCaseId");
+            db.AddInParameter(command, "@CaseId", DbType.Guid, caseId);
 
             return db.ExecuteDataSet(command);
         }

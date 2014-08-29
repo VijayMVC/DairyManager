@@ -22,17 +22,17 @@ namespace DairyManager
         bll.Case currentCase = new bll.Case();
 
         DataSet dsData = new DataSet();
-        DataSet dsclients= new DataSet();
-
+        DataSet dsclients = new DataSet();
 
         protected void Page_Init(object sender, EventArgs e)
         {
             this.LoadClients();
+            this.LoadClientData();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             this.LoadCaseType();
             this.LoadCourt();
             this.LoadOffence();
@@ -46,6 +46,9 @@ namespace DairyManager
                     this.DisplayRecord(new Guid(hdnCaseId.Value));
                 }
             }
+
+            gvClients.DataBind();
+
             this.AuthoriseUser();
         }
 
@@ -63,8 +66,7 @@ namespace DairyManager
         protected void btnSave_Click(object sender, EventArgs e)
         {
             caseEntity.Code = txtCode.Text.Trim();
-            caseEntity.Case = txtCase.Text.Trim();
-            caseEntity.ClientId = new Guid(cmbClient.Value.ToString());
+            caseEntity.Case = txtCase.Text.Trim();            
             caseEntity.CaseTypeId = new Guid(cmbCaseType.Value.ToString());
             caseEntity.OffenceTypeId = new Guid(cmbOffence.Value.ToString());
             caseEntity.CourtId = new Guid(cmbCourt.Value.ToString());
@@ -73,6 +75,8 @@ namespace DairyManager
 
             caseEntity.CreatedBy = Master.LoggedUser.UserId.Value;
             caseEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
+
+            caseEntity.Clients = (DataSet)Session["ClientData"];
 
             bll.Case caseBll = new bll.Case();
 
@@ -83,12 +87,13 @@ namespace DairyManager
                     caseBll.InsertCase(caseEntity);
                     Master.ShowMessage(Diary.Common.Constant.Message_Success);
                     this.ClearFormFields();
+                    Session["ClientData"] =null;
+
                 }
                 else
                 {
-                    Master.ShowMessage(Diary.Common.Constant.Message_AlreadyExists);    
-                }                
-
+                    Master.ShowMessage(Diary.Common.Constant.Message_AlreadyExists);
+                }
             }
             else
             {
@@ -96,11 +101,9 @@ namespace DairyManager
                 caseBll.UpdateCase(caseEntity);
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
                 this.ClearFormFields();
-
             }
-
         }
-        
+
         private void LoadCaseType()
         {
             cmbCaseType.DataSource = currentCase.SelectAllCaseType().Tables[0];
@@ -147,17 +150,52 @@ namespace DairyManager
             }
         }
 
+        protected void LoadClientData()
+        {
+            try
+            {
+                if (hdnCaseId.Value != string.Empty)
+                {
+                    if (Session["ClientData"] == null)
+                    {
+                        dsData = currentCase.SelectClientDescriptionByCaseId(new Guid(hdnCaseId.Value));
+                        Session["ClientData"] = dsData;
+                    }
+                }
+                else
+                {
+                    if (Session["ClientData"] == null)
+                    {
+                        dsData = currentCase.SelectClientDescriptionByCaseId(new Guid());
+                        Session["ClientData"] = dsData;
+                    }
+
+                }
+
+                gvClients.DataSource = ((DataSet)Session["ClientData"]).Tables[0];
+
+                dsData.Tables[0].PrimaryKey = new DataColumn[] { dsData.Tables[0].Columns["CaseDescriptionId"] };
+                Session["ClientData"] = dsData;
+
+            }
+            catch (System.Exception)
+            {
+
+
+            }
+        }
+
         private void ClearFormFields()
         {
             txtCode.Text = string.Empty;
-            txtCase.Text = string.Empty;
-            cmbClient.SelectedIndex = -1;
+            txtCase.Text = string.Empty;            
             cmbCaseType.SelectedIndex = -1;
             cmbOffence.SelectedIndex = -1;
             cmbCourt.SelectedIndex = -1;
             txtEmail.Text = string.Empty;
             txtContact.Text = string.Empty;
             hdnCaseId.Value = string.Empty;
+            this.LoadClientData();
             txtCode.Focus();
 
         }
@@ -169,8 +207,7 @@ namespace DairyManager
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
                 txtCode.Text = ds.Tables[0].Rows[0]["Code"] != null ? ds.Tables[0].Rows[0]["Code"].ToString() : string.Empty;
-                txtCase.Text = ds.Tables[0].Rows[0]["Case"] != null ? ds.Tables[0].Rows[0]["Case"].ToString() : string.Empty;
-                cmbClient.Value = ds.Tables[0].Rows[0]["ClientId"] != null ? ds.Tables[0].Rows[0]["ClientId"].ToString() : string.Empty;
+                txtCase.Text = ds.Tables[0].Rows[0]["Case"] != null ? ds.Tables[0].Rows[0]["Case"].ToString() : string.Empty;                
                 cmbOffence.Value = ds.Tables[0].Rows[0]["OffenceTypeId"] != null ? ds.Tables[0].Rows[0]["OffenceTypeId"].ToString() : string.Empty;
                 cmbCourt.Value = ds.Tables[0].Rows[0]["CourtId"] != null ? ds.Tables[0].Rows[0]["CourtId"].ToString() : string.Empty;
                 cmbCaseType.Value = ds.Tables[0].Rows[0]["CaseTypeId"].ToString();
@@ -186,8 +223,9 @@ namespace DairyManager
             ASPxGridView gridView = sender as ASPxGridView;
             DataRow row = dsData.Tables[0].NewRow();
             Random rd = new Random();
-            e.NewValues["ClientId"] = rd.Next();            
-            //e.NewValues["CreatedUser"] = SessionHandler.LoggedUser.UsersId;
+            e.NewValues["CaseDescriptionId"] = rd.Next();
+            e.NewValues["CreatedBy"] = Master.LoggedUser.UserId.Value;
+
 
             IDictionaryEnumerator enumerator = e.NewValues.GetEnumerator();
             enumerator.Reset();
@@ -202,8 +240,9 @@ namespace DairyManager
             e.Cancel = true;
 
             dsData.Tables[0].Rows.Add(row);
+            Session["ClientData"] = dsData;
+            // currentCase.InsertUpdateDelete(dsData);
 
-           
         }
 
         protected void gvClients_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
@@ -214,17 +253,16 @@ namespace DairyManager
             //dsData.Tables[0].Rows.Remove(dsData.Tables[0].Rows.Find(e.Keys[gvData.KeyFieldName]));
 
             dsData.Tables[0].DefaultView.Delete(dsData.Tables[0].Rows.IndexOf(dsData.Tables[0].Rows.Find(e.Keys[gvClients.KeyFieldName])));
+            Session["ClientData"] = dsData;
 
 
-            //if (additionalService.Save(dsData))
-            //{
-            //    this.LoadAdditionalService();
-            //}
+            //   currentCase.InsertUpdateDelete(dsData);
+
         }
 
         protected void gvClients_CellEditorInitialize(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName != "ClientId" ) return;
+            if (e.Column.FieldName != "ClientId") return;
 
             ASPxComboBox combo = e.Editor as ASPxComboBox;
             combo.DataBindItems();
@@ -236,8 +274,8 @@ namespace DairyManager
             ASPxGridView gridView = sender as ASPxGridView;
             DataTable dataTable = dsData.Tables[0];
             DataRow row = dataTable.Rows.Find(e.Keys[0]);
-            //  e.NewValues["StatusId"] = (int)Enums.HBMStatus.Modify;
-            // e.NewValues["UpdatedUser"] = SessionHandler.LoggedUser.UsersId;
+            e.NewValues["ClientId"] = new Guid();
+            e.NewValues["UpdatedBy"] = Master.LoggedUser.UserId.Value;
             IDictionaryEnumerator enumerator = e.NewValues.GetEnumerator();
             enumerator.Reset();
             while (enumerator.MoveNext())
@@ -247,6 +285,10 @@ namespace DairyManager
 
             gridView.CancelEdit();
             e.Cancel = true;
+            Session["ClientData"] = dsData;
+
+            // currentCase.InsertUpdateDelete(dsData);
+
         }
 
     }

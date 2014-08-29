@@ -95,5 +95,13 @@ namespace Diary.BLL
             return caseDao.SelectAllCourt();
         }
 
+  
+
+        public DataSet SelectClientDescriptionByCaseId(Guid caseId)
+        {
+            return caseDao.SelectClientDescriptionByCaseId(caseId);
+        }
+
+
     }
 }

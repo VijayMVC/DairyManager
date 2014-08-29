@@ -71,12 +71,8 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbClient" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
-                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Required" IsRequired="True" />
-                    </ValidationSettings>
-                </dx:ASPxComboBox>
-                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" OnRowUpdating="gvClients_RowUpdating">
+
+                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" OnRowUpdating="gvClients_RowUpdating" KeyFieldName="CaseDescriptionId">
                     <Columns>
                         <dx:GridViewCommandColumn VisibleIndex="0">
                             <NewButton Visible="True">
