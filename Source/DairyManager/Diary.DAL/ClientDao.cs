@@ -85,5 +85,15 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
+        public DataSet DeleteClientByClientId(Guid clientId)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_ClientDelete");
+
+            db.AddInParameter(command, "@ClientId", DbType.Guid, clientId);
+
+            return db.ExecuteDataSet(command);
+        }
+
     }
 }

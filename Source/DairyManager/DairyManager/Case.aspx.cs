@@ -33,12 +33,18 @@ namespace DairyManager
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+
             this.LoadCaseType();
             this.LoadCourt();
             this.LoadOffence();
 
             if (!IsPostBack)
             {
+                Session["ClientData"] = null;
+                gvClients.DataSource = null;
+                gvClients.DataBind();
+
                 hdnCaseId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CaseId.ToString());
 
                 if (hdnCaseId.Value != string.Empty)
@@ -131,13 +137,7 @@ namespace DairyManager
         protected void LoadClients()
         {
             try
-            {
-
-                //cmbClient.DataSource = currentClient.SelectClientAll().Tables[0];
-                //cmbClient.TextField = "Name";
-                //cmbClient.ValueField = "ClientId";
-                //cmbClient.DataBind();
-
+            {                
                 dsclients = currentClient.SelectClientAll();
                 dsclients.Tables[0].TableName = "clients";
                 ((GridViewDataComboBoxColumn)gvClients.Columns["ClientId"]).PropertiesComboBox.DataSource = dsclients.Tables[0];
@@ -195,7 +195,10 @@ namespace DairyManager
             txtEmail.Text = string.Empty;
             txtContact.Text = string.Empty;
             hdnCaseId.Value = string.Empty;
-            this.LoadClientData();
+            Session["ClientData"] = null;
+            gvClients.DataSource = null;
+            gvClients.DataBind();
+            
             txtCode.Focus();
 
         }
@@ -213,6 +216,11 @@ namespace DairyManager
                 cmbCaseType.Value = ds.Tables[0].Rows[0]["CaseTypeId"].ToString();
                 txtEmail.Text = ds.Tables[0].Rows[0]["Email"] != null ? ds.Tables[0].Rows[0]["Email"].ToString() : string.Empty;
                 txtContact.Text = ds.Tables[0].Rows[0]["Contact"] != null ? ds.Tables[0].Rows[0]["Contact"].ToString() : string.Empty;
+
+                dsData = currentCase.SelectClientDescriptionByCaseId(new Guid(hdnCaseId.Value));
+                Session["ClientData"] = dsData;
+                gvClients.DataSource = ((DataSet)Session["ClientData"]).Tables[0];
+                
 
             }
         }
@@ -241,7 +249,7 @@ namespace DairyManager
 
             dsData.Tables[0].Rows.Add(row);
             Session["ClientData"] = dsData;
-            // currentCase.InsertUpdateDelete(dsData);
+           
 
         }
 
@@ -250,13 +258,12 @@ namespace DairyManager
             int i = gvClients.FindVisibleIndexByKeyValue(e.Keys[gvClients.KeyFieldName]);
             e.Cancel = true;
             dsData = Session["ClientData"] as DataSet;
-            //dsData.Tables[0].Rows.Remove(dsData.Tables[0].Rows.Find(e.Keys[gvData.KeyFieldName]));
+            
+            
+            dsData.Tables[0].PrimaryKey = new DataColumn[] { dsData.Tables[0].Columns["CaseDescriptionId"] };
 
             dsData.Tables[0].DefaultView.Delete(dsData.Tables[0].Rows.IndexOf(dsData.Tables[0].Rows.Find(e.Keys[gvClients.KeyFieldName])));
             Session["ClientData"] = dsData;
-
-
-            //   currentCase.InsertUpdateDelete(dsData);
 
         }
 
@@ -287,8 +294,11 @@ namespace DairyManager
             e.Cancel = true;
             Session["ClientData"] = dsData;
 
-            // currentCase.InsertUpdateDelete(dsData);
+        }
 
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormFields();
         }
 
     }

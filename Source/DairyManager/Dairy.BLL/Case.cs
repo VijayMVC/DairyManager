@@ -26,9 +26,9 @@ namespace Diary.BLL
             return caseDao.UpdateCase(caseEntity);
         }
 
-        public bool DeleteCase(CaseEntity caseEntity)
+        public bool DeleteCase(Guid caseId)
         {
-            return caseDao.DeleteCase(caseEntity);
+            return caseDao.DeleteCase(caseId);
         }
 
         public DataSet SelectCaseByCaseId(Guid caseId)

@@ -97,5 +97,10 @@ namespace DairyManager
             txtCaseTypeDescription.Focus();
             
         }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormFields();
+        }
     }
 }

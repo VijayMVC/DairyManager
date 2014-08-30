@@ -63,6 +63,7 @@ namespace DairyManager
             }
             else
             {
+                clientEntity.ClientId = new Guid(hdnClientId.Value);
                 clientEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
                 currentclient.UpdateClient(clientEntity);
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
@@ -100,6 +101,11 @@ namespace DairyManager
             txtContactPerson.Text = string.Empty;
             hdnClientId.Value = string.Empty;
             txtName.Focus();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormData();
         }
 
     }

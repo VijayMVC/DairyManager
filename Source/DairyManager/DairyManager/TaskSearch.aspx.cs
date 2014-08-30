@@ -11,6 +11,9 @@ namespace DairyManager
 {
     public partial class TaskSearch : System.Web.UI.Page
     {
+        bll.Task currentTask = new bll.Task();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoadData();
@@ -30,9 +33,16 @@ namespace DairyManager
 
         private void LoadData()
         {
-            bll.Task currentTask = new bll.Task();
             gvTaskSearch.DataSource = currentTask.SelectTaskAll().Tables[0];
             gvTaskSearch.DataBind();
+        }
+
+        protected void gvTaskSearch_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            e.Cancel = true;
+
+            currentTask.DeleteTask((Guid)e.Keys[gvTaskSearch.KeyFieldName]);
+            this.LoadData();
         }
     }
 }

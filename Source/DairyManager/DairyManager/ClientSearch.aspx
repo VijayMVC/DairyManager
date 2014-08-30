@@ -12,7 +12,7 @@
         <h1>Client Search</h1>
             </div>
         <div>
-            <dx:ASPxGridView ID="gvClientSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="ClientId">
+            <dx:ASPxGridView ID="gvClientSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="ClientId" OnRowDeleting="gvClientSearch_RowDeleting">
                 <Columns>
                     <%--<dx:GridViewDataTextColumn VisibleIndex="1" Caption="Name">
                         <DataItemTemplate>
@@ -45,10 +45,20 @@
                     <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Email" FieldName="Email" ShowInCustomizationForm="True">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="8" Caption="ContactPerson" FieldName="ContactPerson" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="9" Caption="Contact Person" FieldName="ContactPerson" ShowInCustomizationForm="True">
                     </dx:GridViewDataTextColumn>
 
+                    <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="0">
+                        <DeleteButton Visible="True">
+                            <Image Url="~/Images/delete.png">
+                            </Image>
+                        </DeleteButton>
+                        <ClearFilterButton Visible="True">
+                        </ClearFilterButton>
+                    </dx:GridViewCommandColumn>
+
                 </Columns>
+                <SettingsBehavior ConfirmDelete="True" />
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
         </div>

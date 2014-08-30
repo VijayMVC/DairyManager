@@ -105,7 +105,7 @@ namespace DairyManager
         private void LoadCase()
         {
             cmbCase.DataSource = currentCase.SelectAllCase().Tables[0];
-            cmbCase.TextField = "Case";
+            cmbCase.TextField = "Code";
             cmbCase.ValueField = "CaseId";
             cmbCase.DataBind();
         }
@@ -148,6 +148,11 @@ namespace DairyManager
             seTotalHours.Text = "0";
             hdnTaskId.Value = string.Empty;
             dtDate.Focus();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormFields();
         }
     }
 }

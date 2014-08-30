@@ -46,6 +46,10 @@
                 <div>
                     <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
                 </div>
+                    <div>
+                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click"></dx:ASPxButton>
+
+            </div>
                 <div>
                     <dx:ASPxButton ID="btnSearch" runat="server" Text="Search" PostBackUrl="~/TaskTypeSearch.aspx" CausesValidation="False"></dx:ASPxButton>
                 </div>

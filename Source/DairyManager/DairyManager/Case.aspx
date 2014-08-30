@@ -74,10 +74,14 @@
 
                 <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" OnRowUpdating="gvClients_RowUpdating" KeyFieldName="CaseDescriptionId">
                     <Columns>
-                        <dx:GridViewCommandColumn VisibleIndex="0">
+                        <dx:GridViewCommandColumn VisibleIndex="0" ButtonType="Image">
                             <NewButton Visible="True">
+                                <Image Url="~/Images/new.png">
+                                </Image>
                             </NewButton>
                             <DeleteButton Visible="True">
+                                <Image Url="~/Images/delete.png">
+                                </Image>
                             </DeleteButton>
                         </dx:GridViewCommandColumn>
                         <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
@@ -90,6 +94,7 @@
                             </PropertiesComboBox>
                         </dx:GridViewDataComboBoxColumn>
                     </Columns>
+                    <SettingsBehavior ConfirmDelete="True" />
                 </dx:ASPxGridView>
             </div>
         </div>
@@ -131,6 +136,10 @@
         <div class="clearfix form-actions">
             <div>
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
+
+            </div>
+            <div>
+                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click"></dx:ASPxButton>
 
             </div>
             <div>

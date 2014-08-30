@@ -162,6 +162,22 @@ namespace Diary.DAL
 
         }
 
+        public bool DeleteTask(Guid taskId)
+        {
+            bool result = false;
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskDelete");
+
+            db.AddInParameter(command, "@TaskId", DbType.Guid, taskId);
+           
+            db.ExecuteNonQuery(command);
+
+            
+
+            return result;
+
+
+        }
 
     }
 }

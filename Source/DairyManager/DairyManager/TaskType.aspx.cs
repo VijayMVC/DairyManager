@@ -95,5 +95,10 @@ namespace DairyManager
             this.hdnTaskTypeId.Value = string.Empty;
             this.txtTaskDescription.Focus();
         }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormFields();
+        }
     }
 }

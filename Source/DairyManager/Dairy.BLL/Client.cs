@@ -36,5 +36,11 @@ namespace Diary.BLL
             return clientDao.SelectClientAll();
 
         }
+
+        public DataSet DeleteClientByClientId(Guid clientId)
+        {
+            return clientDao.DeleteClientByClientId(clientId);
+
+        }
     }
 }

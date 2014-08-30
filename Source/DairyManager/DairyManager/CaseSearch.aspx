@@ -12,13 +12,20 @@
             <h1>Search Case</h1>
         </div>
         <div>
-            <dx:ASPxGridView ID="gvCaseSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="CaseId">
+            <dx:ASPxGridView ID="gvCaseSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="CaseId" OnRowDeleting="gvCaseSearch_RowDeleting">
                 <Columns>
                     <%-- <dx:GridViewDataTextColumn VisibleIndex="1" Caption="Case Code">
                         <DataItemTemplate>
                             <a id="clickElement" target="_self" href="/Case.aspx?CaseId=<%# Container.KeyValue%>"><%#  Eval("Code").ToString()%> </a>
                         </DataItemTemplate>
                     </dx:GridViewDataTextColumn>--%>
+
+                    <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="0">
+                        <DeleteButton Visible="True">
+                            <Image Url="~/Images/delete.png">
+                            </Image>
+                        </DeleteButton>
+                    </dx:GridViewCommandColumn>
 
                     <dx:GridViewDataHyperLinkColumn Caption="UFN" FieldName="CaseId" VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/Case.aspx?CaseId={0}" TextField="Code">
@@ -48,6 +55,7 @@
                     </dx:GridViewDataTextColumn>
 
                 </Columns>
+                <SettingsBehavior ConfirmDelete="True" />
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
 

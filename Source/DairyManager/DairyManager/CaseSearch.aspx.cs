@@ -11,8 +11,11 @@ namespace DairyManager
 {
     public partial class CaseSearch : System.Web.UI.Page
     {
+        bll.Case currentCase = new bll.Case();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["ClientData"] = null;
             this.LoadData();
             this.AuthoriseUser();
         }
@@ -30,9 +33,16 @@ namespace DairyManager
 
         private void LoadData()
         {
-            bll.Case currentCase = new bll.Case();
             gvCaseSearch.DataSource = currentCase.SelectAllCase().Tables[0];
             gvCaseSearch.DataBind();
+        }
+
+        protected void gvCaseSearch_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
+        {
+            e.Cancel = true;
+
+            currentCase.DeleteCase((Guid)e.Keys[gvCaseSearch.KeyFieldName]);
+            this.LoadData();
         }
     }
 }
