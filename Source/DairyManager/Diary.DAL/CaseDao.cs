@@ -155,13 +155,13 @@ namespace Diary.DAL
             return result;
         }
 
-        public bool DeleteCaseType(CaseTypeEntity caseTypeEntity)
+        public bool DeleteCaseType(Guid caseTypeId)
         {
 
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_CaseTypeDelete");
 
-            db.AddInParameter(command, "@CaseTypeId", DbType.Guid, caseTypeEntity.CaseTypeId);
+            db.AddInParameter(command, "@CaseTypeId", DbType.Guid, caseTypeId);
 
             db.ExecuteNonQuery(command);
 

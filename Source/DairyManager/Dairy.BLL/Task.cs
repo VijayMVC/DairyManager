@@ -72,5 +72,11 @@ namespace Diary.BLL
             return taskDao.DeleteTask(taskId);
 
         }
+
+        public bool DeleteTaskType(Guid taskTypeId)
+        {
+            return taskDao.DeleteTaskType(taskTypeId);
+
+        }
     }
 }

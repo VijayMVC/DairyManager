@@ -179,5 +179,23 @@ namespace Diary.DAL
 
         }
 
+        public bool DeleteTaskType(Guid taskTypeId)
+        {
+            bool result = false;
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskTypeDelete");
+
+            db.AddInParameter(command, "@TaskTypeId", DbType.Guid, taskTypeId);
+
+            db.ExecuteNonQuery(command);
+
+
+
+            return result;
+
+
+        }
+
+
     }
 }

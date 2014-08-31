@@ -12,7 +12,7 @@
             <h1>Task Type Search</h1>
         </div>
         <div>
-            <dx:ASPxGridView ID="gvTaskTypeSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="TaskTypeId">
+            <dx:ASPxGridView ID="gvTaskTypeSearch" runat="server" AutoGenerateColumns="False" KeyFieldName="TaskTypeId" OnRowDeleting="gvTaskTypeSearch_RowDeleting">
                 <Columns>
                     <%--<dx:GridViewDataTextColumn VisibleIndex="1" Caption="Task Code">
                         <DataItemTemplate>
@@ -20,6 +20,13 @@
 
                         </DataItemTemplate>
                     </dx:GridViewDataTextColumn>--%>
+
+                      <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="0">
+                          <DeleteButton Visible="True">
+                              <Image Url="~/Images/delete.png">
+                              </Image>
+                          </DeleteButton>
+                    </dx:GridViewCommandColumn>
 
                       <dx:GridViewDataHyperLinkColumn Caption="Task Code" FieldName="TaskTypeId" VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/TaskType.aspx?TaskTypeId={0}" TextField="TaskCode" >
@@ -32,6 +39,7 @@
                     </dx:GridViewDataTextColumn>
 
                 </Columns>
+                <SettingsBehavior ConfirmDelete="True" />
                 <Settings ShowFilterRow="True" />
             </dx:ASPxGridView>
         </div>

@@ -61,9 +61,9 @@ namespace Diary.BLL
 
         }
 
-        public bool DeleteCaseType(CaseTypeEntity caseTypeEntity)
+        public bool DeleteCaseType(Guid caseTypeId)
         {
-            return caseDao.DeleteCaseType(caseTypeEntity);
+            return caseDao.DeleteCaseType(caseTypeId);
           
         }
 
