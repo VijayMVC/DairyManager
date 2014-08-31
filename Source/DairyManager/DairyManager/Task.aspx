@@ -59,7 +59,11 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbCase" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
+                <dx:ASPxComboBox ID="cmbCase" runat="server" IncrementalFilteringMode="Contains" TextFormatString="{0}">
+                    <Columns>
+                        <dx:ListBoxColumn Caption="UFN" FieldName="Code" />
+                        <dx:ListBoxColumn Caption="Clients" FieldName="Name" />
+                    </Columns>
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
