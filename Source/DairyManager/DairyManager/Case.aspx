@@ -96,6 +96,18 @@
                     </Columns>
                     <SettingsBehavior ConfirmDelete="True" />
                 </dx:ASPxGridView>
+                <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <dx:GridViewCommandColumn VisibleIndex="0">
+                            <NewButton Visible="True">
+                            </NewButton>
+                            <DeleteButton Visible="True">
+                            </DeleteButton>
+                        </dx:GridViewCommandColumn>
+                        <dx:GridViewDataComboBoxColumn Caption="Client" VisibleIndex="1">
+                        </dx:GridViewDataComboBoxColumn>
+                    </Columns>
+                </dx:ASPxGridView>
             </div>
         </div>
         <div class="form-group">

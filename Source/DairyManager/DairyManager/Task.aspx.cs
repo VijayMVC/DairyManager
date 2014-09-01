@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com = Diary.Common;
+using DevExpress.Web.ASPxGridView;
 
 
 namespace DairyManager
@@ -36,6 +37,9 @@ namespace DairyManager
 
             }
             this.AuthoriseUser();
+
+            dtDate.Value = DateTime.Today;
+
         }
 
         private void AuthoriseUser()
@@ -52,13 +56,19 @@ namespace DairyManager
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
+
+            if (!this.validateToSave())
+            {
+                return;
+            }
+
             taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
             taskEntity.CaseId = new Guid(cmbCase.Value.ToString());
             taskEntity.TaskCreator = new Guid(cmbTaskCreator.Value.ToString());
             taskEntity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
             taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
-            taskEntity.TotalRemainingHours = decimal.Parse(seRemaingHours.Text);
+            taskEntity.TotalRemainingHours = decimal.Parse(lblRemainingHours.Text);
             taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
             taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
             taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
@@ -66,7 +76,7 @@ namespace DairyManager
             if (hdnTaskId.Value == string.Empty)
             {
                 taskEntity.CreatedBy = Master.LoggedUser.UserId.Value;
-                currentTask.InsertTask(taskEntity);                
+                currentTask.InsertTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
 
@@ -94,10 +104,12 @@ namespace DairyManager
                 cmbFeeEarner.Value = ds.Tables[0].Rows[0]["FeeEarner"].ToString();
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
                 txtTaskDescription.Text = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
-                seRemaingHours.Text = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
+                lblRemainingHours.Text = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
                 teStartTime.Text = ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0";
                 teEndTime.Text = ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0";
                 seTotalHours.Text = ds.Tables[0].Rows[0]["TotalHours"] != null ? ds.Tables[0].Rows[0]["TotalHours"].ToString() : "0";
+
+                this.LoadTaskGrid();
             }
         }
 
@@ -141,27 +153,24 @@ namespace DairyManager
             cmbFeeEarner.SelectedIndex = -1;
             cmbTaskType.SelectedIndex = -1;
             txtTaskDescription.Text = string.Empty;
-            seRemaingHours.Text = "0";
+            lblRemainingHours.Text = "0";
             teStartTime.Text = "0";
             teEndTime.Text = "0";
             seTotalHours.Text = "0";
             hdnTaskId.Value = string.Empty;
             seTotalHours.MaxValue = 50;
             seTotalHours.MinValue = 0;
+            lblMaximumRecording.Text = "0";
 
             gvHistory.Visible = false;
             gvHistory.DataSource = null;
             gvHistory.DataBind();
 
+            dtDate.Value = DateTime.Today;
             dtDate.Focus();
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            this.ClearFormFields();
-        }
-
-        protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
+        private void LoadTaskGrid()
         {
             Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
             taskentity.TaskDate = DateTime.Parse(dtDate.Text);
@@ -173,7 +182,7 @@ namespace DairyManager
             if (taskCalculateDataSet != null && taskCalculateDataSet.Tables.Count > 0 && taskCalculateDataSet.Tables[0] != null && taskCalculateDataSet.Tables[0].Rows.Count > 0)
             {
                 string remainingHours = taskCalculateDataSet.Tables[0].Rows[0]["BalanceHours"].ToString();
-                seRemaingHours.Text = remainingHours;
+                lblRemainingHours.Text = remainingHours;
 
                 if (int.Parse(decimal.Parse(remainingHours).ToString("N0")) < 0)
                 {
@@ -184,7 +193,10 @@ namespace DairyManager
                     seTotalHours.MaxValue = int.Parse(decimal.Parse(remainingHours).ToString("N0"));
 
                 }
-                
+
+                string maximumRecording = taskCalculateDataSet.Tables[0].Rows[0]["TimeRestriction"].ToString();
+                lblMaximumRecording.Text = maximumRecording;
+
             }
 
 
@@ -202,7 +214,38 @@ namespace DairyManager
                 gvHistory.DataBind();
             }
 
-            
+        }
+        
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            this.ClearFormFields();
+        }
+
+        protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadTaskGrid();
+        }
+
+        private bool validateToSave()
+        {
+            bool result = false;
+
+            string maximumRecording = "0";
+            string consumedHours = "0";
+
+            maximumRecording = lblMaximumRecording.Text;
+
+           // ASPxSummaryItem incomeSummary = gvHistory.TotalSummary["Income"];
+
+            consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
+
+            if (maximumRecording == consumedHours)
+            {
+                result = false;
+                Master.ShowMessage(Diary.Common.Constant.Message_AllTimeConsumed);
+            }
+
+            return result;
         }
     }
 }

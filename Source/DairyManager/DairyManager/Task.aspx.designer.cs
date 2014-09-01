@@ -58,6 +58,33 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbCase;
         
         /// <summary>
+        /// gvHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvHistory;
+        
+        /// <summary>
+        /// lblRemainingHours control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblRemainingHours;
+        
+        /// <summary>
+        /// lblMaximumRecording control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblMaximumRecording;
+        
+        /// <summary>
         /// cmbTaskType control.
         /// </summary>
         /// <remarks>
@@ -74,24 +101,6 @@ namespace DairyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskDescription;
-        
-        /// <summary>
-        /// gvHistory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvHistory;
-        
-        /// <summary>
-        /// seRemaingHours control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit seRemaingHours;
         
         /// <summary>
         /// teStartTime control.
