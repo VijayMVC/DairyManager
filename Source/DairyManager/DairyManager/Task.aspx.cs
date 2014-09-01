@@ -37,7 +37,7 @@ namespace DairyManager
             }
             this.AuthoriseUser();
         }
-        
+
         private void AuthoriseUser()
         {
             btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Add)
@@ -66,19 +66,18 @@ namespace DairyManager
             if (hdnTaskId.Value == string.Empty)
             {
                 taskEntity.CreatedBy = Master.LoggedUser.UserId.Value;
-                currentTask.InsertTask(taskEntity);                                       
-                currentTask.InsertTask(taskEntity);
+                currentTask.InsertTask(taskEntity);                
                 this.ClearFormFields();
-                Master.ShowMessage( Diary.Common.Constant.Message_Success);
+                Master.ShowMessage(Diary.Common.Constant.Message_Success);
 
             }
             else
             {
-                taskEntity.TaskId = new Guid(hdnTaskId.Value);             
+                taskEntity.TaskId = new Guid(hdnTaskId.Value);
                 taskEntity.UpdatedBy = Master.LoggedUser.UserId.Value;
                 currentTask.UpdateTask(taskEntity);
                 this.ClearFormFields();
-                Master.ShowMessage( Diary.Common.Constant.Message_Success);
+                Master.ShowMessage(Diary.Common.Constant.Message_Success);
 
             }
         }
@@ -147,12 +146,42 @@ namespace DairyManager
             teEndTime.Text = "0";
             seTotalHours.Text = "0";
             hdnTaskId.Value = string.Empty;
+            seTotalHours.MaxValue = 50;
+            seTotalHours.MinValue = 0;
+
             dtDate.Focus();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
             this.ClearFormFields();
+        }
+
+        protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
+            taskentity.TaskDate = DateTime.Parse(dtDate.Text);
+            taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
+            taskentity.CaseId = new Guid(cmbCase.Value.ToString());
+
+            DataSet taskCalculateDataSet = currentTask.CalculateTask(taskentity);
+
+            if (taskCalculateDataSet != null && taskCalculateDataSet.Tables.Count > 0 && taskCalculateDataSet.Tables[0] != null && taskCalculateDataSet.Tables[0].Rows.Count > 0)
+            {
+                string remainingHours = taskCalculateDataSet.Tables[0].Rows[0]["BalanceHours"].ToString();
+                seRemaingHours.Text = remainingHours;
+
+                if (int.Parse(decimal.Parse(remainingHours).ToString("N0")) < 0)
+                {
+                    seTotalHours.MaxValue = 50;
+                }
+                else
+                {
+                    seTotalHours.MaxValue = int.Parse(decimal.Parse(remainingHours).ToString("N0"));
+
+                }
+                
+            }
         }
     }
 }

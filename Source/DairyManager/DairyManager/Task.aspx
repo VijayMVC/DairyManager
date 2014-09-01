@@ -59,7 +59,7 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbCase" runat="server" IncrementalFilteringMode="Contains" TextFormatString="{0}">
+                <dx:ASPxComboBox ID="cmbCase" runat="server" IncrementalFilteringMode="Contains" TextFormatString="{0}" AutoPostBack="True" OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
                     <Columns>
                         <dx:ListBoxColumn Caption="UFN" FieldName="Code" />
                         <dx:ListBoxColumn Caption="Clients" FieldName="Name" />

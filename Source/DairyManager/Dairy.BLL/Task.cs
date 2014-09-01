@@ -78,5 +78,12 @@ namespace Diary.BLL
             return taskDao.DeleteTaskType(taskTypeId);
 
         }
+
+        public DataSet CalculateTask(TaskEntity taskEntity)
+        {
+            return taskDao.CalculateTask(taskEntity);
+
+        }
+
     }
 }

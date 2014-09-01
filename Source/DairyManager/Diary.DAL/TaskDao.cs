@@ -196,6 +196,18 @@ namespace Diary.DAL
 
         }
 
+        public DataSet CalculateTask(TaskEntity taskEntity)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskCalculate");
+
+            db.AddInParameter(command, "@TaskDate", DbType.Date, taskEntity.TaskDate);
+            db.AddInParameter(command, "@FeeEarner", DbType.Guid, taskEntity.FeeEarner);
+            db.AddInParameter(command, "@CaseId", DbType.Guid, taskEntity.CaseId);
+
+            return db.ExecuteDataSet(command);
+        }
+
 
     }
 }
