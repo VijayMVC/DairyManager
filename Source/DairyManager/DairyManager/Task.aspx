@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Task.aspx.cs" Inherits="DairyManager.Task" MasterPageFile="~/Site.master" %>
 
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <%@ MasterType VirtualPath="~/Site.Master" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -97,6 +99,25 @@
                 </dx:ASPxTextBox>
             </div>
         </div>
+
+          <div class="form-group">
+              <dx:ASPxGridView ID="gvHistory" runat="server" AutoGenerateColumns="False" Visible="False">
+                  <TotalSummary>
+                      <dx:ASPxSummaryItem DisplayFormat="Total {0:N2}" FieldName="TotalHours" ShowInColumn="Total Hours" SummaryType="Sum" />
+                  </TotalSummary>
+                  <Columns>
+                      <dx:GridViewDataTextColumn Caption="Task Description" FieldName="TaskDescription" VisibleIndex="0">
+                      </dx:GridViewDataTextColumn>
+                      <dx:GridViewDataTextColumn Caption="Start Time" FieldName="StartTime" VisibleIndex="1">
+                      </dx:GridViewDataTextColumn>
+                      <dx:GridViewDataTextColumn Caption="End Time" FieldName="EndTime" VisibleIndex="2">
+                      </dx:GridViewDataTextColumn>
+                      <dx:GridViewDataTextColumn Caption="Total Hours" FieldName="TotalHours" VisibleIndex="3">
+                      </dx:GridViewDataTextColumn>
+                  </Columns>
+                  <Settings ShowFooter="True" />
+              </dx:ASPxGridView>
+              </div>
 
         <div class="form-group">
             <div>

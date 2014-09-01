@@ -149,6 +149,10 @@ namespace DairyManager
             seTotalHours.MaxValue = 50;
             seTotalHours.MinValue = 0;
 
+            gvHistory.Visible = false;
+            gvHistory.DataSource = null;
+            gvHistory.DataBind();
+
             dtDate.Focus();
         }
 
@@ -182,6 +186,23 @@ namespace DairyManager
                 }
                 
             }
+
+
+            if (taskCalculateDataSet != null && taskCalculateDataSet.Tables.Count > 0 && taskCalculateDataSet.Tables[1] != null && taskCalculateDataSet.Tables[1].Rows.Count > 1)
+            {
+
+                gvHistory.Visible = true;
+                gvHistory.DataSource = taskCalculateDataSet.Tables[1];
+                gvHistory.DataBind();
+            }
+            else
+            {
+                gvHistory.Visible = false;
+                gvHistory.DataSource = null;
+                gvHistory.DataBind();
+            }
+
+            
         }
     }
 }
