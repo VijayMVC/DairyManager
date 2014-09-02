@@ -38,7 +38,7 @@ namespace DairyManager
             }
             this.AuthoriseUser();
 
-    
+
 
         }
 
@@ -98,16 +98,16 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                dtDate.Text = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString()).ToString("dd-MMM-yy HH:mm");
+                dtDate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString());
                 cmbCase.Value = ds.Tables[0].Rows[0]["CaseId"].ToString();
                 cmbTaskCreator.Value = ds.Tables[0].Rows[0]["TaskCreator"].ToString();
                 cmbFeeEarner.Value = ds.Tables[0].Rows[0]["FeeEarner"].ToString();
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
-                txtTaskDescription.Text = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
-                lblRemainingHours.Text = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
-                teStartTime.Text = ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0";
-                teEndTime.Text = ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0";
-                seTotalHours.Text = ds.Tables[0].Rows[0]["TotalHours"] != null ? ds.Tables[0].Rows[0]["TotalHours"].ToString() : "0";
+                txtTaskDescription.Value = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
+                lblRemainingHours.Value = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
+                teStartTime.Value = Convert.ToDateTime( ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0");
+                teEndTime.Value = Convert.ToDateTime( ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0");
+                seTotalHours.Value = ds.Tables[0].Rows[0]["TotalHours"] != null ? ds.Tables[0].Rows[0]["TotalHours"].ToString() : "0";
 
                 this.LoadTaskGrid();
             }
@@ -165,8 +165,7 @@ namespace DairyManager
             gvHistory.Visible = false;
             gvHistory.DataSource = null;
             gvHistory.DataBind();
-
-            dtDate.Value = DateTime.Today;
+            
             dtDate.Focus();
         }
 
@@ -215,7 +214,7 @@ namespace DairyManager
             }
 
         }
-        
+
         protected void btnClear_Click(object sender, EventArgs e)
         {
             this.ClearFormFields();
@@ -228,14 +227,17 @@ namespace DairyManager
 
         private bool validateToSave()
         {
-            bool result = false;
+            bool result = true;
 
             string maximumRecording = "0";
             string consumedHours = "0";
 
             maximumRecording = lblMaximumRecording.Text;
 
+            if (gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]) != null)
+            {
             consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
+            }
 
             if (maximumRecording == consumedHours)
             {
@@ -245,18 +247,23 @@ namespace DairyManager
             }
 
             //// Check start/end time
-            Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
-
-            taskentity.TaskDate = DateTime.Parse(dtDate.Text);
-            taskentity.CaseId = new Guid(cmbCase.Value.ToString());
-            taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
-            taskentity.StartTime = DateTime.Parse(teStartTime.Text);
-            taskentity.EndTime = DateTime.Parse(teEndTime.Text);
-
-            if (currentTask.IsWithinValidTimeFrame(taskentity))
+            if (hdnTaskId.Value == string.Empty)
             {
-                result = false;
-                Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
+
+                Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
+
+                taskentity.TaskDate = DateTime.Parse(dtDate.Text);
+                taskentity.CaseId = new Guid(cmbCase.Value.ToString());
+                taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
+                taskentity.StartTime = DateTime.Parse(teStartTime.Text);
+                taskentity.EndTime = DateTime.Parse(teEndTime.Text);
+
+                if (currentTask.IsWithinValidTimeFrame(taskentity))
+                {
+                    result = false;
+                    Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
+
+                }
 
             }
 

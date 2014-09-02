@@ -165,7 +165,11 @@
             </div>
             <div class="input-group">
                 <dx:ASPxSpinEdit ID="seTotalHours" runat="server" Height="21px" Number="0">
-                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                    <ClientSideEvents Validation="function(s, e) {
+	if(e.value &lt;=0 ) {e.isValid=false;}
+}" />
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" 
+                        ValidationGroup="vgSave" EnableCustomValidation="True" ErrorText="Invalid">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxSpinEdit>
