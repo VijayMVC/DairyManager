@@ -208,6 +208,29 @@ namespace Diary.DAL
             return db.ExecuteDataSet(command);
         }
 
+        public bool IsWithinValidTimeFrame(TaskEntity taskEntity)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskIsValidTimeFrame");
+
+            db.AddInParameter(command, "@TaskDate", DbType.Date, taskEntity.TaskDate);
+            db.AddInParameter(command, "@FeeEarner", DbType.Guid, taskEntity.FeeEarner);
+            db.AddInParameter(command, "@CaseId", DbType.Guid, taskEntity.CaseId);
+            db.AddInParameter(command, "@StartTime", DbType.Time, taskEntity.StartTime);
+            db.AddInParameter(command, "@EndTime", DbType.Time, taskEntity.EndTime);
+
+            db.AddOutParameter(command, "@result", DbType.Boolean, 2);
+
+            db.ExecuteNonQuery(command);
+
+            bool result = false;
+            
+            result = bool.Parse(db.GetParameterValue(command, "@result").ToString());
+
+            return result;
+            
+        }
+
 
     }
 }

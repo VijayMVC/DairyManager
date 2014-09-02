@@ -85,5 +85,11 @@ namespace Diary.BLL
 
         }
 
+        public bool IsWithinValidTimeFrame(TaskEntity taskEntity)
+        {
+            return taskDao.IsWithinValidTimeFrame(taskEntity);
+
+        }
+
     }
 }

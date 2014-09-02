@@ -38,7 +38,7 @@ namespace DairyManager
             }
             this.AuthoriseUser();
 
-            dtDate.Value = DateTime.Today;
+    
 
         }
 
@@ -235,14 +235,29 @@ namespace DairyManager
 
             maximumRecording = lblMaximumRecording.Text;
 
-           // ASPxSummaryItem incomeSummary = gvHistory.TotalSummary["Income"];
-
             consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
 
             if (maximumRecording == consumedHours)
             {
                 result = false;
                 Master.ShowMessage(Diary.Common.Constant.Message_AllTimeConsumed);
+                
+            }
+
+            //// Check start/end time
+            Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
+
+            taskentity.TaskDate = DateTime.Parse(dtDate.Text);
+            taskentity.CaseId = new Guid(cmbCase.Value.ToString());
+            taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
+            taskentity.StartTime = DateTime.Parse(teStartTime.Text);
+            taskentity.EndTime = DateTime.Parse(teEndTime.Text);
+
+            if (currentTask.IsWithinValidTimeFrame(taskentity))
+            {
+                result = false;
+                Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
+
             }
 
             return result;
