@@ -91,5 +91,10 @@ namespace Diary.BLL
 
         }
 
+        public DataSet SelectDashboardData(DateTime fromDate, DateTime toDate)
+        {
+            return taskDao.SelectDashboardData(DateTime fromDate, DateTime toDate);
+        }
+
     }
 }

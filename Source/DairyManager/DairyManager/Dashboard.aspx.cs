@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Web;
 using System.Web.UI;
 using DevExpress.Web.ASPxMenu;
@@ -12,15 +13,47 @@ namespace DairyManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            MapSchedulerFields();
+        }
 
+        private void MapSchedulerFields()
+        {
+            DataSet dsTimeLineData = GetTimelineData();
+
+            dsTimeLineData.Tables[0].PrimaryKey = new DataColumn[] { dsTimeLineData.Tables[0].Columns["TaskId"] };
+            dsTimeLineData.Tables[1].PrimaryKey = new DataColumn[] { dsTimeLineData.Tables[1].Columns["UserId"] };
+
+            DataRelation tableRelation = new DataRelation("ReservationRoomRel", dsTimeLineData.Tables[1].Columns["UserId"], dsTimeLineData.Tables[0].Columns["FeeEarner"]);
+            dsTimeLineData.Relations.Add(tableRelation);
+
+            Scheduler.ResourceDataSource = dsTimeLineData.Tables[1];
+            Scheduler.Storage.Resources.Mappings.ResourceId = "UserId";
+            Scheduler.Storage.Resources.Mappings.Caption = "Name";
+
+            Scheduler.Views.WorkWeekView.Enabled = false;
+            Scheduler.AppointmentDataSource = dsTimeLineData.Tables[0];
+            Scheduler.Storage.Appointments.Mappings.AppointmentId = "TaskId";
+            Scheduler.Storage.Appointments.Mappings.Start = "TaskDate";
+            Scheduler.Storage.Appointments.Mappings.End = "TaskDate";
+            Scheduler.Storage.Appointments.Mappings.Label = "Label";
+            Scheduler.Storage.Appointments.Mappings.Subject = "CaseDescription";
+            Scheduler.Storage.Appointments.Mappings.ResourceId = "FeeEarner";
+            Scheduler.DataBind();
+        }
+
+        protected DataSet GetTimelineData()
+        {
+
+            DataSet dsTasks = new Diary.BLL.Task().SelectDashboardData(DateTime.Now.AddMonths(-3), DateTime.Now.AddMonths(3));
+            return dsTasks;
         }
 
         protected void ASPxScheduler1_BeforeExecuteCallbackCommand(object sender, SchedulerCallbackCommandEventArgs e)
         {
             if (e.CommandId == "MNUVIEW")
-                e.Command = new DairyCustomMenuViewCallbackCommand(ASPxScheduler1);
+                e.Command = new DairyCustomMenuViewCallbackCommand(Scheduler);
             else if (e.CommandId == "USRAPTMENU")
-                e.Command = new DashboardCustomMenuAppointmentCallbackCommand(ASPxScheduler1);
+                e.Command = new DashboardCustomMenuAppointmentCallbackCommand(Scheduler);
         }
 
         protected void ASPxScheduler1_PopupMenuShowing(object sender, DevExpress.Web.ASPxScheduler.PopupMenuShowingEventArgs e)
@@ -55,7 +88,7 @@ namespace DairyManager
             RemoveMenuItem(menu, "NewRecurringAppointment");
             RemoveMenuItem(menu, "NewRecurringEvent");
             RemoveMenuItem(menu, "GotoToday");
-            RemoveMenuItem(menu, "GotoDate");
+            //RemoveMenuItem(menu, "GotoDate");
         }
 
         //protected void AddScheduleNewEventSubMenu(ASPxSchedulerPopupMenu menu, string caption)
@@ -181,12 +214,14 @@ public class DashboardCustomMenuAppointmentCallbackCommand : SchedulerCallbackCo
 
     protected override void ExecuteCore()
     {
-        string pageredirect;
-        Appointment apt = Control.SelectedAppointments[0];
+        string pageredirect = "~/Task.aspx";
+        //Appointment apt = Control.SelectedAppointments[0];
+
         if (MenuItemId == "AddTaskId")
         {
-            pageredirect = string.Empty;
+            HttpContext.Current.Session["TaskStartDate"] = Control.SelectedInterval.Start;
         }
+
         //else if (MenuItemId == "CheckEngineOilId")
         //    UpdateAppointment(apt, "Check engine oil", AppointmentStatusType.Busy, 4);
         //else if (MenuItemId == "WashCarId")

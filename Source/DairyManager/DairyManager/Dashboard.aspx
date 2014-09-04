@@ -15,7 +15,7 @@
             <h1>Dashboard</h1>
         </div>
     <div>
-        <dxwschs:ASPxScheduler ID="ASPxScheduler1" runat="server" ActiveViewType="Month" GroupType="Date" OnBeforeExecuteCallbackCommand="ASPxScheduler1_BeforeExecuteCallbackCommand" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing">
+        <dxwschs:ASPxScheduler ID="Scheduler" runat="server" ActiveViewType="Month" GroupType="Date" OnBeforeExecuteCallbackCommand="ASPxScheduler1_BeforeExecuteCallbackCommand" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing">
             <Views>
                 <DayView>
                     <TimeRulers>
@@ -33,20 +33,25 @@
                 <MonthView>
                     <Templates>
                         <DateCellBodyTemplate>
-                            sample text
+                            lxdjfksd
                         </DateCellBodyTemplate>
                     </Templates>
                 </MonthView>
             </Views>
             <OptionsCustomization AllowAppointmentConflicts="Forbidden" AllowAppointmentCopy="None" AllowAppointmentCreate="None" AllowAppointmentDelete="None" AllowAppointmentDrag="None" AllowAppointmentDragBetweenResources="None" AllowAppointmentEdit="NonRecurring" AllowAppointmentMultiSelect="False" AllowAppointmentResize="None" AllowDisplayAppointmentDependencyForm="Never" />
+            <ResourceNavigator Visibility="Never" />
         </dxwschs:ASPxScheduler>
     </div>
     <script type="text/javascript">
         // <![CDATA[
         function DefaultAppointmentMenuHandler(scheduler, s, args) {
             if (args.item.GetItemCount() <= 0)
-                alert(args.item.name);
-            scheduler.RaiseCallback("USRAPTMENU|" + args.item.name);
+            {
+                //document.location.href = '/Task.aspx';
+                alert(scheduler.GetSelectedDate());
+            }
+            alert(scheduler.GetSelectedDate());
+            //scheduler.RaiseCallback("USRAPTMENU|" + args.item.name);
         }
         // ]]> 
     </script>

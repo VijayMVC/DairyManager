@@ -231,6 +231,15 @@ namespace Diary.DAL
             
         }
 
+        public DataSet SelectDashboardData(DateTime fromDate, DateTime toDate)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskSelectDashboardDataByDateRange");
 
+            db.AddInParameter(command, "FromDate", DbType.Time, fromDate);
+            db.AddInParameter(command, "ToDate", DbType.Time, toDate);
+
+            return db.ExecuteDataSet(command);
+        }
     }
 }
