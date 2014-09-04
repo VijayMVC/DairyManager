@@ -140,8 +140,14 @@
                 <span>Task start time</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTimeEdit ID="teStartTime" runat="server" EditFormatString="HH:mm">
-                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                <dx:ASPxTimeEdit ID="teStartTime" runat="server" EditFormatString="HH:mm" ClientInstanceName="startTime" EditFormat="Custom">
+                    <ClientSideEvents Validation="function(s, e) {
+	
+
+
+
+}" />
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave" EnableCustomValidation="True" ErrorText="Invalid">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxTimeEdit>
@@ -152,8 +158,25 @@
                 <span>Task end time</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm">
-                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm" ClientInstanceName="endTime">
+                    <ClientSideEvents Validation="function(s, e) {
+	var startTimeText= startTime.GetText();
+    var endTimeText = endTime.GetText();     
+	
+
+	if (endTimeText  &gt;  startTimeText)
+	{
+		    e.isValid = true;
+	}
+	else
+	{
+    		e.isValid = false;
+	}
+	
+	
+
+}" />
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave" EnableCustomValidation="True" ErrorText="Invalid">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxTimeEdit>
