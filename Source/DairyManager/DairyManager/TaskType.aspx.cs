@@ -19,7 +19,6 @@ namespace DairyManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            MapSchedulerFields();
             if (!IsPostBack)
             {
                 hdnTaskTypeId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.TaskTypeId.ToString());
@@ -31,31 +30,6 @@ namespace DairyManager
 
             }
             this.AuthoriseUser();
-        }
-
-        private void MapSchedulerFields()
-        {
-            DataSet dsTimeLineData = GetTimelineData();
-
-            dsTimeLineData.Tables[0].PrimaryKey = new DataColumn[] { dsTimeLineData.Tables[0].Columns["ReservationRoomId"] };
-            dsTimeLineData.Tables[1].PrimaryKey = new DataColumn[] { dsTimeLineData.Tables[1].Columns["RoomId"] };
-
-            DataRelation tableRelation = new DataRelation("ReservationRoomRel", dsTimeLineData.Tables[1].Columns["RoomId"], dsTimeLineData.Tables[0].Columns["RoomId"]);
-            dsTimeLineData.Relations.Add(tableRelation);
-
-            schReservationDashboad.ResourceDataSource = dsTimeLineData.Tables[1];
-            schReservationDashboad.Storage.Resources.Mappings.ResourceId = "RoomId";
-            schReservationDashboad.Storage.Resources.Mappings.Caption = "RoomDescription";
-
-            schReservationDashboad.Views.WorkWeekView.Enabled = false;
-            schReservationDashboad.AppointmentDataSource = dsTimeLineData.Tables[0];
-            schReservationDashboad.Storage.Appointments.Mappings.AppointmentId = "ReservationRoomId";
-            schReservationDashboad.Storage.Appointments.Mappings.Start = "CheckInDate";
-            schReservationDashboad.Storage.Appointments.Mappings.End = "CheckOutDate";
-            schReservationDashboad.Storage.Appointments.Mappings.Label = "RoomNumber";
-            schReservationDashboad.Storage.Appointments.Mappings.Subject = "Subject";
-            schReservationDashboad.Storage.Appointments.Mappings.ResourceId = "RoomId";
-            schReservationDashboad.DataBind();
         }
 
         private void AuthoriseUser()
@@ -126,6 +100,5 @@ namespace DairyManager
         {
             this.ClearFormFields();
         }
-
     }
 }

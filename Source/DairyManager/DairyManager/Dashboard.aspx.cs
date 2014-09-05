@@ -63,7 +63,7 @@ namespace DairyManager
             if (menu.Id.Equals(SchedulerMenuItemId.DefaultMenu))
             {
                 //ClearUnusedDefaultMenuItems(menu);
-                menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", ASPxScheduler1.ClientID);
+                menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", Scheduler.ClientID);
 
                 menu.Items.Clear();
                 MenuItem addTask = new MenuItem("Add new task", "AddTaskId");
