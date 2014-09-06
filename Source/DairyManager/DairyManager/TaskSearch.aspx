@@ -30,7 +30,7 @@
                     </dx:GridViewCommandColumn>
 
                     <dx:GridViewDataHyperLinkColumn Caption="Task Date" FieldName="TaskId" VisibleIndex="1">
-                        <PropertiesHyperLinkEdit NavigateUrlFormatString="/Task.aspx?TaskId={0}" TextField="TaskDate" TextFormatString="dd-MMM-yy">
+                        <PropertiesHyperLinkEdit NavigateUrlFormatString="/Task.aspx?TaskId={0}" TextField="TaskDate" TextFormatString="dd-MMM-yy HH:mm">
                         </PropertiesHyperLinkEdit>
                         <Settings FilterMode="DisplayText" />
                     </dx:GridViewDataHyperLinkColumn>

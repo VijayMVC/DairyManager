@@ -69,9 +69,9 @@ namespace DairyManager
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
             taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
             taskEntity.TotalRemainingHours = decimal.Parse(lblRemainingHours.Text);
-            taskEntity.StartTime = DateTime.Parse(teStartTime.Text);
-            taskEntity.EndTime = DateTime.Parse(teEndTime.Text); ;
-            taskEntity.TotalHours = decimal.Parse(seTotalHours.Text);
+            taskEntity.StartTime = DateTime.Parse(teStartTime.Value.ToString());
+            taskEntity.EndTime = DateTime.Parse(teEndTime.Value.ToString()); ;
+            taskEntity.TotalHours = decimal.Parse(seTotalHours.Value.ToString());
 
             if (hdnTaskId.Value == string.Empty)
             {
@@ -166,7 +166,7 @@ namespace DairyManager
             gvHistory.DataSource = null;
             gvHistory.DataBind();
             
-            dtDate.Focus();
+            
         }
 
         private void LoadTaskGrid()
@@ -199,7 +199,7 @@ namespace DairyManager
             }
 
 
-            if (taskCalculateDataSet != null && taskCalculateDataSet.Tables.Count > 0 && taskCalculateDataSet.Tables[1] != null && taskCalculateDataSet.Tables[1].Rows.Count > 1)
+            if (taskCalculateDataSet != null && taskCalculateDataSet.Tables.Count > 0 && taskCalculateDataSet.Tables[1] != null && taskCalculateDataSet.Tables[1].Rows.Count > 0)
             {
 
                 gvHistory.Visible = true;
@@ -268,6 +268,11 @@ namespace DairyManager
             }
 
             return result;
+        }
+
+        protected void teStartTime_DateChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

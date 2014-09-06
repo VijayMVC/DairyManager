@@ -146,6 +146,12 @@
 
 
 
+}" DateChanged="function(s, e) {
+	calculateHours();
+}" LostFocus="function(s, e) {
+	calculateHours();
+}" ValueChanged="function(s, e) {
+	calculateHours();
 }" />
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave" EnableCustomValidation="True" ErrorText="Invalid">
                         <RequiredField ErrorText="Required" IsRequired="True" />
@@ -158,7 +164,7 @@
                 <span>Task end time</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm" ClientInstanceName="endTime">
+                <dx:ASPxTimeEdit ID="teEndTime" runat="server" EditFormat="Custom" EditFormatString="HH:mm" ClientInstanceName="endTime" >
                     <ClientSideEvents Validation="function(s, e) {
 	var startTimeText= startTime.GetText();
     var endTimeText = endTime.GetText();     
@@ -175,6 +181,15 @@
 	
 	
 
+}" ValueChanged="function(s, e) {
+
+	calculateHours();
+	
+
+}" DateChanged="function(s, e) {
+	calculateHours();
+}" LostFocus="function(s, e) {
+	calculateHours();
 }" />
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave" EnableCustomValidation="True" ErrorText="Invalid">
                         <RequiredField ErrorText="Required" IsRequired="True" />
@@ -187,7 +202,9 @@
                 <span>Total number of hours</span> <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxSpinEdit ID="seTotalHours" runat="server" Height="21px" Number="0">
+                <dx:ASPxSpinEdit ID="seTotalHours" runat="server" Height="21px" Number="0" ClientInstanceName="totalHours" DecimalPlaces="2" ReadOnly="True">
+                    <SpinButtons Enabled="False" ShowIncrementButtons="false">
+                    </SpinButtons>
                     <ClientSideEvents Validation="function(s, e) {
 	if(e.value &lt;=0 ) {e.isValid=false;}
 }" />
@@ -201,6 +218,9 @@
         <div class="clearfix form-actions">
             <div>
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave">
+                    <ClientSideEvents Click="function(s, e) {
+	calculateHours();
+}" />
                 </dx:ASPxButton>
             </div>
             <div>
@@ -214,4 +234,34 @@
             </div>
         </div>
     </div>
+    
+   <script type="text/javascript">
+
+       function calculateHours() {
+
+           var sdate = startTime.GetText();
+           var edate = endTime.GetText();
+
+           var year = '2014';
+           var month = '01';
+           var day = '01';
+
+           var hour1 = sdate.split(':');
+           var min1 = sdate.split(':');
+
+           var hour2 = edate.split(':');
+           var min2 = edate.split(':');
+
+
+           var reserv = new Date(year, month, day, hour1[0], min1[1]);
+           var reserv1 = new Date(year, month, day, hour2[0], min2[1]);
+
+           var difference = (reserv1.getTime() - reserv.getTime()) / 1000 / 60 / 60;
+
+           totalHours.SetValue(difference);
+
+       }
+
+   </script>
+
 </asp:Content>

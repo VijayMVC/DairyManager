@@ -58,9 +58,7 @@
             </h1>
             <h5 class="blue" id="id-company-text">
                 <p>
-                    Please enter your username and password.
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false">Register</asp:HyperLink>
-                    if you don't have an account.
+                    Please enter your username and password.        
                 </p>
             </h5>
         </div>
@@ -95,7 +93,7 @@
                                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtUserName"
                                                         CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required."
                                                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                                                    <i class="ace-icon fa fa-user"></i>
+                                                    <%--<i class="ace-icon fa fa-user"></i>--%>
                                                 </span>
                                             </label>
 
