@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2011
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DairyManager", "DairyManager\DairyManager.csproj", "{7E13DF4F-1675-4644-9E73-610341A7D44B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.DAL", "Diary.DAL\Diary.DAL.csproj", "{DD1362F6-C374-4AB3-95CC-B3F963426B1B}"

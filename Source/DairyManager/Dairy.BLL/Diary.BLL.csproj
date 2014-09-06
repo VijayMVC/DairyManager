@@ -43,6 +43,7 @@
     <Compile Include="Case.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TimeRestriction.cs" />
   </ItemGroup>
