@@ -13,13 +13,13 @@ namespace DairyManager {
     public partial class Reports {
         
         /// <summary>
-        /// cmbReportTyppe control.
+        /// cmbReportType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbReportTyppe;
+        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbReportType;
         
         /// <summary>
         /// btnGenerate control.
@@ -29,6 +29,15 @@ namespace DairyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnGenerate;
+        
+        /// <summary>
+        /// iframePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl iframePage;
         
         /// <summary>
         /// gvReport control.

@@ -94,24 +94,6 @@ namespace DairyManager {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator PasswordRequired;
         
         /// <summary>
-        /// RememberMe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
-        
-        /// <summary>
-        /// RememberMeLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RememberMeLabel;
-        
-        /// <summary>
         /// LoginButton control.
         /// </summary>
         /// <remarks>

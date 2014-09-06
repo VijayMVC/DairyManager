@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    
+
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -46,37 +46,37 @@
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <title></title>
 </head>
-<body class="no-skin">
+<body class="login-layout blur-login">
     <form id="form1" runat="server">
-    <div>
-     <div class="login-container">
-        <div class="center">
-            <h1>
-                <i class="ace-icon fa fa-leaf green"></i>
-                <span class="red">Log </span>
-                <span class="grey" id="id-text2">In</span>
-            </h1>
-            <h5 class="blue" id="id-company-text">
-                <p>
-                    Please enter your username and password.        
-                </p>
-            </h5>
-        </div>
+        <div>
+            <div class="login-container">
+                <div class="center">
+                    <h1>
+                        <i class="ace-icon fa fa-leaf green"></i>
+                        <span class="red">Log </span>
+                        <span class="grey" id="id-text2">In</span>
+                    </h1>
+                    <h5 class="blue" id="id-company-text">
+                        <p>
+                            Please enter your username and password.        
+               
+                        </p>
+                    </h5>
+                </div>
 
-        <div class="space-6"></div>
+                <div class="space-6"></div>
 
-        <div class="position-relative">
-            <div id="login-box" class="login-box visible widget-box no-border">
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <h4 class="header blue lighter bigger">
-                            <i class="ace-icon fa fa-coffee green"></i>
-                            Account Information
-                        </h4>
-
-                        <div class="space-6"></div>
-<%--<asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">--%>
-                            <%--<LayoutTemplate>--%>
+                <div class="position-relative">
+                    <div id="login-box" class="login-box visible widget-box no-border">
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <h4 class="header blue lighter bigger">
+                                    <i class="ace-icon fa fa-coffee green"></i>
+                                    Account Information
+                                </h4>
+                                <div class="space-6"></div>
+                                <%--<asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">--%>
+                                <%--<LayoutTemplate>--%>
                                 <span class="failureNotification">
                                     <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                                 </span>
@@ -86,70 +86,91 @@
                                     <fieldset class="login">
                                         <%--<legend>Account Information</legend>--%>
                                         <%--<fieldset>--%>
-                                            <label class="block clearfix">
-                                                <span class="block input-icon input-icon-right">
-                                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">Username:</asp:Label>
-                                                    <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry form-control" placeholder="Username"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtUserName"
-                                                        CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required."
-                                                        ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-                                                    <%--<i class="ace-icon fa fa-user"></i>--%>
+                                        <label class="block clearfix">
+                                            <span class="block input-icon input-icon-right">
+                                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="txtUserName">Username:</asp:Label>
+                                                <asp:TextBox ID="txtUserName" runat="server" CssClass="textEntry form-control" placeholder="Username"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="txtUserName"
+                                                    CssClass="failureNotification" ErrorMessage="User Name is required." ToolTip="User Name is required."
+                                                    ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                                                <%--<i class="ace-icon fa fa-user"></i>--%>
                                                 </span>
+                                        </label>
+                                        <label class="block clearfix">
+                                            <span class="block input-icon input-icon-right">
+                                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Password:</asp:Label>
+                                                <asp:TextBox ID="txtPassword" runat="server" CssClass="passwordEntry form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword"
+                                                    CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required."
+                                                    ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
+                                                <i class="ace-icon fa fa-lock"></i>
+                                            </span>
+                                        </label>
+                                        <%--<div class="clearfix">
+                                            <label class="inline">
+                                                <asp:CheckBox ID="RememberMe" runat="server" CssClass="inline ace" Visible="false" />
+                                                <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline lbl" Visible="false">Keep me logged in</asp:Label>
                                             </label>
+                                        </div>--%>
 
-                                            <label class="block clearfix">
-                                                <span class="block input-icon input-icon-right">
-                                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="txtPassword">Password:</asp:Label>
-                                                    <asp:TextBox ID="txtPassword" runat="server" CssClass="passwordEntry form-control" placeholder="Password" TextMode="Password"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="txtPassword"
-                                                        CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required."
-                                                        ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
-
-                                                    <i class="ace-icon fa fa-lock"></i>
-                                                </span>
-                                            </label>
-
-                                            <div class="space"></div>
-
-                                            <div class="clearfix">
-                                                <label class="inline">
-                                                    <asp:CheckBox ID="RememberMe" runat="server" CssClass="inline ace" Visible="false" />
-                                                    <asp:Label ID="RememberMeLabel" runat="server" AssociatedControlID="RememberMe" CssClass="inline lbl" Visible="false">Keep me logged in</asp:Label>
-                                                </label>
-
-
-                                            </div>
-
-                                            <div class="space-4"></div>
+                        
                                         <%--</fieldset>--%>
-
                                     </fieldset>
-                                    <p class="submitButton">
+                                    <div class="clearfix">
+											<p class="submitButton">
                                         <asp:Button ID="LoginButton" runat="server" class="width-35 pull-right btn btn-sm btn-primary" Text="Log In" ValidationGroup="LoginUserValidationGroup" OnClick="LoginButton_Click" />
-                                    </p>
+                                    </p>			
+													</div>
+                                    
+                                    <div class="space-6"></div>
+                                    <%--<div class="social-or-login center">
+                                        <span class="bigger-110">Or Login Using</span>
+                                    </div>
+                                    <div class="space-6"></div>--%>
+
+
                                 </div>
-                            <%--</LayoutTemplate>--%>
-                        <%--</asp:Login>--%>
+                                <%--</LayoutTemplate>--%>
+                                <%--</asp:Login>--%>
 
 
-                        <div class="space-6"></div>
+                               <%-- <div class="social-login center">
+                                    <a class="btn btn-primary">
+                                        <i class="ace-icon fa fa-facebook"></i>
+                                    </a>
+
+                                    <a class="btn btn-info">
+                                        <i class="ace-icon fa fa-twitter"></i>
+                                    </a>
+
+                                    <a class="btn btn-danger">
+                                        <i class="ace-icon fa fa-google-plus"></i>
+                                    </a>
+                                </div>--%>
 
 
+                            </div>
+                            <!-- /.widget-main -->
+
+                            <div class="toolbar clearfix">
+                                <div style="width:100%; color:#fff; padding: 10px 15px">
+                                    VinIT Solutions<br />
+                                    No 11, Station Road, Harlesden<br />
+                                    London, NW10 4UJ<br />
+                                    TeL : 0203 551 9908 / 0208 965 1451
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.widget-body -->
                     </div>
-                    <!-- /.widget-main -->
-
+                    <!-- /.login-box -->
 
                 </div>
-                <!-- /.widget-body -->
+
+                <!-- /.position-relative -->
+
             </div>
-            <!-- /.login-box -->
-
         </div>
-
-        <!-- /.position-relative -->
-
-    </div>
-    </div>
     </form>
 </body>
 </html>

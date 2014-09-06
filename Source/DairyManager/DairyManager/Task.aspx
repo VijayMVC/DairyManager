@@ -11,8 +11,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div>
         <div class="page-header">
-            <h1>
-                Task</h1>
+            <h1>Task</h1>
         </div>
         <asp:HiddenField ID="hdnTaskId" runat="server" />
         <div class="form-group">
@@ -69,48 +68,51 @@
                 </dx:ASPxComboBox>
             </div>
         </div>
-        
-        <div class="form-group">
-            <dx:ASPxGridView ID="gvHistory" runat="server" AutoGenerateColumns="False" Visible="False">
-                <TotalSummary>
-                    <dx:ASPxSummaryItem DisplayFormat="Total {0:N2}" FieldName="TotalHours" ShowInColumn="Total Hours"
-                        SummaryType="Sum" />
-                </TotalSummary>
-                <Columns>
-                    <dx:GridViewDataTextColumn Caption="Case" FieldName="Code" VisibleIndex="0">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Task Description" FieldName="TaskDescription"
-                        VisibleIndex="0">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Start Time" FieldName="StartTime" VisibleIndex="1">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="End Time" FieldName="EndTime" VisibleIndex="2">
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="Total Hours" FieldName="TotalHours" VisibleIndex="3">
-                    </dx:GridViewDataTextColumn>
-                </Columns>
-                <Settings ShowFooter="True" />
-            </dx:ASPxGridView>
-        </div>
-        <div class="form-group">
+        <div class="alert alert-info">
+            <div class="overflow-table">
+             <div class="form-group>
+                            <dx:ASPxGridView ID="gvHistory" runat="server" AutoGenerateColumns="False" Visible="False">
+                                <TotalSummary>
+                                    <dx:ASPxSummaryItem DisplayFormat="Total {0:N2}" FieldName="TotalHours" ShowInColumn="Total Hours"
+                                        SummaryType="Sum" />
+                                </TotalSummary>
+                                <Columns>
+                                    <dx:GridViewDataTextColumn Caption="Case" FieldName="Code" VisibleIndex="0">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Task Description" FieldName="TaskDescription"
+                                        VisibleIndex="0">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Start Time" FieldName="StartTime" VisibleIndex="1">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="End Time" FieldName="EndTime" VisibleIndex="2">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="Total Hours" FieldName="TotalHours" VisibleIndex="3">
+                                    </dx:GridViewDataTextColumn>
+                                </Columns>
+                                <Settings ShowFooter="True" />
+                            </dx:ASPxGridView>
+                        </div>
+            </div>
+            <div class="space-6"></div>
+             <div class="form-group">
             <div>
-                <span>Total number of hours remaining</span> <span></span>
+                <strong><i class="ace-icon fa fa-bell icon-animated-bell"></i><span>Total remaining hours </span> <span></span></strong>
             </div>
             <div class="input-group">
-                <dx:ASPxLabel ID="lblRemainingHours" runat="server" Text="0">
-                </dx:ASPxLabel>
+                <strong><dx:ASPxLabel ID="lblRemainingHours" runat="server" Text="0">
+                </dx:ASPxLabel></strong>
             </div>
         </div>
-        <div class="form-group">
+             <div class="form-group">
             <div>
-                <span>Maximum Recording</span> <span></span>
+                <strong><i class="ace-icon fa fa-bell icon-animated-bell"></i><span>Maximum Recording</span> <span></span></strong>
             </div>
             <div class="input-group">
                 <dx:ASPxLabel ID="lblMaximumRecording" runat="server" Text="0">
                 </dx:ASPxLabel>
             </div>
         </div>
-
+        </div>
         <div class="form-group">
             <div>
                 <span>Task Type</span> <em>*</em>
