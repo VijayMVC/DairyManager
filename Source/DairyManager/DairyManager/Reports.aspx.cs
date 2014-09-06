@@ -35,5 +35,10 @@ namespace DairyManager
             }
 
         }
+
+        private void LoadCaseReport()
+        {
+
+        }
     }
 }

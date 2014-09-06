@@ -26,7 +26,8 @@
         </div>
         <div class="clearfix form-actions">
             <div>
-                <dx:ASPxButton ID="btnGenerate" runat="server" Text="Generate" ValidationGroup="vgGenerate"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnGenerate" runat="server" Text="Generate" 
+                    ValidationGroup="vgGenerate" onclick="btnGenerate_Click"></dx:ASPxButton>
             </div>
         </div>
         <div>
