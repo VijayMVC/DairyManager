@@ -58,6 +58,15 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbCase;
         
         /// <summary>
+        /// dvGridSection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvGridSection;
+        
+        /// <summary>
         /// gvHistory control.
         /// </summary>
         /// <remarks>
@@ -100,7 +109,7 @@ namespace DairyManager {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtTaskDescription;
+        protected global::DevExpress.Web.ASPxEditors.ASPxMemo txtTaskDescription;
         
         /// <summary>
         /// teStartTime control.

@@ -50,6 +50,7 @@ min-width: 250px;
 }
 .alert-info .form-group > div {
 width: 175px;
+padding-top: 10px;
 }
 .alert-info .overflow-table
 {
@@ -160,4 +161,9 @@ font: 13px Verdana;
 font-weight: bold;
 color: #3c763d;
 
+}
+
+.dxgvGroupPanel_DevEx
+{
+    background-image:none;
 }

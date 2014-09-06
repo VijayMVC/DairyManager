@@ -165,6 +165,8 @@ namespace DairyManager
             gvHistory.Visible = false;
             gvHistory.DataSource = null;
             gvHistory.DataBind();
+            dvGridSection.Visible = false;
+
             
             
         }
@@ -203,11 +205,13 @@ namespace DairyManager
             {
 
                 gvHistory.Visible = true;
+                dvGridSection.Visible = true;
                 gvHistory.DataSource = taskCalculateDataSet.Tables[1];
                 gvHistory.DataBind();
             }
             else
             {
+                dvGridSection.Visible = false;
                 gvHistory.Visible = false;
                 gvHistory.DataSource = null;
                 gvHistory.DataBind();

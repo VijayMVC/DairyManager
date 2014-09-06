@@ -16,10 +16,8 @@ namespace Diary.DAL
         public Dictionary<int, string> GetReportTypes()
         {
             Dictionary<int, string> dictionary = new Dictionary<int, string>();
-            dictionary.Add(0, "1");
-            dictionary.Add(1, "2");
-            dictionary.Add(2, "3");
-            dictionary.Add(3, "4");
+            dictionary.Add(0, "Case Info");
+            dictionary.Add(1, "");        
      
             return dictionary;
 
@@ -30,7 +28,6 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_ReportCaseInfo");
                    
-
             return db.ExecuteDataSet(command);
         }
 

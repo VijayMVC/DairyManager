@@ -48,6 +48,7 @@
     <Compile Include="JobEntity.cs" />
     <Compile Include="LocationEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportEntity.cs" />
     <Compile Include="TaskEntity.cs" />
     <Compile Include="TaskTypeEntity.cs" />
     <Compile Include="TimeRestrictionEntity.cs" />

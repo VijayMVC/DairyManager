@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Diary.Entity;
+using Diary.Common;
 
 namespace DairyManager
 {
     public partial class Reports : System.Web.UI.Page
     {
+        Diary.BLL.Reports reports = new Diary.BLL.Reports();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             this.LoadReportList();
@@ -29,16 +34,24 @@ namespace DairyManager
             switch (cmbReportTyppe.SelectedItem.Value.ToString())
             {
 
-                case "1":
-
+                case "0":
+                    this.LoadCaseReport();
                     break;
             }
 
+            iframePage.Attributes["src"] = "/ReportPreview.aspx";
         }
 
         private void LoadCaseReport()
         {
+            Diary.Entity.ReportEntity reportEntity=new Diary.Entity.ReportEntity();
+            reportEntity.ReportType = Diary.Common.Enum.ReportTypes.CaseInfo.ToString();
 
+            DataSet ds = new DataSet();
+            ds=reports.ReportCaseInfo();
+            reportEntity.ReportData = ds;
+            Session["CurrentReport"] = reportEntity;
+            
         }
     }
 }

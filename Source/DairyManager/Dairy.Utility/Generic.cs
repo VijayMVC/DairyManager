@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Diary.Common;
+
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace Dairy.Utility

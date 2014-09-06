@@ -31,7 +31,7 @@
             </div>
         </div>
         <div>
-            <dx:ASPxGridView ID="gvReport" runat="server"></dx:ASPxGridView>
+            <iframe id="iframePage" runat="server" width="100%" height="600px" style="border:none"></iframe>
         </div>
     </div>
 </asp:Content>

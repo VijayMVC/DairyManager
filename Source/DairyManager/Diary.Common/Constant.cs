@@ -11,7 +11,7 @@ namespace Diary.Common
         public static readonly string DiaryDBConnectionString = "ApplicationServices";
         public static readonly string Message_Success = "Successfully Saved.";
         public static readonly string URL_LOGIN = "~/Login.aspx";
-        public static readonly string URL_DEFAULTBACKPAGE = "~/Dashboard.aspx";
+        public static readonly string URL_DEFAULTBACKPAGE = "~/Case.aspx";
         public static readonly string Message_AlreadyExists= "Record Already Exists";
         public static readonly string Message_AllTimeConsumed = "Can not save, All time consumed";
         public static readonly string Message_TimeNotAllowed= "Can not save, Start or End time overlaps";

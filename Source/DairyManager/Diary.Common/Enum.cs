@@ -69,5 +69,12 @@ namespace Diary.Common
             Task_TaskType_View = 34,
             Task_TaskType_Search = 35,
         }
+
+        public enum ReportTypes
+        {
+            CaseInfo = 1,
+        }
     }
+
+   
 }
