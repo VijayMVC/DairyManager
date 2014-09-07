@@ -250,7 +250,7 @@ namespace DairyManager
                 
             }
 
-            //// Check start/end time
+            //// Check start/end time on insert
             if (hdnTaskId.Value == string.Empty)
             {
 
@@ -263,6 +263,29 @@ namespace DairyManager
                 taskentity.EndTime = DateTime.Parse(teEndTime.Text);
 
                 if (currentTask.IsWithinValidTimeFrame(taskentity))
+                {
+                    result = false;
+                    Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
+
+                }
+
+            }
+
+            //// Check start/end time on update
+
+            if (hdnTaskId.Value != string.Empty)
+            {
+
+                Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
+
+                taskentity.TaskId = new Guid(hdnTaskId.Value);
+                taskentity.TaskDate = DateTime.Parse(dtDate.Text);
+                taskentity.CaseId = new Guid(cmbCase.Value.ToString());
+                taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
+                taskentity.StartTime = DateTime.Parse(teStartTime.Text);
+                taskentity.EndTime = DateTime.Parse(teEndTime.Text);
+
+                if (currentTask.IsWithinValidTimeFrameOnUpdate(taskentity))
                 {
                     result = false;
                     Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);

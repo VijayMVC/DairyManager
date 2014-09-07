@@ -88,7 +88,11 @@ namespace Diary.BLL
         public bool IsWithinValidTimeFrame(TaskEntity taskEntity)
         {
             return taskDao.IsWithinValidTimeFrame(taskEntity);
+        }
 
+        public bool IsWithinValidTimeFrameOnUpdate(TaskEntity taskEntity)
+        {
+            return taskDao.IsWithinValidTimeFrameOnUpdate(taskEntity);
         }
 
         public DataSet SelectDashboardData(DateTime fromDate, DateTime toDate)

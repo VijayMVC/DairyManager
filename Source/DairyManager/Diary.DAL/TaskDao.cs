@@ -231,6 +231,30 @@ namespace Diary.DAL
             
         }
 
+        public bool IsWithinValidTimeFrameOnUpdate(TaskEntity taskEntity)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
+            DbCommand command = db.GetStoredProcCommand("usp_TaskIsValidTimeFrameOnUpdate");
+
+            db.AddInParameter(command, "@TaskId", DbType.Guid, taskEntity.TaskId);           
+            db.AddInParameter(command, "@TaskDate", DbType.Date, taskEntity.TaskDate);
+            db.AddInParameter(command, "@FeeEarner", DbType.Guid, taskEntity.FeeEarner);
+            db.AddInParameter(command, "@CaseId", DbType.Guid, taskEntity.CaseId);
+            db.AddInParameter(command, "@StartTime", DbType.Time, taskEntity.StartTime);
+            db.AddInParameter(command, "@EndTime", DbType.Time, taskEntity.EndTime);
+
+            db.AddOutParameter(command, "@result", DbType.Boolean, 2);
+
+            db.ExecuteNonQuery(command);
+
+            bool result = false;
+
+            result = bool.Parse(db.GetParameterValue(command, "@result").ToString());
+
+            return result;
+
+        }
+
         public DataSet SelectDashboardData(DateTime fromDate, DateTime toDate)
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
