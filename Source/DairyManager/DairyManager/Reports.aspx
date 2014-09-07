@@ -31,7 +31,7 @@
             </div>
         </div>
         <div>
-            <iframe id="iframePage" runat="server" width="100%" height="600px" style="border:none"></iframe>
+            <iframe id="iframePage" runat="server" width="100%" height="700px" style="border:none"></iframe>
         </div>
     </div>
 </asp:Content>
