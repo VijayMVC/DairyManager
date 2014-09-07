@@ -83,6 +83,14 @@
                                 <Image Url="~/Images/delete.png">
                                 </Image>
                             </DeleteButton>
+                            <CancelButton>
+                                <Image Url="~/Images/Close.png">
+                                </Image>
+                            </CancelButton>
+                            <UpdateButton>
+                                <Image Url="~/Images/update.png">
+                                </Image>
+                            </UpdateButton>
                         </dx:GridViewCommandColumn>
                         <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
                             VisibleIndex="3">

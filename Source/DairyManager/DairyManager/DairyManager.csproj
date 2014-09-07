@@ -87,8 +87,10 @@
     <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Images\Close.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\new.png" />
+    <Content Include="Images\update.png" />
     <Content Include="Login.aspx" />
     <Content Include="Login1.aspx" />
     <Content Include="Account\Register.aspx" />

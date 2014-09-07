@@ -22,6 +22,9 @@
                 <Columns>
                     <dx:FilterControlDateColumn ColumnType="DateTime" DisplayName="Task Date" PropertyName="TaskDate">
                     </dx:FilterControlDateColumn>
+                    <dx:FilterControlTextColumn ColumnType="String" DisplayName="UFN" 
+                        PropertyName="UFN">
+                    </dx:FilterControlTextColumn>
                 </Columns>
                 <ClientSideEvents Applied="function(s, e) {
 	 grid.ApplyFilter(e.filterExpression);
