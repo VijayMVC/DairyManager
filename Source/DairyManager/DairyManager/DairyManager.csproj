@@ -87,6 +87,19 @@
     <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\new.png" />
     <Content Include="Login.aspx" />
@@ -400,6 +413,97 @@
     </Compile>
     <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
       <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx.designer.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx.cs">
+      <DependentUpon>AppointmentForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx.designer.cs">
+      <DependentUpon>AppointmentForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx.cs">
+      <DependentUpon>AppointmentFormEx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx.designer.cs">
+      <DependentUpon>AppointmentFormEx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx.cs">
+      <DependentUpon>AppointmentToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx.designer.cs">
+      <DependentUpon>AppointmentToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx.cs">
+      <DependentUpon>GotoDateForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx.designer.cs">
+      <DependentUpon>GotoDateForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.cs">
+      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx.cs">
+      <DependentUpon>InplaceEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx.designer.cs">
+      <DependentUpon>InplaceEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx.cs">
+      <DependentUpon>RecurrentAppointmentDeleteForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx.designer.cs">
+      <DependentUpon>RecurrentAppointmentDeleteForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx.cs">
+      <DependentUpon>RecurrentAppointmentEditForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx.designer.cs">
+      <DependentUpon>RecurrentAppointmentEditForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx.cs">
+      <DependentUpon>ReminderForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx.designer.cs">
+      <DependentUpon>ReminderForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx.cs">
+      <DependentUpon>SelectionToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx.designer.cs">
+      <DependentUpon>SelectionToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.cs">
+      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

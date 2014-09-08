@@ -2,6 +2,8 @@
 using System.Data;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
+using System.Web.UI.WebControls;
 using DevExpress.Web.ASPxMenu;
 using DevExpress.Web.ASPxScheduler;
 using DevExpress.Web.ASPxScheduler.Internal;
@@ -30,14 +32,19 @@ namespace DairyManager
             Scheduler.Storage.Resources.Mappings.ResourceId = "UserId";
             Scheduler.Storage.Resources.Mappings.Caption = "Name";
 
+            //Scheduler.Storage.
+
             Scheduler.Views.WorkWeekView.Enabled = false;
             Scheduler.AppointmentDataSource = dsTimeLineData.Tables[0];
             Scheduler.Storage.Appointments.Mappings.AppointmentId = "TaskId";
-            Scheduler.Storage.Appointments.Mappings.Start = "TaskDate";
-            Scheduler.Storage.Appointments.Mappings.End = "TaskDate";
-            Scheduler.Storage.Appointments.Mappings.Label = "Label";
+            Scheduler.Storage.Appointments.Mappings.Start = "StartTime";
+            Scheduler.Storage.Appointments.Mappings.End = "EndTime";
+            Scheduler.Storage.Appointments.Mappings.Label = "CaseDescription";
             Scheduler.Storage.Appointments.Mappings.Subject = "CaseDescription";
             Scheduler.Storage.Appointments.Mappings.ResourceId = "FeeEarner";
+            Scheduler.Storage.Appointments.Mappings.Description = "Label";
+
+
             Scheduler.DataBind();
         }
 
@@ -59,26 +66,26 @@ namespace DairyManager
         protected void ASPxScheduler1_PopupMenuShowing(object sender, DevExpress.Web.ASPxScheduler.PopupMenuShowingEventArgs e)
         {
             ASPxSchedulerPopupMenu menu = e.Menu;
-            MenuItemCollection menuItems = menu.Items;
+            DevExpress.Web.ASPxMenu.MenuItemCollection menuItems = menu.Items;
             if (menu.Id.Equals(SchedulerMenuItemId.DefaultMenu))
             {
                 //ClearUnusedDefaultMenuItems(menu);
                 menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", Scheduler.ClientID);
 
-                menu.Items.Clear();
-                MenuItem addTask = new MenuItem("Add new task", "AddTaskId");
+                //menu.Items.Clear();
+                DevExpress.Web.ASPxMenu.MenuItem addTask = new DevExpress.Web.ASPxMenu.MenuItem("Add new task", "AddTaskId");
                 addTask.BeginGroup = true;
                 menuItems.Add(addTask);
             }
-            //else if (menu.Id.Equals(SchedulerMenuItemId.AppointmentMenu))
-            //{
-            //    menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", ASPxScheduler1.ClientID);
-            //    menu.Items.Clear();
-            //    AddScheduleNewEventSubMenu(menu, "Change Event");
-            //    MenuItem addTask = new MenuItem("AddTask", "AddTaskId");
-            //    addTask.BeginGroup = true;
-            //    menuItems.Add(addTask);
-            //}
+            else if (menu.Id.Equals(SchedulerMenuItemId.AppointmentMenu))
+            {
+                //menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", ASPxScheduler1.ClientID);
+                menu.Items.Clear();
+                //AddScheduleNewEventSubMenu(menu, "Change Event");
+                //MenuItem addTask = new MenuItem("AddTask", "AddTaskId");
+                //addTask.BeginGroup = true;
+                //menuItems.Add(addTask);
+            }
         }
 
         protected void ClearUnusedDefaultMenuItems(ASPxSchedulerPopupMenu menu)
@@ -99,18 +106,18 @@ namespace DairyManager
         //    AddTemplatesSubMenuItems(newWithTemplateItem);
         //}
 
-        private static void AddTemplatesSubMenuItems(MenuItem parentMenuItem)
+        private static void AddTemplatesSubMenuItems(DevExpress.Web.ASPxMenu.MenuItem parentMenuItem)
         {
-            parentMenuItem.Items.Add(new MenuItem("SubMenu1Id", "SubMenu1Id"));
-            parentMenuItem.Items.Add(new MenuItem("SubMenu2Id", "SubMenu2Id"));
-            parentMenuItem.Items.Add(new MenuItem("SubMenu3Id", "SubMenu3Id"));
-            parentMenuItem.Items.Add(new MenuItem("SubMenu4Id", "SubMenu4Id"));
-            parentMenuItem.Items.Add(new MenuItem("SubMenu5Id", "SubMenu5Id"));
+            parentMenuItem.Items.Add(new DevExpress.Web.ASPxMenu.MenuItem("SubMenu1Id", "SubMenu1Id"));
+            parentMenuItem.Items.Add(new DevExpress.Web.ASPxMenu.MenuItem("SubMenu2Id", "SubMenu2Id"));
+            parentMenuItem.Items.Add(new DevExpress.Web.ASPxMenu.MenuItem("SubMenu3Id", "SubMenu3Id"));
+            parentMenuItem.Items.Add(new DevExpress.Web.ASPxMenu.MenuItem("SubMenu4Id", "SubMenu4Id"));
+            parentMenuItem.Items.Add(new DevExpress.Web.ASPxMenu.MenuItem("SubMenu5Id", "SubMenu5Id"));
         }
 
         protected void RemoveMenuItem(ASPxSchedulerPopupMenu menu, string menuItemName)
         {
-            MenuItem item = menu.Items.FindByName(menuItemName);
+            DevExpress.Web.ASPxMenu.MenuItem item = menu.Items.FindByName(menuItemName);
             if (item != null)
                 menu.Items.Remove(item);
         }

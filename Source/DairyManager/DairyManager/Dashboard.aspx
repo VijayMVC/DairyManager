@@ -15,11 +15,11 @@
             <h1>Dashboard</h1>
         </div>
     <div>
-        <dxwschs:ASPxScheduler ID="Scheduler" runat="server" ActiveViewType="Month" GroupType="Date" OnBeforeExecuteCallbackCommand="ASPxScheduler1_BeforeExecuteCallbackCommand" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing">
+        <dxwschs:ASPxScheduler ID="Scheduler" runat="server" ActiveViewType="Month" GroupType="Resource" OnBeforeExecuteCallbackCommand="ASPxScheduler1_BeforeExecuteCallbackCommand" OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing" ClientIDMode="AutoID" Start="2014-09-08">
             <Views>
                 <DayView>
                     <TimeRulers>
-                        <cc1:TimeRuler></cc1:TimeRuler>
+                        <cc1:TimeRuler ShowCurrentTime="False"></cc1:TimeRuler>
                     </TimeRulers>
                 </DayView>
 
@@ -33,12 +33,14 @@
                 <MonthView>
                     <Templates>
                         <DateCellBodyTemplate>
-                            lxdjfksd
+                           
                         </DateCellBodyTemplate>
                     </Templates>
                 </MonthView>
             </Views>
-            <OptionsCustomization AllowAppointmentConflicts="Forbidden" AllowAppointmentCopy="None" AllowAppointmentCreate="None" AllowAppointmentDelete="None" AllowAppointmentDrag="None" AllowAppointmentDragBetweenResources="None" AllowAppointmentEdit="NonRecurring" AllowAppointmentMultiSelect="False" AllowAppointmentResize="None" AllowDisplayAppointmentDependencyForm="Never" />
+            <OptionsCustomization AllowAppointmentConflicts="Forbidden" AllowAppointmentCopy="None" AllowAppointmentCreate="None" AllowAppointmentDelete="None" AllowAppointmentDrag="None" AllowAppointmentDragBetweenResources="None" AllowAppointmentEdit="NonRecurring" AllowAppointmentMultiSelect="False" AllowAppointmentResize="None" AllowDisplayAppointmentDependencyForm="Never" AllowInplaceEditor="None" />
+            <OptionsForms AppointmentFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/AppointmentForm.ascx" AppointmentFormVisibility="None" AppointmentInplaceEditorFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/InplaceEditor.ascx" GotoDateFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/GotoDateForm.ascx" RecurrentAppointmentDeleteFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/RecurrentAppointmentDeleteForm.ascx" RecurrentAppointmentDeleteFormVisibility="None" RecurrentAppointmentEditFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/RecurrentAppointmentEditForm.ascx" RecurrentAppointmentEditFormVisibility="None" RemindersFormTemplateUrl="~/DevExpress/ASPxSchedulerForms/ReminderForm.ascx" />
+            <OptionsToolTips AppointmentDragToolTipUrl="~/DevExpress/ASPxSchedulerForms/AppointmentDragToolTip.ascx" AppointmentToolTipUrl="~/DevExpress/ASPxSchedulerForms/AppointmentToolTip.ascx" SelectionToolTipUrl="~/DevExpress/ASPxSchedulerForms/SelectionToolTip.ascx" ShowAppointmentDragToolTip="False" />
             <ResourceNavigator Visibility="Never" />
         </dxwschs:ASPxScheduler>
     </div>
@@ -47,11 +49,9 @@
         function DefaultAppointmentMenuHandler(scheduler, s, args) {
             if (args.item.GetItemCount() <= 0)
             {
-                //document.location.href = '/Task.aspx';
-                alert(scheduler.GetSelectedDate());
+                document.location.href = '/Task.aspx';
             }
-            alert(scheduler.GetSelectedDate());
-            //scheduler.RaiseCallback("USRAPTMENU|" + args.item.name);
+            scheduler.RaiseCallback("USRAPTMENU|" + args.item.name);
         }
         // ]]> 
     </script>
