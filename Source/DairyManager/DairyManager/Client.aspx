@@ -14,13 +14,44 @@
             <h1>Client</h1>
         </div>
         <asp:HiddenField ID="hdnClientId" runat="server" />
+
         <div class="form-group">
             <div>
-                <span>Name</span>
+                <span>Initials</span>
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtName" runat="server" Width="170px">
+                <dx:ASPxTextBox ID="txtInitials" runat="server" Width="170px" MaxLength="10">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </div>
+        </div>
+
+                <div class="form-group">
+            <div>
+                <span>First Name</span>
+                <em>*</em>
+            </div>
+            <div class="input-group">
+                <dx:ASPxTextBox ID="txtFirstName" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div>
+                <span>Last Name</span>
+                <em>*</em>
+            </div>
+            <div class="input-group">
+                <dx:ASPxTextBox ID="txtLastName" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -34,7 +65,8 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtAddressLine1" runat="server" Width="170px">
+                <dx:ASPxTextBox ID="txtAddressLine1" runat="server" Width="170px" 
+                    MaxLength="100">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -49,7 +81,8 @@
                 <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtAddressLine2" runat="server" Width="170px"></dx:ASPxTextBox>
+                <dx:ASPxTextBox ID="txtAddressLine2" runat="server" Width="170px" 
+                    MaxLength="100"></dx:ASPxTextBox>
 
             </div>
         </div>
@@ -60,7 +93,8 @@
                 <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtAddressLine3" runat="server" Width="170px"></dx:ASPxTextBox>
+                <dx:ASPxTextBox ID="txtAddressLine3" runat="server" Width="170px" 
+                    MaxLength="100"></dx:ASPxTextBox>
 
             </div>
         </div>
@@ -72,7 +106,7 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtTelephone" runat="server" Width="170px">
+                <dx:ASPxTextBox ID="txtTelephone" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -88,7 +122,7 @@
                 <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtFax" runat="server" Width="170px"></dx:ASPxTextBox>
+                <dx:ASPxTextBox ID="txtFax" runat="server" Width="170px" MaxLength="50"></dx:ASPxTextBox>
 
             </div>
         </div>
@@ -100,7 +134,7 @@
                 <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtEmail" runat="server" Width="170px">
+                <dx:ASPxTextBox ID="txtEmail" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
                         <RegularExpression ErrorText="Invalid" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
                     </ValidationSettings>
@@ -115,7 +149,8 @@
                 <span></span>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtContactPerson" runat="server" Width="170px"></dx:ASPxTextBox>
+                <dx:ASPxTextBox ID="txtContactPerson" runat="server" Width="170px" 
+                    MaxLength="50"></dx:ASPxTextBox>
 
             </div>
         </div>

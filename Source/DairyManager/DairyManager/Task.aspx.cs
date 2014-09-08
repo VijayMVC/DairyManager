@@ -56,7 +56,6 @@ namespace DairyManager
         protected void btnSave_Click(object sender, EventArgs e)
         {
 
-
             if (!this.validateToSave())
             {
                 return;
@@ -69,8 +68,8 @@ namespace DairyManager
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
             taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
             taskEntity.TotalRemainingHours = decimal.Parse(lblRemainingHours.Text);
-            taskEntity.StartTime = DateTime.Parse(teStartTime.Value.ToString());
-            taskEntity.EndTime = DateTime.Parse(teEndTime.Value.ToString()); ;
+            taskEntity.StartTime = DateTime.Parse(teStartTime.Text.ToString());
+            taskEntity.EndTime = DateTime.Parse(teEndTime.Text.ToString()); ;
             taskEntity.TotalHours = decimal.Parse(seTotalHours.Value.ToString());
 
             if (hdnTaskId.Value == string.Empty)
@@ -226,6 +225,12 @@ namespace DairyManager
 
         protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty( dtDate.Text ) || string.IsNullOrEmpty( cmbTaskCreator.Text) || string.IsNullOrEmpty(cmbFeeEarner.Text))
+            {
+                cmbCase.SelectedIndex = -1;
+                return;
+            }
+
             this.LoadTaskGrid();
         }
 
