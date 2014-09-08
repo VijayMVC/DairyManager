@@ -6,7 +6,8 @@
     clear: both;
     width: 100%;
 }
-.form-actions > div {
+.form-actions > div
+{
     display: block;
     float: left;
     margin-right: 15px;
@@ -16,31 +17,33 @@
 {
     color: red;
 }
-.form-group > div {
-min-width: 150px;
-width: 150px;
-display: inline-block;
-float: left;
-clear: none;
-padding-top: 10px;
+.form-group > div
+{
+    min-width: 150px;
+    width: 150px;
+    display: inline-block;
+    float: left;
+    clear: none;
+    padding-top: 10px;
 }
-    .form-group > div.input-group
-    {
-        padding-top: 0;
-    }
-.form-group .dxeButtonEdit_DevEx {
-border-collapse: separate!important;
+.form-group > div.input-group
+{
+    padding-top: 0;
 }
-.form-group .dxeButtonEdit_DevEx,
-.form-group .dxeTextBox_DevEx,
-.form-group .dxeMemo_DevEx {
-background-color: white;
-border: 1px solid #d5d5d5;
-padding: 5px;
-min-width: 250px;
+.form-group .dxeButtonEdit_DevEx
+{
+    border-collapse: separate !important;
 }
-.dxeButtonEditSys {
-min-width: 250px;
+.form-group .dxeButtonEdit_DevEx, .form-group .dxeTextBox_DevEx, .form-group .dxeMemo_DevEx
+{
+    background-color: white;
+    border: 1px solid #d5d5d5;
+    padding: 5px;
+    min-width: 250px;
+}
+.dxeButtonEditSys
+{
+    min-width: 250px;
 }
 
 .form-actions
@@ -48,9 +51,10 @@ min-width: 250px;
     display: block;
     background-color: #E5E5E5;
 }
-.alert-info .form-group > div {
-width: 175px;
-padding-top: 10px;
+.alert-info .form-group > div
+{
+    width: 175px;
+    padding-top: 10px;
 }
 .alert-info .overflow-table
 {
@@ -58,112 +62,130 @@ padding-top: 10px;
     width: 100%;
     overflow-x: scroll;
 }
-    .alert-info .form-group > div .fa-bell
-    {
-        margin-right: 10px;
-    }
-.dxbButton_DevEx, .dxbButton_DevEx, .dxbButton_DevEx:focus, .dxbButton_DevEx:focus {
-background-color: #6fb3e0!important;
-border-color: #6fb3e0;
+.alert-info .form-group > div .fa-bell
+{
+    margin-right: 10px;
+}
+.dxbButton_DevEx, .dxbButton_DevEx, .dxbButton_DevEx:focus, .dxbButton_DevEx:focus
+{
+    background-color: #6fb3e0 !important;
+    border-color: #6fb3e0;
 }
 
-.dxbButton_DevEx:focus, .dxbButton_DevEx:focus, .dxbButton_DevEx:hover {
-background-color: #3a87ad!important;
-border-color: #6fb3e0;
-color: #fff !important;
-
+.dxbButton_DevEx:focus, .dxbButton_DevEx:focus, .dxbButton_DevEx:hover
+{
+    background-color: #3a87ad !important;
+    border-color: #6fb3e0;
+    color: #fff !important;
 }
 .dxbButton_DevEx
 {
     display: inline-block;
-color: #FFF!important;
-text-shadow: 0 -1px 0 rgba(0,0,0,.25)!important;
-background-image: none!important;
-border-radius: 0;
-box-shadow: none!important;
--webkit-transition: all ease .15s;
--o-transition: all ease .15s;
-transition: all ease .15s;
-cursor: pointer;
-vertical-align: middle;
-margin: 0;
-position: relative;
+    color: #FFF !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25) !important;
+    background-image: none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    -webkit-transition: all ease .15s;
+    -o-transition: all ease .15s;
+    transition: all ease .15s;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0;
+    position: relative;
 }
 
-.dxbButton_DevEx div.dxb {
-display: inline-block;
-color: #FFF!important;
-text-shadow: 0 -1px 0 rgba(0,0,0,.25)!important;
-background-image: none!important;
-border: 5px solid #FFF;
-border-radius: 0;
-box-shadow: none!important;
--webkit-transition: all ease .15s;
--o-transition: all ease .15s;
-transition: all ease .15s;
-cursor: pointer;
-vertical-align: middle;
-margin: 0;
-position: relative;
+.dxbButton_DevEx div.dxb
+{
+    display: inline-block;
+    color: #FFF !important;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.25) !important;
+    background-image: none !important;
+    border: 5px solid #FFF;
+    border-radius: 0;
+    box-shadow: none !important;
+    -webkit-transition: all ease .15s;
+    -o-transition: all ease .15s;
+    transition: all ease .15s;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0;
+    position: relative;
+    width: 100px;
 }
-.btn-info {
-color: #fff;
-background-color: #5bc0de;
-border-color: #46b8da;
+.btn-info
+{
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
 }
-.dxbButton_DevEx div.dxb {
-display: inline-block;
-margin-bottom: 0;
-font-weight: 400;
-text-align: center;
-vertical-align: middle;
-cursor: pointer;
-background-image: none;
-border: 1px solid transparent;
-white-space: nowrap;
-padding: 6px 12px;
-font-size: 14px;
-line-height: 1.42857143;
-border-radius: 4px;
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
+.dxbButton_DevEx div.dxb
+{
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .dxeEditArea_DevEx.dxeEditAreaSys
 {
-
-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-font-size: 13px;
-line-height: 2px;
-font-weight: normal;
-height: 18px;
-display: block;
-color: #747474;
-padding: 0;
+    font-family: 'Open Sans' , 'Helvetica Neue' , Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 2px;
+    font-weight: normal;
+    height: 18px;
+    display: block;
+    color: #747474;
+    padding: 0;
 }
-.dxgvTable_DevEx,
-.dxgv a
+.dxgvTable_DevEx, .dxgv a
 {
     font: 13px Verdana;
-color: red;
-font-weight: normal;
-color: #747474;
+    color: red;
+    font-weight: normal;
+    color: #747474;
 }
 .dxgv a
 {
     color: #3a87ad;
 }
 .dxeBase_DevEx
- {
-font: 13px Verdana;
-font-weight: bold;
-color: #3c763d;
-
+{
+    font: 13px Verdana;
+    font-weight: bold;
+    color: #3c763d;
 }
 
 .dxgvGroupPanel_DevEx
 {
-    background-image:none;
+    background-image: none;
 }
+
+
+.dxfcTable_DevEx
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.dxeButtonEditSys
+{
+    background-color: white;
+    border: 1px solid #438eb9;
+    padding: 5px;
+    min-width: 250px;
+}
+

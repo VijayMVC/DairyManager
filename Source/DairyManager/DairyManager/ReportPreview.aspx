@@ -10,8 +10,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Styles/Site.css" rel="stylesheet" />
+    
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/assets/css/ace.min.css" />
+    <link href="Styles/Site.css" rel="stylesheet" />
     <title>Report Preview</title>
 </head>
 <body>
@@ -22,8 +26,7 @@
                 <Columns>
                     <dx:FilterControlDateColumn ColumnType="DateTime" DisplayName="Task Date" PropertyName="TaskDate">
                     </dx:FilterControlDateColumn>
-                    <dx:FilterControlTextColumn ColumnType="String" DisplayName="UFN" 
-                        PropertyName="UFN">
+                    <dx:FilterControlTextColumn ColumnType="String" DisplayName="UFN" PropertyName="UFN">
                     </dx:FilterControlTextColumn>
                 </Columns>
                 <ClientSideEvents Applied="function(s, e) {
@@ -31,7 +34,7 @@
 }" />
             </dx:ASPxFilterControl>
         </div>
-        <div>
+        <div class="clearfix form-actions">
             <dx:ASPxButton ID="btnApply" runat="server" Text="Apply" AutoPostBack="False" UseSubmitBehavior="False">
                 <ClientSideEvents Click="function(s, e) {
 	filter.Apply();
@@ -50,7 +53,7 @@
                 LeftMargin="20" RightMargin="20" TopMargin="20">
             </dx:ASPxGridViewExporter>
         </div>
-        <div>
+        <div class="clearfix form-actions">
             <dx:ASPxComboBox ID="cbmExporter" runat="server" OnButtonClick="cbmExporter_ButtonClick"
                 Width="200px" SelectedIndex="0" Visible="False">
                 <Items>
