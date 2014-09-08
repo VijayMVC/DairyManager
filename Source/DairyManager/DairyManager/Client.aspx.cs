@@ -45,7 +45,9 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            clientEntity.Name = txtName.Text.Trim();
+            clientEntity.Initials= txtInitials.Text.Trim();
+            clientEntity.Firstname= txtFirstName.Text.Trim();
+            clientEntity.LastName = txtLastName.Text.Trim();
             clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
             clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
             clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
@@ -78,7 +80,9 @@ namespace DairyManager
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
-                txtName.Text = ds.Tables[0].Rows[0]["Name"] != null ? ds.Tables[0].Rows[0]["Name"].ToString() : string.Empty;
+                txtInitials.Text = ds.Tables[0].Rows[0]["Initials"] != null ? ds.Tables[0].Rows[0]["Initials"].ToString() : string.Empty;
+                txtFirstName.Text = ds.Tables[0].Rows[0]["FirstName"] != null ? ds.Tables[0].Rows[0]["FirstName"].ToString() : string.Empty;                
+                txtLastName.Text = ds.Tables[0].Rows[0]["LastName"] != null ? ds.Tables[0].Rows[0]["LastName"].ToString() : string.Empty;
                 txtAddressLine1.Text = ds.Tables[0].Rows[0]["AddressLine1"] != null ? ds.Tables[0].Rows[0]["AddressLine1"].ToString() : string.Empty;
                 txtAddressLine2.Text = ds.Tables[0].Rows[0]["AddressLine2"] != null ? ds.Tables[0].Rows[0]["AddressLine2"].ToString() : string.Empty;
                 txtAddressLine3.Text = ds.Tables[0].Rows[0]["AddressLine3"] != null ? ds.Tables[0].Rows[0]["AddressLine3"].ToString() : string.Empty;
@@ -91,7 +95,9 @@ namespace DairyManager
 
         private void ClearFormData()
         {
-            txtName.Text = string.Empty;
+            txtInitials.Text = string.Empty;
+            txtFirstName.Text = string.Empty;
+            txtLastName.Text = string.Empty;
             txtAddressLine1.Text = string.Empty;
             txtAddressLine2.Text = string.Empty;
             txtAddressLine3.Text = string.Empty;
@@ -100,7 +106,7 @@ namespace DairyManager
             txtEmail.Text = string.Empty;            
             txtContactPerson.Text = string.Empty;
             hdnClientId.Value = string.Empty;
-            txtName.Focus();
+            txtLastName.Focus();
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

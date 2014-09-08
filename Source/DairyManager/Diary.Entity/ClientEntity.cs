@@ -9,7 +9,10 @@ namespace Diary.Entity
     public class ClientEntity
     {
         public Guid ClientId { get; set; }
-        public string Name { get; set; }
+
+        public string Initials{ get; set; }
+        public string Firstname { get; set; }
+        public string LastName { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }

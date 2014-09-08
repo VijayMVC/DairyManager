@@ -22,13 +22,31 @@ namespace DairyManager {
         protected global::System.Web.UI.WebControls.HiddenField hdnClientId;
         
         /// <summary>
-        /// txtName control.
+        /// txtInitials control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtName;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtInitials;
+        
+        /// <summary>
+        /// txtFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtFirstName;
+        
+        /// <summary>
+        /// txtLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox txtLastName;
         
         /// <summary>
         /// txtAddressLine1 control.

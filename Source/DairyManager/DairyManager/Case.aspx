@@ -72,9 +72,13 @@
             </div>
             <div class="input-group">
 
-                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" OnCellEditorInitialize="gvClients_CellEditorInitialize" OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" OnRowUpdating="gvClients_RowUpdating" KeyFieldName="CaseDescriptionId">
+                <dx:ASPxGridView ID="gvClients" runat="server" AutoGenerateColumns="False" 
+                    OnCellEditorInitialize="gvClients_CellEditorInitialize" 
+                    OnRowDeleting="gvClients_RowDeleting" OnRowInserting="gvClients_RowInserting" 
+                    OnRowUpdating="gvClients_RowUpdating" KeyFieldName="CaseDescriptionId" 
+                    Width="250px">
                     <Columns>
-                        <dx:GridViewCommandColumn VisibleIndex="0" ButtonType="Image">
+                        <dx:GridViewCommandColumn VisibleIndex="0" ButtonType="Image" Width="100px">
                             <NewButton Visible="True">
                                 <Image Url="~/Images/new.png">
                                 </Image>
@@ -83,9 +87,17 @@
                                 <Image Url="~/Images/delete.png">
                                 </Image>
                             </DeleteButton>
+                            <CancelButton>
+                                <Image Url="~/Images/Close.png">
+                                </Image>
+                            </CancelButton>
+                            <UpdateButton>
+                                <Image Url="~/Images/update.png">
+                                </Image>
+                            </UpdateButton>
                         </dx:GridViewCommandColumn>
                         <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
-                            VisibleIndex="3">
+                            VisibleIndex="3" Width="200px">
                             <PropertiesComboBox TextField="Name" ValueField="ClientId"
                                 ValueType="System.Guid">
                                 <ValidationSettings>

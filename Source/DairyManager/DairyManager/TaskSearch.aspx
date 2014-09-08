@@ -38,7 +38,7 @@
                     <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Creator" FieldName="TaskCreator">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Fee Earner" FieldName="FeeEarner">
+                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Fee Earner" FieldName="FeeEarner" >
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn FieldName="Code" ShowInCustomizationForm="True" Caption="UFN" VisibleIndex="2"></dx:GridViewDataTextColumn>

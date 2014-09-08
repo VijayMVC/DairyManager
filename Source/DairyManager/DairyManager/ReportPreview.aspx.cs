@@ -27,7 +27,7 @@ namespace DairyManager
                 {
 
                     GridViewDataDateColumn col = gvReports.Columns["TaskDate"] as GridViewDataDateColumn;
-                    col.PropertiesDateEdit.DisplayFormatString = "dd-MMM-yy";
+                    col.PropertiesDateEdit.DisplayFormatString = "dd-MMM-yy";                    
 
                     DevExpress.Web.ASPxGridView.ASPxSummaryItem totalHours = new DevExpress.Web.ASPxGridView.ASPxSummaryItem();
                     totalHours.FieldName = "TotalHours";
