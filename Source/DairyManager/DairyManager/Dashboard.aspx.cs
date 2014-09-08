@@ -69,10 +69,10 @@ namespace DairyManager
             DevExpress.Web.ASPxMenu.MenuItemCollection menuItems = menu.Items;
             if (menu.Id.Equals(SchedulerMenuItemId.DefaultMenu))
             {
-                //ClearUnusedDefaultMenuItems(menu);
+                ClearUnusedDefaultMenuItems(menu);
                 menu.ClientSideEvents.ItemClick = String.Format("function(s, e) {{ DefaultAppointmentMenuHandler({0}, s, e); }}", Scheduler.ClientID);
 
-                //menu.Items.Clear();
+                menu.Items.Clear();
                 DevExpress.Web.ASPxMenu.MenuItem addTask = new DevExpress.Web.ASPxMenu.MenuItem("Add new task", "AddTaskId");
                 addTask.BeginGroup = true;
                 menuItems.Add(addTask);

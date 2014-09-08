@@ -22,6 +22,8 @@
             <div class="input-group">
                 <dx:ASPxDateEdit ID="dtDate" runat="server" EditFormat="DateTime" EditFormatString="dd-MMM-yy HH:mm"
                     UseMaskBehavior="True">
+                    <TimeSectionProperties Visible="True">
+                    </TimeSectionProperties>
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>

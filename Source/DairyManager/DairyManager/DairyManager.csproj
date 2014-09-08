@@ -101,7 +101,6 @@
     <Content Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx" />
     <Content Include="Images\Close.png" />
-
     <Content Include="Images\delete.png" />
     <Content Include="Images\new.png" />
     <Content Include="Images\update.png" />
