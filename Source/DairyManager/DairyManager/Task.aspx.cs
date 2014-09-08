@@ -25,6 +25,7 @@ namespace DairyManager
             this.LoadTaskType();
             this.LoadTaskCreator();
             this.LoadFeeEarner();
+            this.LoadDateFromCalender();
 
             if (!IsPostBack)
             {
@@ -40,6 +41,15 @@ namespace DairyManager
 
 
 
+        }
+
+        private void LoadDateFromCalender()
+        {
+            DateTime TaskDate = new DateTime();
+            if (HttpContext.Current.Session["TaskStartDate"] != null && DateTime.TryParse(HttpContext.Current.Session["TaskStartDate"].ToString(), out TaskDate))
+            {
+                dtDate.Value = TaskDate;
+            }
         }
 
         private void AuthoriseUser()
@@ -78,6 +88,7 @@ namespace DairyManager
                 currentTask.InsertTask(taskEntity);
                 this.ClearFormFields();
                 Master.ShowMessage(Diary.Common.Constant.Message_Success);
+                HttpContext.Current.Session["TaskStartDate"] = null;
 
             }
             else
