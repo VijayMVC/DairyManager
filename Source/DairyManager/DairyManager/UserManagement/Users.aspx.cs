@@ -58,6 +58,11 @@ namespace DairyManager.UserManagement
             ddlGrade.ValueField = "GradeId";
             ddlGrade.TextField = "GradeName";
             ddlGrade.DataBind();
+
+            ddlLocation.DataSource = Dairy.Utility.Generic.GetAll<LocationEntity>();
+            ddlLocation.ValueField = "LocationId";
+            ddlLocation.TextField = "LocationName";
+            ddlLocation.DataBind();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
