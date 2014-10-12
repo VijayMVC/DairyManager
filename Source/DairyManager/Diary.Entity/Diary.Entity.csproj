@@ -43,6 +43,7 @@
     <Compile Include="CaseEntity.cs" />
     <Compile Include="CaseTypeEntity.cs" />
     <Compile Include="ClientEntity.cs" />
+    <Compile Include="CourtEntity.cs" />
     <Compile Include="GradeEntity.cs" />
     <Compile Include="GradeHistoryEntity.cs" />
     <Compile Include="JobEntity.cs" />

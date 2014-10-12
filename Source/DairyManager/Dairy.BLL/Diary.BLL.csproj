@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Case.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Court.cs" />
     <Compile Include="Offence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports.cs" />

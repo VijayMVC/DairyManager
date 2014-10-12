@@ -87,6 +87,8 @@
     <Content Include="About.aspx" />
     <Content Include="Account\ChangePassword.aspx" />
     <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="CourtSearch.aspx" />
+    <Content Include="Court.aspx" />
     <Content Include="OffenceSearch.aspx" />
     <Content Include="Offence.aspx" />
     <Content Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx" />
@@ -417,6 +419,20 @@
     </Compile>
     <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
       <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CourtSearch.aspx.cs">
+      <DependentUpon>CourtSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CourtSearch.aspx.designer.cs">
+      <DependentUpon>CourtSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Court.aspx.cs">
+      <DependentUpon>Court.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Court.aspx.designer.cs">
+      <DependentUpon>Court.aspx</DependentUpon>
     </Compile>
     <Compile Include="OffenceSearch.aspx.cs">
       <DependentUpon>OffenceSearch.aspx</DependentUpon>

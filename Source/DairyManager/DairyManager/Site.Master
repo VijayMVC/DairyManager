@@ -294,6 +294,16 @@
                                 <b class="arrow"></b>
                             </li>
 
+                            
+                           <li class="">
+                                <a href="/Court.aspx">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Court
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
                         </ul>
                     </li>
 

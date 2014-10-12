@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CaseDao.cs" />
     <Compile Include="ClientDao.cs" />
+    <Compile Include="CourtDao.cs" />
     <Compile Include="GradeHistoryDao.cs" />
     <Compile Include="OffenceDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

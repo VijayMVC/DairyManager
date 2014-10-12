@@ -17,6 +17,7 @@ namespace Diary.Common
             ClientId=5,
             TaskTypeId=6,
             OffenceTypeId = 7,
+            CourtId=8,
         }
 
         /// <summary>
@@ -76,8 +77,13 @@ namespace Diary.Common
             Offence_Delete = 38,
             Offence_View = 39,
             Offence_Search = 40,
-            
 
+            //Court
+            Court_Add = 41,
+            Court_Edit = 42,
+            Court_Delete = 43,
+            Court_View = 44,
+            Court_Search = 45,
 
         }
 
