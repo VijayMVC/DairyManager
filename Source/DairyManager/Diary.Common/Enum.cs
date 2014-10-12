@@ -16,6 +16,7 @@ namespace Diary.Common
             TimeRestrictionId=4,
             ClientId=5,
             TaskTypeId=6,
+            OffenceTypeId = 7,
         }
 
         /// <summary>

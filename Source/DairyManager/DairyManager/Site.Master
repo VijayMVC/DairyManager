@@ -285,7 +285,15 @@
                                 <b class="arrow"></b>
                             </li>
 
-                     
+                           <li class="">
+                                <a href="/Offence.aspx">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Offence
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+
                         </ul>
                     </li>
 
