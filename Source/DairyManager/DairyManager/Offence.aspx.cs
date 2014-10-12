@@ -34,10 +34,10 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
-            btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Add)
-                || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Edit));
+            btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Offence_Add)
+                || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Offence_Edit));
 
-            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_View))
+            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_View))
             {
                 Response.Redirect(com.Constant.URL_UNAUTHORISEDACTION, false);
             }
@@ -67,6 +67,7 @@ namespace DairyManager
             else
             {
 
+                offenceEntity.OffenceTypeId = new Guid(hdnOffenceTypeId.Value);
                 offenceEntity.UpdatedBy = Master.LoggedUser.UserId.Value; 
 
                 currentOffence.UpdateOffence(offenceEntity);
@@ -82,7 +83,7 @@ namespace DairyManager
             DataSet ds = currentOffence.SelectOffenceByOffenceTypeId(id);
 
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
-            {
+            {              
                 txtOffence.Text = ds.Tables[0].Rows[0]["Offence"] != null ? ds.Tables[0].Rows[0]["Offence"].ToString() : string.Empty;
                 
             }

@@ -69,6 +69,16 @@ namespace Diary.Common
             Task_TaskType_Delete = 33,
             Task_TaskType_View = 34,
             Task_TaskType_Search = 35,
+
+            //Offence
+            Offence_Add=36,
+            Offence_Edit = 37,
+            Offence_Delete = 38,
+            Offence_View = 39,
+            Offence_Search = 40,
+            
+
+
         }
 
         public enum ReportTypes

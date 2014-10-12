@@ -23,10 +23,10 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
-            btnBack.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Add));
+            btnBack.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Offence_Add));
             //gvCaseTypeSearch.Columns["OffenceTypeId"].Visible = Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Edit);
 
-            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Search))
+            if (!Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Offence_Search))
             {
                 Response.Redirect(com.Constant.URL_UNAUTHORISEDACTION, false);
             }
