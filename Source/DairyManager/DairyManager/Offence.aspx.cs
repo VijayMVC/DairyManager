@@ -25,8 +25,7 @@ namespace DairyManager
 
                 if (hdnOffenceTypeId.Value != string.Empty)
                 {
-                    this.DisplayRecord(new Guid(hdnOffenceTypeId.Value));
-                    offenceEntity.OffenceTypeId = new Guid(hdnOffenceTypeId.Value);
+                    this.DisplayRecord(new Guid(hdnOffenceTypeId.Value));                    
                 }
 
             }
