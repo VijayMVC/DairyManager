@@ -16,6 +16,8 @@ namespace Diary.Common
             TimeRestrictionId=4,
             ClientId=5,
             TaskTypeId=6,
+            OffenceTypeId = 7,
+            CourtId=8,
         }
 
         /// <summary>
@@ -68,6 +70,21 @@ namespace Diary.Common
             Task_TaskType_Delete = 33,
             Task_TaskType_View = 34,
             Task_TaskType_Search = 35,
+
+            //Offence
+            Offence_Add=36,
+            Offence_Edit = 37,
+            Offence_Delete = 38,
+            Offence_View = 39,
+            Offence_Search = 40,
+
+            //Court
+            Court_Add = 41,
+            Court_Edit = 42,
+            Court_Delete = 43,
+            Court_View = 44,
+            Court_Search = 45,
+
         }
 
         public enum ReportTypes
