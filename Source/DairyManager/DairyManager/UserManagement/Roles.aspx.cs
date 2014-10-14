@@ -151,7 +151,7 @@ namespace DairyManager.UserManagement
 
                     transaction.Commit();
                     result = true;
-
+                    hdnRoleId.Value = RolesObj.RoleId.HasValue ? RolesObj.RoleId.Value.ToString() : string.Empty;
                     this.DisplayData();
 
                     System.Web.UI.ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowMessage", "javascript:ShowSuccessMessage('" + Messages.Save_Success + "')", true);

@@ -31,8 +31,7 @@ namespace Diary.UserManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_RoleUpdate");
 
-            db.AddInParameter(command, "@CompanyId", DbType.Int32, roles.CompanyId);
-            db.AddInParameter(command, "@RoleId", DbType.Int32, roles.RoleId);
+            db.AddInParameter(command, "@RoleId", DbType.Guid, roles.RoleId);
             db.AddInParameter(command, "@RoleName", DbType.String, roles.RoleName);
             db.AddInParameter(command, "@RoleDescription", DbType.String, roles.RoleDescription);
             db.AddInParameter(command, "@UpdatedBy", DbType.Guid, roles.UpdatedBy);
@@ -61,10 +60,10 @@ namespace Diary.UserManagement
 
         public bool InsertRoleRights(Role roles, Database db, DbTransaction transaction)
         {
-            DbCommand command = db.GetStoredProcCommand("usp_RoleRightsInsert");
+            DbCommand command = db.GetStoredProcCommand("usp_RoleRightInsert");
 
-            db.AddInParameter(command, "@RoleId", DbType.String, roles.RoleId);
-            db.AddInParameter(command, "@RightId", DbType.String, roles.RightId);
+            db.AddInParameter(command, "@RoleId", DbType.Guid, roles.RoleId);
+            db.AddInParameter(command, "@RightId", DbType.Int32, roles.RightId);
             db.AddInParameter(command, "@CreatedBy", DbType.Guid, roles.CreatedBy);
 
             db.ExecuteNonQuery(command, transaction);
@@ -72,12 +71,11 @@ namespace Diary.UserManagement
             return true;
         }
 
-        public bool DeleteByRoleId(Role roles, Database db, DbTransaction transaction)
+        public bool DeleteRoleRightsByRoleId(Role roles, Database db, DbTransaction transaction)
         {
 
             DbCommand dbCommand = db.GetStoredProcCommand("usp_RoleRightDelete");
-            db.AddInParameter(dbCommand, "@RoleId", DbType.Int32, roles.RoleId);
-            db.AddInParameter(dbCommand, "@UpdatedBy", DbType.Guid, roles.UpdatedBy);
+            db.AddInParameter(dbCommand, "RoleId", DbType.Guid, roles.RoleId);
             db.ExecuteNonQuery(dbCommand, transaction);
             return true;
 

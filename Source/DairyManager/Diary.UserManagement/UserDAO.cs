@@ -37,7 +37,9 @@ namespace Diary.UserManagement
             db.AddInParameter(command, "@JobId", DbType.Int32, users.JobId);
             db.AddInParameter(command, "@GradeId", DbType.Int32, users.GradeId);
             db.AddInParameter(command, "@LocationId", DbType.Int32, users.LocationId);
-            db.AddInParameter(command, "@RoleId", DbType.Int32, users.RoleId);
+            db.AddInParameter(command, "@RoleId", DbType.Guid, users.RoleId);
+            db.AddInParameter(command, "LoginAttempts", DbType.Int32, users.LoginAttempts);
+            db.AddInParameter(command, "IsLocked", DbType.Boolean, users.IsLocked);
 
             db.ExecuteNonQuery(command);
 

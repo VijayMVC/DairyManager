@@ -24,8 +24,7 @@
                 <dx:ASPxTextBox ID="txtUserName" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings ValidationGroup="vgSave" Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
                         <RequiredField IsRequired="True" ErrorText="Required" />
-                        <RegularExpression ErrorText="Username must be more than 5 chars with no spaces]"
-                            ValidationExpression="^[a-zA-Z0-9~!@#$%^&*]{5,20}$" />
+                        <RegularExpression ErrorText="" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
             </div>

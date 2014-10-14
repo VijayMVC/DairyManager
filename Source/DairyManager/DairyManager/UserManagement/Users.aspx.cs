@@ -113,6 +113,7 @@ namespace DairyManager.UserManagement
                         users.LocationId = Convert.ToInt32(ddlLocation.Value);
                         users.GradeId = Convert.ToInt32(ddlGrade.Value);
                         users.JobId = Convert.ToInt32(ddlJob.Value);
+                        users.Contact = txtContact.Text.Trim();
 
                         users.CreatedBy = Master.LoggedUser.UserId.Value;
                         
@@ -190,6 +191,7 @@ namespace DairyManager.UserManagement
                 txtLastName.Text = users.LastName;
                 txtEmail.Text = users.EmailAddress;
                 txtPassword.Text = users.Password;
+                txtContact.Text = users.Contact;
                 ddlRoles.SelectedItem = ddlRoles.Items.FindByValue(users.RoleId);
                 ddlGrade.SelectedItem = ddlGrade.Items.FindByValue(users.GradeId);
                 ddlJob.SelectedItem = ddlJob.Items.FindByValue(users.JobId);
@@ -213,6 +215,7 @@ namespace DairyManager.UserManagement
                 this.txtLastName.Text = string.Empty;
                 this.txtEmail.Text = string.Empty;
                 this.txtPassword.Text = string.Empty;
+                this.txtContact.Text = string.Empty;
                 this.txtConfirmPassword.Text = string.Empty;
                 this.ddlRoles.SelectedIndex = -1;
                 this.ddlJob.SelectedIndex = -1;

@@ -72,7 +72,7 @@ namespace Diary.UserManagement
             bool result = false;
             try
             {
-                result = (new RoleDAO()).DeleteByRoleId(this, db, transaction);
+                result = (new RoleDAO()).DeleteRoleRightsByRoleId(this, db, transaction);
             }
             catch (System.Exception ex)
             {
