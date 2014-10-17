@@ -19,7 +19,7 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtCourt" runat="server" Width="170px" MaxLength="20">
+                <dx:ASPxTextBox ID="txtCourt" runat="server" Width="170px" MaxLength="100">
                     <ValidationSettings CausesValidation="True" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
