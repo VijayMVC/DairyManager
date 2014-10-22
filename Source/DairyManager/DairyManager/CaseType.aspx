@@ -32,7 +32,7 @@
                 <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxTextBox ID="txtCaseCode" runat="server" Width="170px" MaxLength="20">
+                <dx:ASPxTextBox ID="txtCaseCode" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings CausesValidation="True" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using bll = Diary.BLL;
 using com = Diary.Common;
+using Diary.Common;
 
 
 namespace DairyManager
@@ -23,6 +24,13 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             btnBack.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Offence_Add));
             //gvCaseTypeSearch.Columns["OffenceTypeId"].Visible = Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_CaseType_Edit);
 

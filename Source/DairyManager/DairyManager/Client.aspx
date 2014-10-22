@@ -78,11 +78,16 @@
         <div class="form-group">
             <div>
                 <span>Address Line 2</span>
-                <span></span>
+                 <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine2" runat="server" Width="170px" 
-                    MaxLength="100"></dx:ASPxTextBox>
+                    MaxLength="100">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" 
+                        ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Require" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
 
             </div>
         </div>
@@ -90,11 +95,16 @@
         <div class="form-group">
             <div>
                 <span>Address Line 3</span>
-                <span></span>
+                <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine3" runat="server" Width="170px" 
-                    MaxLength="100"></dx:ASPxTextBox>
+                    MaxLength="100">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" 
+                        ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Require" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
 
             </div>
         </div>

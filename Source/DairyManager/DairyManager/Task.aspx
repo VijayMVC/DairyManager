@@ -63,7 +63,9 @@
                     TextFormatString="{0}" AutoPostBack="True" OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
                     <Columns>
                         <dx:ListBoxColumn Caption="UFN" FieldName="Code" />
-                        <dx:ListBoxColumn Caption="Clients" FieldName="Name" />
+                        <dx:ListBoxColumn Caption="Clients" FieldName="Name" Width="250px" />
+                        <dx:ListBoxColumn Caption="Offence" FieldName="Offence" />
+                        <dx:ListBoxColumn Caption="Court" FieldName="Court" />
                     </Columns>
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />

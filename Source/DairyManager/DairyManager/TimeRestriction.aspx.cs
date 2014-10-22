@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using com = Diary.Common;
+using Diary.Common;
 
 namespace DairyManager
 {
@@ -16,6 +17,13 @@ namespace DairyManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             if (!IsPostBack)
             {
 

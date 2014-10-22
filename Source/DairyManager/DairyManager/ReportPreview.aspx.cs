@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using DevExpress.Data;
 using Diary.Entity;
 using DevExpress.Web.ASPxGridView;
+using Diary.Common;
 
 namespace DairyManager
 {
@@ -15,6 +16,13 @@ namespace DairyManager
     {
         protected void Page_Init(object sender, EventArgs e)
         {
+
+            if (Session[Constant.SESSION_LOGGEDUSER] == null)
+            {               
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             if (Session["CurrentReport"] != null)
             {
                 Diary.Entity.ReportEntity reportEntity = new Diary.Entity.ReportEntity();

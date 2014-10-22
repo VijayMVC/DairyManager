@@ -38,6 +38,13 @@ namespace DairyManager.UserManagement
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(Diary.Common.Enum.Rights.UserManagement_Roles_Add)
                 || Master.LoggedUser.IsUserAuthorised(Diary.Common.Enum.Rights.UserManagement_Roles_Edit));
 

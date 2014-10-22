@@ -8,6 +8,7 @@ using DevExpress.Web.ASPxMenu;
 using DevExpress.Web.ASPxScheduler;
 using DevExpress.Web.ASPxScheduler.Internal;
 using DevExpress.XtraScheduler;
+using Diary.Common;
 
 namespace DairyManager
 {
@@ -15,6 +16,13 @@ namespace DairyManager
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             MapSchedulerFields();
         }
 

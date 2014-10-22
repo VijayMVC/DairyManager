@@ -36,6 +36,13 @@ namespace DairyManager.UserManagement
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             gvUsers.Columns[0].Visible = Master.LoggedUser.IsUserAuthorised(Diary.Common.Enum.Rights.UserManagement_User_Delete);
             gvUsers.Columns[1].Visible = Master.LoggedUser.IsUserAuthorised(Diary.Common.Enum.Rights.UserManagement_User_Edit) ||
                 Master.LoggedUser.IsUserAuthorised(Diary.Common.Enum.Rights.UserManagement_User_View);

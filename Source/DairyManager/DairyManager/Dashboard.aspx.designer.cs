@@ -20,5 +20,17 @@ namespace DairyManager {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxScheduler.ASPxScheduler Scheduler;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new DairyManager.SiteMaster Master {
+            get {
+                return ((DairyManager.SiteMaster)(base.Master));
+            }
+        }
     }
 }

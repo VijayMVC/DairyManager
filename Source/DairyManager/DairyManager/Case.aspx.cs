@@ -12,6 +12,7 @@ using DevExpress.Web.ASPxGridView;
 using Diary.Entity;
 using bll = Diary.BLL;
 using com = Diary.Common;
+using Diary.Common;
 
 namespace DairyManager
 {
@@ -60,6 +61,13 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_Add)
                 || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Case_Case_Edit));
 

@@ -34,6 +34,13 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
             btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_TaskType_Add)
                 || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_TaskType_Edit));
 
@@ -61,7 +68,7 @@ namespace DairyManager
                 }
                 else
                 {
-                    //message already exists.
+                    Master.ShowMessage(Diary.Common.Constant.Message_AlreadyExists);    
                 }
             }
             else

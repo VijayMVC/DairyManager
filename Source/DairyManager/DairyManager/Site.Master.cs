@@ -29,19 +29,26 @@ namespace DairyManager
                     Session[Constant.SESSION_LOGGEDUSER] = null;
                     Response.Redirect(Constant.URL_LOGIN, false);
                 }
+               
 
                 return user;
             }
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+          
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (LoggedUser == null)
             {
+                Response.Redirect(Constant.URL_LOGIN, false);
                 return;
             }
 
-            Label lblUserName = (Label) HeadLoginView.Controls[0].Controls[0].FindControl("lblLoggedName");
+            Label lblUserName = (Label)HeadLoginView.Controls[0].Controls[0].FindControl("lblLoggedName");
             if (lblUserName != null)
             {
                 lblUserName.Text = this.LoggedUser.UserName;
@@ -61,9 +68,9 @@ namespace DairyManager
         }
 
         public void ShowMessage(string message)
-        {           
-                     
-            if (message==Constant.Message_Success)
+        {
+
+            if (message == Constant.Message_Success)
             {
                 this.dvSuccessMessage.Visible = true;
                 this.ltlSuccesMessage.Text = message;

@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using com = Diary.Common;
 using DevExpress.Web.ASPxGridView;
-
+using Diary.Common;
 
 namespace DairyManager
 {
@@ -37,6 +37,7 @@ namespace DairyManager
                 }
 
             }
+
             this.AuthoriseUser();
 
 
@@ -54,6 +55,14 @@ namespace DairyManager
 
         private void AuthoriseUser()
         {
+            if (Master.LoggedUser == null)
+            {
+                Session[Constant.SESSION_LOGGEDUSER] = null;
+                Response.Redirect(Constant.URL_LOGIN, false);
+                return;
+            }
+
+
             btnSave.Visible = (Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Add)
                 || Master.LoggedUser.IsUserAuthorised(com.Enum.Rights.Task_Task_Edit));
 
