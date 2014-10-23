@@ -37,7 +37,10 @@ namespace DairyManager
 
         protected void Page_Init(object sender, EventArgs e)
         {
-          
+            if (Session[Constant.SESSION_LOGGEDUSER]== null)
+           {
+               Response.Redirect(Constant.URL_LOGIN, false);
+           }
         }
 
         protected void Page_Load(object sender, EventArgs e)

@@ -41,9 +41,67 @@
 }" />
             </dx:ASPxButton>
         </div>
+
+        <div>
+            <div> <span>Group By</span></div>
+            <div  class="clearfix form-actions">
+                <dx:ASPxRadioButtonList ID="rbGroupBy" runat="server" 
+                    RepeatDirection="Horizontal" AutoPostBack="True" 
+                    onselectedindexchanged="rbGroupBy_SelectedIndexChanged" SelectedIndex="0">
+                    <Items>
+                        <dx:ListEditItem Text="UFN" Value="UFN" Selected="True" />
+                        <dx:ListEditItem Text="Task Type" Value="Task Type" />
+                        <dx:ListEditItem Text="Client" Value="Client" />
+                        <dx:ListEditItem Text="Task Creator" Value="Task Creator" />
+                        <dx:ListEditItem Text="Fee Earner" Value="Fee Earner" />
+                        <dx:ListEditItem Text="None" Value="None" />
+                    </Items>
+                    <Border BorderStyle="None" />
+                </dx:ASPxRadioButtonList>
+            </div>
+        
+        </div>
         <div>
             <dx:ASPxGridView ID="gvReports" runat="server" Width="100%" EnableViewState="False"
-                ClientInstanceName="grid">
+                ClientInstanceName="grid" AutoGenerateColumns="False">
+                <TotalSummary>
+                    <dx:ASPxSummaryItem DisplayFormat="Total {0}" FieldName="TotalHours" 
+                        SummaryType="Sum" />
+                </TotalSummary>
+                <Columns>
+                    <dx:GridViewDataTextColumn Caption="UFN" FieldName="UFN" Name="colUFN" 
+                        VisibleIndex="0">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Task Date" FieldName="TaskDate" 
+                        Name="colTaskDate" VisibleIndex="1">
+                        <PropertiesTextEdit DisplayFormatString="dd-MMM-yy">
+                        </PropertiesTextEdit>
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Task Type" FieldName="TaskType" 
+                        Name="colTaskType" VisibleIndex="2">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Client" FieldName="Client" Name="colClient" 
+                        VisibleIndex="3">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="TaskCreator" FieldName="TaskCreator" 
+                        Name="colTaskCreator" VisibleIndex="4">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="FeeEarner" FieldName="FeeEarner" 
+                        Name="colFeeEarner" VisibleIndex="5">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="TaskDescription" 
+                        FieldName="TaskDescription" Name="colTaskDescription" VisibleIndex="6">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Start Time" FieldName="StartTime" 
+                        Name="colStartTime" VisibleIndex="7">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="End Time" FieldName="EndTime" 
+                        Name="colEndTime" VisibleIndex="8">
+                    </dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn Caption="Hours" FieldName="TotalHours" 
+                        Name="colTotalHours" VisibleIndex="9">
+                    </dx:GridViewDataTextColumn>
+                </Columns>
                 <Settings HorizontalScrollBarMode="Auto" ShowFilterRow="True" ShowFooter="True" ShowGroupFooter="VisibleIfExpanded"
                     ShowGroupPanel="True" />
             </dx:ASPxGridView>
