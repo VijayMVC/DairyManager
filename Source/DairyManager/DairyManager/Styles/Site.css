@@ -162,13 +162,24 @@
 {
     color: #3a87ad;
 }
-.dxeBase_DevEx
+.dxeBase_DevEx,
+.dxscToolbar_DevEx
 {
     font: 13px Verdana;
     font-weight: bold;
     color: #3c763d;
 }
-
+.dxscViewVisibleInterval_DevEx,
+.dxscViewNavigatorButton_DevEx, 
+.dxscViewNavigatorGotoDateButton_DevEx,
+.dxscViewSelectorButton_DevEx 
+{
+    font: 13px Verdana;
+}
+.dxscToolbar_DevEx {
+background: #fff;
+padding: 3px 0 3px 3px;
+}
 .dxgvGroupPanel_DevEx
 {
     background-image: none;
