@@ -51,8 +51,13 @@
         <div>
             <div class="login-container">
                 <div class="center">
+                    <div>
+                        
+                        
+                    </div>
                     <h1>
-                        <i class="ace-icon fa fa-leaf green"></i>
+                        <img src="Images/logo.png" alt="PR Solicitors" />
+                        <%--<i class="ace-icon fa fa-leaf green"></i>--%>
                         <span class="red">Log </span>
                         <span class="grey" id="id-text2">In</span>
                     </h1>
