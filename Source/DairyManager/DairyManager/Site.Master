@@ -53,7 +53,7 @@
             <div class="navbar-header pull-left">
                 <!-- #section:basics/navbar.layout.brand -->
                 <a href="/Dashboard.aspx" class="navbar-brand"><small>
-                    <img src="Images/logo.png" alt="PR Solicitors" />
+                    <img src="../Images/logo.png" alt="PR Solicitors" />
                     <%--<i class="fa fa-leaf"></i>--%>
                     </small></a>
                 <!-- /section:basics/navbar.layout.brand -->
@@ -67,7 +67,7 @@
                         <AnonymousTemplate>
                             <li class="light-blue"><a data-toggle="dropdown" href="#" class="dropdown-toggle">
                                 <%--<img class="nav-user-photo" src="../assets/avatars/user.jpg" alt="Jason's Photo" />--%>
-                                <span class="user-info"><small>Welcome,</small> <span class="bold">
+                              <%--  <span class="user-info"><small>Welcome,</small> <span class="bold">--%>
                                     <asp:LoginName ID="HeadLoginName" runat="server" />
                                     <asp:Label ID="lblLoggedName" runat="server" Text=""></asp:Label>
                                 </span></span><i class="ace-icon fa fa-caret-down"></i></a>
@@ -85,7 +85,7 @@
                                             </a>
                                         </li>
                                         <li class="divider"></li>--%>
-                                    <li><a href="/Login.aspx"><i class="ace-icon fa fa-power-off"></i></a></li>
+                                    <li><a href="/Login.aspx"><i class="ace-icon fa fa-power-off"></i> Log out</a></li>
                                 </ul>
                             </li>
                         </AnonymousTemplate>

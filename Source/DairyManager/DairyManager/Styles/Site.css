@@ -162,23 +162,20 @@
 {
     color: #3a87ad;
 }
-.dxeBase_DevEx,
-.dxscToolbar_DevEx
+.dxeBase_DevEx, .dxscToolbar_DevEx
 {
     font: 13px Verdana;
     font-weight: bold;
     color: #3c763d;
 }
-.dxscViewVisibleInterval_DevEx,
-.dxscViewNavigatorButton_DevEx, 
-.dxscViewNavigatorGotoDateButton_DevEx,
-.dxscViewSelectorButton_DevEx 
+.dxscViewVisibleInterval_DevEx, .dxscViewNavigatorButton_DevEx, .dxscViewNavigatorGotoDateButton_DevEx, .dxscViewSelectorButton_DevEx
 {
     font: 13px Verdana;
 }
-.dxscToolbar_DevEx {
-background: #fff;
-padding: 3px 0 3px 3px;
+.dxscToolbar_DevEx
+{
+    background: #fff;
+    padding: 3px 0 3px 3px;
 }
 .dxgvGroupPanel_DevEx
 {
@@ -199,4 +196,61 @@ padding: 3px 0 3px 3px;
     padding: 5px;
     min-width: 250px;
 }
+
+
+
+/*Dashboard*/
+
+.dxscControl_DevEx
+{
+    /* background: #9da0aa; */
+    border: 1px solid #D3D5DD;
+}
+
+.dxscToolbarContainer_DevEx
+{
+    border-bottom: none;
+    border-right: none;
+}
+
+.dxscViewSelectorButton_DevEx
+{
+    border: 1px solid #DFDFDF;
+}
+
+.dxscLeftTopCorner_DevEx, .dxscRightTopCorner_DevEx
+{
+    background-color: rgba(255, 255, 255, 0.94);
+}
+
+.dxscDateHeader_DevEx, .dxscAlternateDateHeader_DevEx, .dxscDayHeader_DevEx, .dxscDateCellHeader_DevEx, .dxscTodayCellHeader_DevEx, .dxscTimelineDateHeader_DevEx, .dxscHorizontalResourceHeader_DevEx, .dxscVerticalResourceHeader_DevEx
+{
+    background: rgba(250, 250, 252, 0.96);
+}
+
+.dxscAptSelDiv
+{
+
+    border-left: 5px;
+    border-color: #438eb9;
+}
+
+.dxeBase_DevEx, .dxscToolbar_DevEx {
+font: 11px Verdana;
+color: #438eb9;
+font-weight: normal;
+}
+
+.dxscTimeCellBody_DevEx {
+ border: none;
+
+}
+
+.dxscDateCellHeader_DevEx {
+border-width: 1px;
+border-color: #DFDFDF;
+
+}
+
+
 
