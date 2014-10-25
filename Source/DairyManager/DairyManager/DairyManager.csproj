@@ -89,6 +89,9 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="CourtSearch.aspx" />
     <Content Include="Court.aspx" />
+    <Content Include="DashboardTemplates\DairyVerticalAppointmentTemplate.ascx" />
+    <Content Include="DashboardTemplates\DairyHorizontalAppointmentTemplate.ascx" />
+    <Content Include="DashboardTemplates\DairyHorizontalSameDayAppointmentTemplate.ascx" />
     <Content Include="OffenceSearch.aspx" />
     <Content Include="Offence.aspx" />
     <Content Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx" />
@@ -96,14 +99,11 @@
     <Content Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx" />
-    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx" />
-    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx" />
     <Content Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx" />
-    <Content Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx" />
     <Content Include="Images\Close.png" />
     <Content Include="Images\delete.png" />
     <Content Include="Images\new.png" />
@@ -434,6 +434,27 @@
     <Compile Include="Court.aspx.designer.cs">
       <DependentUpon>Court.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DashboardTemplates\DairyVerticalAppointmentTemplate.ascx.cs">
+      <DependentUpon>DairyVerticalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardTemplates\DairyVerticalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>DairyVerticalAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardTemplates\DairyHorizontalAppointmentTemplate.ascx.cs">
+      <DependentUpon>DairyHorizontalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardTemplates\DairyHorizontalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>DairyHorizontalAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardTemplates\DairyHorizontalSameDayAppointmentTemplate.ascx.cs">
+      <DependentUpon>DairyHorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashboardTemplates\DairyHorizontalSameDayAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>DairyHorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
     <Compile Include="OffenceSearch.aspx.cs">
       <DependentUpon>OffenceSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -483,20 +504,6 @@
     <Compile Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx.designer.cs">
       <DependentUpon>GotoDateForm.ascx</DependentUpon>
     </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.cs">
-      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.designer.cs">
-      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.cs">
-      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.designer.cs">
-      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
-    </Compile>
     <Compile Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx.cs">
       <DependentUpon>InplaceEditor.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -531,13 +538,6 @@
     </Compile>
     <Compile Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx.designer.cs">
       <DependentUpon>SelectionToolTip.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.cs">
-      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.designer.cs">
-      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

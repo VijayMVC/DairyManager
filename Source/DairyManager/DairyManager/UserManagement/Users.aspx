@@ -45,7 +45,7 @@
 }" />
                     <ValidationSettings ValidationGroup="vgSave" Display="Dynamic" ErrorDisplayMode="ImageWithTooltip">
                         <RequiredField IsRequired="True" ErrorText="Required" />
-                        <RegularExpression ErrorText="Password must be 6 charactors" ValidationExpression="^[a-zA-Z0-9~!@#$%^&*]{6,20}$" />
+                        <RegularExpression ErrorText="Password requires more than 6 characters including at least 1 upper or lower character, and 1 digit" ValidationExpression="^(?=.*\d)(?=.*[a-zA-Z])(?!.*[\W_\x7B-\xFF]).{6,50}$" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
             </div>

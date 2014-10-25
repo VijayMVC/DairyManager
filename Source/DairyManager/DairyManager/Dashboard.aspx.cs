@@ -47,9 +47,11 @@ namespace DairyManager
             Scheduler.Storage.Appointments.Mappings.AppointmentId = "TaskId";
             Scheduler.Storage.Appointments.Mappings.Start = "StartTime";
             Scheduler.Storage.Appointments.Mappings.End = "EndTime";
+            //Scheduler.Storage.Appointments.Mappings.Label = "CaseDescription";
             Scheduler.Storage.Appointments.Mappings.Label = "CaseDescription";
-            Scheduler.Storage.Appointments.Mappings.Subject = "CaseDescription";
+            Scheduler.Storage.Appointments.Mappings.Subject = "Label";
             Scheduler.Storage.Appointments.Mappings.ResourceId = "FeeEarner";
+            //Scheduler.Storage.Appointments.Mappings.Description = "Label";
             Scheduler.Storage.Appointments.Mappings.Description = "Label";
 
 
