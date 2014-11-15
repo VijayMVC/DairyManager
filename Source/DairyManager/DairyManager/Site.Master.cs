@@ -102,6 +102,14 @@ namespace DairyManager
                 this.dvSuccessMessage.Visible = false;
 
             }
+            else if (message == Constant.Message_ClientNeedToUpdate)
+            {
+                this.dvWarningMessage.Visible = true;
+                this.ltlWariningMessage.Text = message;
+                this.dvSuccessMessage.Visible = false;
+
+            }
+
 
 
 

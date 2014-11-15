@@ -67,8 +67,7 @@
         </div>
         <div class="form-group">
             <div>
-                <span>Client</span>
-                <em>*</em>
+                <span>Client</span>                
             </div>
             <div class="input-group">
 

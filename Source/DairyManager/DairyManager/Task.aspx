@@ -30,14 +30,14 @@
                 </dx:ASPxDateEdit>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display:none">
             <div>
                 <span>Task Creator</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbTaskCreator" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
+                <dx:ASPxComboBox ID="cmbTaskCreator" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains" Visible=false>
                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Required" IsRequired="True" />
+                        <RequiredField ErrorText="Required" IsRequired="False"  />
                     </ValidationSettings>
                 </dx:ASPxComboBox>
             </div>

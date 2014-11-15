@@ -82,7 +82,10 @@ namespace DairyManager
 
             taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
             taskEntity.CaseId = new Guid(cmbCase.Value.ToString());
-            taskEntity.TaskCreator = new Guid(cmbTaskCreator.Value.ToString());
+            
+            //taskEntity.TaskCreator = new Guid(cmbTaskCreator.Value.ToString());
+            taskEntity.TaskCreator = Master.LoggedUser.UserId.Value;
+
             taskEntity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
             taskEntity.TaskTypeId = new Guid(cmbTaskType.Value.ToString());
             taskEntity.TaskDescription = txtTaskDescription.Text.Trim();
@@ -119,7 +122,7 @@ namespace DairyManager
             {
                 dtDate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["TaskDate"].ToString());
                 cmbCase.Value = ds.Tables[0].Rows[0]["CaseId"].ToString();
-                cmbTaskCreator.Value = ds.Tables[0].Rows[0]["TaskCreator"].ToString();
+                //cmbTaskCreator.Value = ds.Tables[0].Rows[0]["TaskCreator"].ToString();
                 cmbFeeEarner.Value = ds.Tables[0].Rows[0]["FeeEarner"].ToString();
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
                 txtTaskDescription.Value = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
@@ -150,10 +153,10 @@ namespace DairyManager
 
         private void LoadTaskCreator()
         {
-            cmbTaskCreator.DataSource = currentUser.SelectAllDataset().Tables[0];
-            cmbTaskCreator.TextField = "UserName";
-            cmbTaskCreator.ValueField = "UserId";
-            cmbTaskCreator.DataBind();
+            //cmbTaskCreator.DataSource = currentUser.SelectAllDataset().Tables[0];
+            //cmbTaskCreator.TextField = "UserName";
+            //cmbTaskCreator.ValueField = "UserId";
+            //cmbTaskCreator.DataBind();
         }
 
         private void LoadFeeEarner()
@@ -168,7 +171,7 @@ namespace DairyManager
         {
             dtDate.Text = string.Empty;
             cmbCase.SelectedIndex = -1;
-            cmbTaskCreator.SelectedIndex = -1;
+            //cmbTaskCreator.SelectedIndex = -1;
             cmbFeeEarner.SelectedIndex = -1;
             cmbTaskType.SelectedIndex = -1;
             txtTaskDescription.Text = string.Empty;
@@ -245,7 +248,7 @@ namespace DairyManager
 
         protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty( dtDate.Text ) || string.IsNullOrEmpty( cmbTaskCreator.Text) || string.IsNullOrEmpty(cmbFeeEarner.Text))
+            if (string.IsNullOrEmpty( dtDate.Text ) || string.IsNullOrEmpty(cmbFeeEarner.Text))
             {
                 cmbCase.SelectedIndex = -1;
                 return;

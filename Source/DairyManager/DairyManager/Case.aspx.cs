@@ -79,6 +79,12 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (gvClients.IsNewRowEditing)
+            {
+                Master.ShowMessage(Diary.Common.Constant.Message_ClientNeedToUpdate);
+                return;
+            }
+
             caseEntity.Code = txtCode.Text.Trim();
             caseEntity.Case = txtCase.Text.Trim();            
             caseEntity.CaseTypeId = new Guid(cmbCaseType.Value.ToString());
