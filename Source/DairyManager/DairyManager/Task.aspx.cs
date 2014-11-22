@@ -36,6 +36,8 @@ namespace DairyManager
                     this.DisplayRecord(new Guid(hdnTaskId.Value));
                 }
 
+                this.dtDate.Date = DateTime.Now;
+
             }
 
             this.AuthoriseUser();
@@ -169,7 +171,7 @@ namespace DairyManager
 
         private void ClearFormFields()
         {
-            dtDate.Text = string.Empty;
+            dtDate.Date = DateTime.Now;
             cmbCase.SelectedIndex = -1;
             //cmbTaskCreator.SelectedIndex = -1;
             cmbFeeEarner.SelectedIndex = -1;

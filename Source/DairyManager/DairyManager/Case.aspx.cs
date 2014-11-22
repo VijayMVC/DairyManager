@@ -18,6 +18,7 @@ namespace DairyManager
 {
     public partial class Case : System.Web.UI.Page
     {
+
         CaseEntity caseEntity = new CaseEntity();
         bll.Client currentClient = new bll.Client();
         bll.Case currentCase = new bll.Case();
