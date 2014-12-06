@@ -53,7 +53,7 @@
                     <AppointmentDisplayOptions EndTimeVisibility="Always" StartTimeVisibility="Always"
                         TimeDisplayType="Text" AppointmentHeight="40" ShowRecurrence="False" ShowReminder="False" />
                 </WeekView>
-                <MonthView>
+                <MonthView CompressWeekend="False">
                     <AppointmentDisplayOptions StartTimeVisibility="Always" AppointmentHeight="100" EndTimeVisibility="Always" />
                     <Templates>
                         <HorizontalSameDayAppointmentTemplate>

@@ -23,6 +23,11 @@ namespace DairyManager
                 return;
             }
 
+            if (!IsPostBack)
+            {
+                Scheduler.GoToToday();
+            }
+
             MapSchedulerFields();
         }
 
@@ -39,8 +44,6 @@ namespace DairyManager
             Scheduler.ResourceDataSource = dsTimeLineData.Tables[1];
             Scheduler.Storage.Resources.Mappings.ResourceId = "UserId";
             Scheduler.Storage.Resources.Mappings.Caption = "Name";
-
-            //Scheduler.Storage.
 
             Scheduler.Views.WorkWeekView.Enabled = false;
             Scheduler.AppointmentDataSource = dsTimeLineData.Tables[0];
