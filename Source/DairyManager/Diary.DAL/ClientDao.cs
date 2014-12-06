@@ -24,7 +24,9 @@ namespace Diary.DAL
 
             db.AddInParameter(dbCommand, "@Initials", DbType.String, clientEntity.Initials);
             db.AddInParameter(dbCommand, "@Firstname", DbType.String, clientEntity.Firstname);
+            db.AddInParameter(dbCommand, "@MiddleName", DbType.String, clientEntity.MiddleName);
             db.AddInParameter(dbCommand, "@LastName", DbType.String, clientEntity.LastName);
+            db.AddInParameter(dbCommand, "@DOB", DbType.Date, clientEntity.DOB);
             db.AddInParameter(dbCommand, "@AddressLine1", DbType.String, clientEntity.AddressLine1);
             db.AddInParameter(dbCommand, "@AddressLine2", DbType.String, clientEntity.AddressLine2);
             db.AddInParameter(dbCommand, "@AddressLine3", DbType.String, clientEntity.AddressLine3);
@@ -55,7 +57,9 @@ namespace Diary.DAL
             db.AddInParameter(dbCommand, "@ClientId", DbType.Guid, clientEntity.ClientId);
             db.AddInParameter(dbCommand, "@Initials", DbType.String, clientEntity.Initials);
             db.AddInParameter(dbCommand, "@Firstname", DbType.String, clientEntity.Firstname);
+            db.AddInParameter(dbCommand, "@MiddleName", DbType.String, clientEntity.MiddleName);
             db.AddInParameter(dbCommand, "@LastName", DbType.String, clientEntity.LastName);
+            db.AddInParameter(dbCommand, "@DOB", DbType.Date, clientEntity.DOB);
             db.AddInParameter(dbCommand, "@AddressLine1", DbType.String, clientEntity.AddressLine1);
             db.AddInParameter(dbCommand, "@AddressLine2", DbType.String, clientEntity.AddressLine2);
             db.AddInParameter(dbCommand, "@AddressLine3", DbType.String, clientEntity.AddressLine3);

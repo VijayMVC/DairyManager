@@ -36,6 +36,7 @@
 
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Task Description" FieldName="TaskDescription" ShowInCustomizationForm="True">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                 </Columns>

@@ -32,10 +32,11 @@
                     <dx:GridViewDataHyperLinkColumn Caption="Case Code" FieldName="CaseTypeId" VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/CaseType.aspx?CaseTypeId={0}" TextField="CaseCode">
                         </PropertiesHyperLinkEdit>
-                        <Settings FilterMode="DisplayText" />
+                        <Settings FilterMode="DisplayText" AutoFilterCondition="Contains" />
                     </dx:GridViewDataHyperLinkColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Case Description" FieldName="CaseDescription" ShowInCustomizationForm="True">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                 </Columns>

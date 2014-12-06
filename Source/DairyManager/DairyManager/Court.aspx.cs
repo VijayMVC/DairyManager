@@ -19,6 +19,8 @@ namespace DairyManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.AuthoriseUser();
+
             if (!IsPostBack)
             {
                 hdnCourtId.Value = Master.GetQueryStringValueByKey(Request, com.Enum.QueryStringParameters.CourtId.ToString());
@@ -31,7 +33,8 @@ namespace DairyManager
                 this.LoadCourtTypes();
 
             }
-            this.AuthoriseUser();
+
+            
         }
 
         private void AuthoriseUser()
@@ -54,6 +57,10 @@ namespace DairyManager
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
+            if (Master.LoggedUser == null)
+            {
+                return;
+            }
 
             courtEntity.Court = txtCourt.Text.Trim();
             courtEntity.CourtTypeId = new Guid(cmbCourtType.Value.ToString()); 

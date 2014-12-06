@@ -36,17 +36,23 @@
                     </dx:GridViewDataHyperLinkColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Task Creator" FieldName="TaskCreator">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Fee Earner" FieldName="FeeEarner" >
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn FieldName="Code" ShowInCustomizationForm="True" Caption="UFN" VisibleIndex="2"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="Code" Caption="UFN" VisibleIndex="2"></dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Task Type" FieldName="TaskDescription">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn FieldName="TaskDescription1" ShowInCustomizationForm="True" Caption="Task Description" VisibleIndex="5"></dx:GridViewDataTextColumn>
+                    <dx:GridViewDataTextColumn FieldName="TaskDescription1" 
+                        Caption="Task Description" VisibleIndex="5">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
+                    </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="6" Caption="Remaining Hours" FieldName="TotalRemainingHours">
                     </dx:GridViewDataTextColumn>

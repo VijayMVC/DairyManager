@@ -12,7 +12,9 @@ namespace Diary.Entity
 
         public string Initials{ get; set; }
         public string Firstname { get; set; }
+        public string MiddleName{ get; set; }
         public string LastName { get; set; }
+        public DateTime DOB{ get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }

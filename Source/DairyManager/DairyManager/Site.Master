@@ -161,9 +161,9 @@
                             New Task Type </a><b class="arrow"></b></li>
                         <li class=""><a href="/TimeRestriction.aspx"><i class="menu-icon fa fa-caret-right">
                         </i>Time Restriction </a><b class="arrow"></b></li>
-                        <li class=""><a href="/Offence.aspx"><i class="menu-icon fa fa-caret-right"></i>Offence
+                        <li class=""><a href="/Offence.aspx"><i class="menu-icon fa fa-caret-right"></i>Add new Offence
                         </a><b class="arrow"></b></li>
-                        <li class=""><a href="/Court.aspx"><i class="menu-icon fa fa-caret-right"></i>Court
+                        <li class=""><a href="/Court.aspx"><i class="menu-icon fa fa-caret-right"></i>Add new Court
                         </a><b class="arrow"></b></li>
                     </ul>
                 </li>

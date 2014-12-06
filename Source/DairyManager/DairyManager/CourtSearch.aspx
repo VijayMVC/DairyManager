@@ -27,13 +27,16 @@
                     <dx:GridViewDataHyperLinkColumn Caption="Court" FieldName="CourtId" VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/Court.aspx?CourtId={0}" TextField="Court">
                         </PropertiesHyperLinkEdit>
-                        <Settings FilterMode="DisplayText" />
+                        <Settings FilterMode="DisplayText" AutoFilterCondition="Contains" />
                     </dx:GridViewDataHyperLinkColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Court Type" FieldName="CourtType" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Court Type" 
+                        FieldName="CourtType">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
-                      <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Police Station" FieldName="PoliceStation" ShowInCustomizationForm="True">
+                      <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Police Station" 
+                        FieldName="PoliceStation" Visible="False">
                     </dx:GridViewDataTextColumn>
 
 

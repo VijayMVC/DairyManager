@@ -24,28 +24,39 @@
                      <dx:GridViewDataHyperLinkColumn Caption="Name" FieldName="ClientId" VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/Client.aspx?ClientId={0}" TextField="Name">
                         </PropertiesHyperLinkEdit>
-                        <Settings FilterMode="DisplayText" />
+                        <Settings FilterMode="DisplayText" AutoFilterCondition="Contains" />
                     </dx:GridViewDataHyperLinkColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="2" Caption="Address Line 1" FieldName="AddressLine1" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn Caption="DOB" FieldName="DOB" VisibleIndex="2">
+                        <PropertiesTextEdit DisplayFormatString="dd-MMM-yy">
+                        </PropertiesTextEdit>
+                        <Settings FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Address Line 2" FieldName="AddressLine2" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="3" Caption="Address Line 1" 
+                        FieldName="AddressLine1">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Address Line 3" FieldName="AddressLine3" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="4" Caption="Address Line 2" 
+                        FieldName="AddressLine2">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Telephone" FieldName="Telephone" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Address Line 3" 
+                        FieldName="AddressLine3">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="6" Caption="Fax" FieldName="Fax" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="6" Caption="Telephone" 
+                        FieldName="Telephone">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Email" FieldName="Email" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Fax" FieldName="Fax">
                     </dx:GridViewDataTextColumn>
 
-                    <dx:GridViewDataTextColumn VisibleIndex="9" Caption="Contact Person" FieldName="ContactPerson" ShowInCustomizationForm="True">
+                    <dx:GridViewDataTextColumn VisibleIndex="8" Caption="Email" FieldName="Email">
+                    </dx:GridViewDataTextColumn>
+
+                    <dx:GridViewDataTextColumn VisibleIndex="9" Caption="Contact Person" 
+                        FieldName="ContactPerson">
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewCommandColumn ButtonType="Image" VisibleIndex="0">

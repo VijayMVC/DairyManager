@@ -35,7 +35,7 @@
                         VisibleIndex="1">
                         <PropertiesHyperLinkEdit NavigateUrlFormatString="/Offence.aspx?OffenceTypeId={0}" TextField="Offence">
                         </PropertiesHyperLinkEdit>
-                        <Settings FilterMode="DisplayText" />
+                        <Settings FilterMode="DisplayText" AutoFilterCondition="Contains" />
                     </dx:GridViewDataHyperLinkColumn>
 
                 </Columns>

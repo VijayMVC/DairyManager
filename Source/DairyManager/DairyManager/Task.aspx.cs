@@ -245,7 +245,7 @@ namespace DairyManager
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-            this.ClearFormFields();
+         this.ClearFormFields();
         }
 
         protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)

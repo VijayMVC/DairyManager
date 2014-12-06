@@ -47,8 +47,22 @@
 
         <div class="form-group">
             <div>
+                <span>Middle Name</span>
+               <em>*</em>
+            </div>
+            <div class="input-group">
+                <dx:ASPxTextBox ID="txtMiddleName" runat="server" Width="170px" MaxLength="50">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                        <RequiredField ErrorText="Required" IsRequired="True" />
+                    </ValidationSettings>
+                </dx:ASPxTextBox>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div>
                 <span>Last Name</span>
-                <em>*</em>
+               <em>*</em>
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtLastName" runat="server" Width="170px" MaxLength="50">
@@ -59,16 +73,27 @@
             </div>
         </div>
 
+         <div class="form-group">
+            <div>
+                <span>DOB</span>              
+            </div>
+            <div class="input-group">
+                <dx:ASPxDateEdit ID="dtDOB" runat="server" EditFormat="Custom" 
+                    EditFormatString="dd-MMM-yy">
+                </dx:ASPxDateEdit>
+            </div>
+        </div>
+
         <div class="form-group">
             <div>
                 <span>Address Line 1</span>
-                <em>*</em>
+              
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine1" runat="server" Width="170px" 
                     MaxLength="100">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Required" IsRequired="True" />
+                        <RequiredField ErrorText="Required" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
 
@@ -78,14 +103,14 @@
         <div class="form-group">
             <div>
                 <span>Address Line 2</span>
-                 <em>*</em>
+                
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine2" runat="server" Width="170px" 
                     MaxLength="100">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" 
                         ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Require" IsRequired="True" />
+                        <RequiredField ErrorText="Require" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
 
@@ -95,14 +120,14 @@
         <div class="form-group">
             <div>
                 <span>Address Line 3</span>
-                <em>*</em>
+               
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtAddressLine3" runat="server" Width="170px" 
                     MaxLength="100">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" 
                         ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Require" IsRequired="True" />
+                        <RequiredField ErrorText="Require" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
 
@@ -113,12 +138,12 @@
         <div class="form-group">
             <div>
                 <span>Telephone</span>
-                <em>*</em>
+               
             </div>
             <div class="input-group">
                 <dx:ASPxTextBox ID="txtTelephone" runat="server" Width="170px" MaxLength="50">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Required" IsRequired="True" />
+                        <RequiredField ErrorText="Required" />
                     </ValidationSettings>
                 </dx:ASPxTextBox>
 
@@ -171,7 +196,11 @@
 
             </div>
               <div>
-                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click">
+                    <ClientSideEvents Click="function(s, e) {
+	e.processOnServer = confirm('Do you wish to clear the form?');
+}" />
+                  </dx:ASPxButton>
 
             </div>
             <div>

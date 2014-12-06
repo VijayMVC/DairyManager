@@ -32,7 +32,11 @@
                 <dx:ASPxButton ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" ValidationGroup="vgSave"></dx:ASPxButton>
             </div>
             <div>
-                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click">
+                    <ClientSideEvents Click="function(s, e) {
+	e.processOnServer = confirm('Do you wish to clear the form?');
+}" />
+                </dx:ASPxButton>
 
             </div>
             <div>

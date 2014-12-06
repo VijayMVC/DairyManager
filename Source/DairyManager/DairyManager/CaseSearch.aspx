@@ -43,15 +43,19 @@
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="5" Caption="Client" FieldName="Name" ShowInCustomizationForm="True">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="6" Caption="Case Type" FieldName="CaseCode" ShowInCustomizationForm="True">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="7" Caption="Email" FieldName="Email" ShowInCustomizationForm="True" Visible="false">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                     <dx:GridViewDataTextColumn VisibleIndex="8" Caption="Contact" FieldName="Contact" ShowInCustomizationForm="True" Visible="false">
+                        <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                     </dx:GridViewDataTextColumn>
 
                 </Columns>

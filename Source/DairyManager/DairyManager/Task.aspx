@@ -60,7 +60,8 @@
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbCase" runat="server" IncrementalFilteringMode="Contains"
-                    TextFormatString="{0}" AutoPostBack="True" OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
+                    TextFormatString="{0} ({1})" AutoPostBack="True" 
+                    OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
                     <Columns>
                         <dx:ListBoxColumn Caption="UFN" FieldName="Code" />
                         <dx:ListBoxColumn Caption="Clients" FieldName="Name" Width="250px" />
@@ -255,7 +256,11 @@
             </div>
             <div>
                 <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False"
-                    OnClick="btnClear_Click">
+                    OnClick="btnClear_Click" >
+                    <ClientSideEvents Click="function(s, e) {
+
+e.processOnServer = confirm('Do you wish to clear the form?');
+}" />
                 </dx:ASPxButton>
             </div>
             <div>
@@ -265,6 +270,9 @@
         </div>
     </div>
     <script type="text/javascript">
+
+  
+
 
         function calculateHours() {
 

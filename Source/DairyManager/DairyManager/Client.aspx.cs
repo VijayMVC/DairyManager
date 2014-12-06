@@ -55,7 +55,9 @@ namespace DairyManager
         {
             clientEntity.Initials= txtInitials.Text.Trim();
             clientEntity.Firstname= txtFirstName.Text.Trim();
+            clientEntity.MiddleName = txtMiddleName.Text.Trim();
             clientEntity.LastName = txtLastName.Text.Trim();
+            clientEntity.DOB = Convert.ToDateTime( dtDOB.Text);
             clientEntity.AddressLine1 = txtAddressLine1.Text.Trim();
             clientEntity.AddressLine2 = txtAddressLine2.Text.Trim();
             clientEntity.AddressLine3 = txtAddressLine3.Text.Trim();
@@ -89,8 +91,19 @@ namespace DairyManager
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
             {
                 txtInitials.Text = ds.Tables[0].Rows[0]["Initials"] != null ? ds.Tables[0].Rows[0]["Initials"].ToString() : string.Empty;
-                txtFirstName.Text = ds.Tables[0].Rows[0]["FirstName"] != null ? ds.Tables[0].Rows[0]["FirstName"].ToString() : string.Empty;                
+                txtFirstName.Text = ds.Tables[0].Rows[0]["FirstName"] != null ? ds.Tables[0].Rows[0]["FirstName"].ToString() : string.Empty;
+                txtMiddleName.Text = ds.Tables[0].Rows[0]["MiddleName"] != null ? ds.Tables[0].Rows[0]["MiddleName"].ToString() : string.Empty;                
                 txtLastName.Text = ds.Tables[0].Rows[0]["LastName"] != null ? ds.Tables[0].Rows[0]["LastName"].ToString() : string.Empty;
+
+                if (ds.Tables[0].Rows[0]["DOB"] != null)
+                {
+                    dtDOB.Date = Convert.ToDateTime( ds.Tables[0].Rows[0]["DOB"].ToString());
+                }
+                else
+                {
+                    dtDOB.Text = string.Empty;
+                }
+
                 txtAddressLine1.Text = ds.Tables[0].Rows[0]["AddressLine1"] != null ? ds.Tables[0].Rows[0]["AddressLine1"].ToString() : string.Empty;
                 txtAddressLine2.Text = ds.Tables[0].Rows[0]["AddressLine2"] != null ? ds.Tables[0].Rows[0]["AddressLine2"].ToString() : string.Empty;
                 txtAddressLine3.Text = ds.Tables[0].Rows[0]["AddressLine3"] != null ? ds.Tables[0].Rows[0]["AddressLine3"].ToString() : string.Empty;
@@ -105,7 +118,9 @@ namespace DairyManager
         {
             txtInitials.Text = string.Empty;
             txtFirstName.Text = string.Empty;
+            txtMiddleName.Text = string.Empty;
             txtLastName.Text = string.Empty;
+            dtDOB.Text = string.Empty;
             txtAddressLine1.Text = string.Empty;
             txtAddressLine2.Text = string.Empty;
             txtAddressLine3.Text = string.Empty;

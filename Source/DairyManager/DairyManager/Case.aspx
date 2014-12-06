@@ -98,11 +98,12 @@
                         <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
                             VisibleIndex="3" Width="200px">
                             <PropertiesComboBox TextField="Name" ValueField="ClientId"
-                                ValueType="System.Guid">
+                                ValueType="System.Guid" DropDownStyle="DropDown" EnableCallbackMode="True">
                                 <ValidationSettings>
                                     <RequiredField ErrorText="Required" IsRequired="True" />
                                 </ValidationSettings>
                             </PropertiesComboBox>
+                            <Settings AutoFilterCondition="Contains" FilterMode="DisplayText" />
                         </dx:GridViewDataComboBoxColumn>
                     </Columns>
                     <SettingsBehavior ConfirmDelete="True" />
@@ -150,7 +151,11 @@
 
             </div>
             <div>
-                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click"></dx:ASPxButton>
+                <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False" OnClick="btnClear_Click">
+                    <ClientSideEvents Click="function(s, e) {
+	e.processOnServer = confirm('Do you wish to clear the form?');
+}" />
+                </dx:ASPxButton>
 
             </div>
             <div>
