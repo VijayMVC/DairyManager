@@ -213,11 +213,11 @@ namespace DairyManager
                 {
                     seTotalHours.MaxValue = 50;
                 }
-                else
-                {
-                    seTotalHours.MaxValue = int.Parse(decimal.Parse(remainingHours).ToString("N0"));
+                //else
+                //{
+                //    seTotalHours.MaxValue = int.Parse(decimal.Parse(remainingHours).ToString("N0"));
 
-                }
+                //}
 
                 string maximumRecording = taskCalculateDataSet.Tables[0].Rows[0]["TimeRestriction"].ToString();
                 lblMaximumRecording.Text = maximumRecording;
@@ -270,7 +270,7 @@ namespace DairyManager
 
             if (gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]) != null)
             {
-            consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
+                consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
             }
 
             if (maximumRecording == consumedHours)
@@ -279,6 +279,26 @@ namespace DairyManager
                 Master.ShowMessage(Diary.Common.Constant.Message_AllTimeConsumed);
                 
             }
+            
+            //// Check for over to maximum readin time
+
+            decimal totalHours =0;
+            decimal maximumRecordingTime = 0;
+
+            if (seTotalHours.Text != string.Empty)
+            {
+                totalHours = Convert.ToDecimal(seTotalHours.Text);
+            }
+
+            maximumRecordingTime = Convert.ToDecimal(maximumRecording);
+
+            if (totalHours > maximumRecordingTime)
+            {
+                result = false;
+                Master.ShowMessage(Diary.Common.Constant.Message_MoreThanReadingHours);
+            }
+
+
 
             //// Check start/end time on insert
             if (hdnTaskId.Value == string.Empty)

@@ -16,8 +16,9 @@ namespace Diary.Common
         public static readonly string Message_AllTimeConsumed = "Can not save, All time consumed";
         public static readonly string Message_TimeNotAllowed= "Can not save, Start or End time overlaps";
         public static readonly string Message_ClientNeedToUpdate= "Client record need to update";
-        
+        public static readonly string Message_MoreThanReadingHours = "Can not save,Total hours should be less than Maximum Reading hours";
 
+        
         public static readonly string URL_UNAUTHORISEDACTION = "~/UnauthorisedAction.aspx";
 
         #region Session Names

@@ -98,7 +98,7 @@
                         <dx:GridViewDataComboBoxColumn Caption="Clients" FieldName="ClientId"
                             VisibleIndex="3" Width="200px">
                             <PropertiesComboBox TextField="Name" ValueField="ClientId"
-                                ValueType="System.Guid" DropDownStyle="DropDown" EnableCallbackMode="True">
+                                ValueType="System.Guid" IncrementalFilteringMode="Contains">
                                 <ValidationSettings>
                                     <RequiredField ErrorText="Required" IsRequired="True" />
                                 </ValidationSettings>
