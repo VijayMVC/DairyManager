@@ -75,11 +75,11 @@ public partial class HorizontalSameDayAppointmentTemplate {
     protected global::System.Web.UI.HtmlControls.HtmlTable imageContainer;
     
     /// <summary>
-    /// lblTitle control.
+    /// hlTitleLink control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblTitle;
+    protected global::System.Web.UI.WebControls.HyperLink hlTitleLink;
 }

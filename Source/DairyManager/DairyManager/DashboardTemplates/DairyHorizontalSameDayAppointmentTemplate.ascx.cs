@@ -46,9 +46,9 @@ public partial class HorizontalSameDayAppointmentTemplate : DevExpress.Web.ASPxS
 
         lblStartTime.ControlStyle.MergeWith(Items.StartTimeText.Style);
         lblEndTime.ControlStyle.MergeWith(Items.EndTimeText.Style);
-        lblTitle.ControlStyle.MergeWith(Items.Title.Style);
+        //lblTitle.ControlStyle.MergeWith(Items.Title.Style);
         //lblDescription.ControlStyle.MergeWith(Items.Description.Style);
-
+        
         LayoutAppointmentImages();
 
         statusContainer.Controls.Add(Container.Items.StatusControl);

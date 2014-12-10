@@ -60,7 +60,7 @@
                                     </table>
                                 </td>
                                 <td align="center">                            
-                                    LOL Title: <dxe:ASPxLabel runat="server" EnableViewState="false" EncodeHtml="true" ID="lblTitle" Text='<%#((HorizontalAppointmentTemplateContainer)Container).Items.Title.Text%>'></dxe:ASPxLabel>
+                                    Title: <dxe:ASPxLabel runat="server" EnableViewState="false" EncodeHtml="true" ID="lblTitle" Text='<%#((HorizontalAppointmentTemplateContainer)Container).Items.Title.Text%>'></dxe:ASPxLabel>
                                 </td>
                             </tr>
                         </table>

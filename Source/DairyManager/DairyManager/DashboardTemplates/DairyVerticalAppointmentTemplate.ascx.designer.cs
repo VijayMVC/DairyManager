@@ -75,11 +75,11 @@ public partial class VerticalAppointmentTemplate {
     protected global::System.Web.UI.HtmlControls.HtmlGenericControl horizontalSeparator;
     
     /// <summary>
-    /// lblDescription control.
+    /// hlDescription control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::DevExpress.Web.ASPxEditors.ASPxLabel lblDescription;
+    protected global::System.Web.UI.WebControls.HyperLink hlDescription;
 }

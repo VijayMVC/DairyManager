@@ -62,18 +62,8 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <dxe:ASPxLabel runat="server" EnableViewState="false" EncodeHtml="true" ID="lblDescription" Text='<%#((VerticalAppointmentTemplateContainer)Container).Items.Description.Text%>'></dxe:ASPxLabel>
-                                        <%--<tr>
-                                            <td name="WhatIEntered">
-                                                <br />
-                                                <dxe:ASPxLabel runat="server" ID="lblPriceHeader" ForeColor="DarkBlue"
-                                                    Text="Price:  " Visible="true">
-                                                </dxe:ASPxLabel>
-                                                <dxe:ASPxLabel runat="server" ID="lblPrice" ForeColor="DarkBlue"
-                                                    Visible="true">
-                                                </dxe:ASPxLabel>
-                                            </td>
-                                        </tr>--%>
+                                        <%--<dxe:ASPxLabel runat="server" EnableViewState="false" EncodeHtml="true" ID="lblDescription" Text='<%#((VerticalAppointmentTemplateContainer)Container).Items.Description.Text%>'></dxe:ASPxLabel>--%>
+                                        <asp:HyperLink ID="hlDescription" NavigateUrl="~/Task.aspx" runat="server"><%#((VerticalAppointmentTemplateContainer)Container).Items.Description.Text%></asp:HyperLink>
                                     </td>
                                 </tr>
                             </table>

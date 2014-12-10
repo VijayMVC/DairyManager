@@ -47,7 +47,10 @@ public partial class VerticalAppointmentTemplate: DevExpress.Web.ASPxScheduler.S
         lblStartTime.ControlStyle.MergeWith(Items.StartTimeText.Style);
         lblEndTime.ControlStyle.MergeWith(Items.EndTimeText.Style);
         lblTitle.ControlStyle.MergeWith(Items.Title.Style);
-        lblDescription.ControlStyle.MergeWith(Items.Description.Style);
+        //lblDescription.ControlStyle.MergeWith(Items.Description.Style);
+        hlDescription.ControlStyle.MergeWith(Items.Description.Style);
+
+        //object cfPrice = Container.AppointmentViewInfo.Appointment.CustomFields["Price"];
 
         //lblPriceHeader.Text = "This is a dummy header";
         //lblPrice.Text = "This is a dummy price";
