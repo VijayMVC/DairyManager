@@ -25,6 +25,10 @@
             <dx:ASPxFilterControl ID="ASPxFilterControl1" runat="server" ClientInstanceName="filter">
                 <Columns>
                     <dx:FilterControlDateColumn ColumnType="DateTime" DisplayName="Task Date" PropertyName="TaskDate">
+                        <PropertiesDateEdit DisplayFormatInEditMode="True" 
+                            DisplayFormatString="dd-MMM-yy" EditFormat="Custom" 
+                            EditFormatString="dd-MMM-yy">
+                        </PropertiesDateEdit>
                     </dx:FilterControlDateColumn>
                     <dx:FilterControlTextColumn ColumnType="String" DisplayName="UFN" PropertyName="UFN">
                     </dx:FilterControlTextColumn>
@@ -72,19 +76,20 @@
                         VisibleIndex="1">
                         <PropertiesTextEdit DisplayFormatString="dd-MMM-yy">
                         </PropertiesTextEdit>
+                        <Settings FilterMode="DisplayText" ShowFilterRowMenu="False" />
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Task Type" FieldName="TaskType" Name="colTaskType"
                         VisibleIndex="2">
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Client" FieldName="Client" Name="colClient" VisibleIndex="3">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="TaskCreator" FieldName="TaskCreator" Name="colTaskCreator"
+                    <dx:GridViewDataTextColumn Caption="Task Creator" FieldName="TaskCreator" Name="colTaskCreator"
                         VisibleIndex="4">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="FeeEarner" FieldName="FeeEarner" Name="colFeeEarner"
+                    <dx:GridViewDataTextColumn Caption="Fee Earner" FieldName="FeeEarner" Name="colFeeEarner"
                         VisibleIndex="5">
                     </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn Caption="TaskDescription" FieldName="TaskDescription"
+                    <dx:GridViewDataTextColumn Caption="Description" FieldName="TaskDescription"
                         Name="colTaskDescription" VisibleIndex="6">
                     </dx:GridViewDataTextColumn>
                     <dx:GridViewDataTextColumn Caption="Start Time" FieldName="StartTime" Name="colStartTime"
