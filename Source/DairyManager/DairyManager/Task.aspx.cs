@@ -21,6 +21,7 @@ namespace DairyManager
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             this.LoadCase();
             this.LoadTaskType();
             this.LoadTaskCreator();
@@ -41,7 +42,7 @@ namespace DairyManager
             }
 
             this.AuthoriseUser();
-
+           
 
 
         }
@@ -84,7 +85,7 @@ namespace DairyManager
 
             taskEntity.TaskDate = DateTime.Parse(dtDate.Text);
             taskEntity.CaseId = new Guid(cmbCase.Value.ToString());
-            
+
             //taskEntity.TaskCreator = new Guid(cmbTaskCreator.Value.ToString());
             taskEntity.TaskCreator = Master.LoggedUser.UserId.Value;
 
@@ -129,8 +130,8 @@ namespace DairyManager
                 cmbTaskType.Value = ds.Tables[0].Rows[0]["TaskTypeId"].ToString();
                 txtTaskDescription.Value = ds.Tables[0].Rows[0]["TaskDescription"] != null ? ds.Tables[0].Rows[0]["TaskDescription"].ToString() : string.Empty;
                 lblRemainingHours.Value = ds.Tables[0].Rows[0]["TotalRemainingHours"] != null ? ds.Tables[0].Rows[0]["TotalRemainingHours"].ToString() : "0";
-                teStartTime.Value = Convert.ToDateTime( ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0");
-                teEndTime.Value = Convert.ToDateTime( ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0");
+                teStartTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["StartTime"] != null ? ds.Tables[0].Rows[0]["StartTime"].ToString() : "0");
+                teEndTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["EndTime"] != null ? ds.Tables[0].Rows[0]["EndTime"].ToString() : "0");
                 seTotalHours.Value = ds.Tables[0].Rows[0]["TotalHours"] != null ? ds.Tables[0].Rows[0]["TotalHours"].ToString() : "0";
 
                 this.LoadTaskGrid();
@@ -191,8 +192,8 @@ namespace DairyManager
             gvHistory.DataBind();
             dvGridSection.Visible = false;
 
-            
-            
+
+
         }
 
         private void LoadTaskGrid()
@@ -200,7 +201,7 @@ namespace DairyManager
             Diary.Entity.TaskEntity taskentity = new Diary.Entity.TaskEntity();
             taskentity.TaskDate = DateTime.Parse(dtDate.Text);
             taskentity.FeeEarner = new Guid(cmbFeeEarner.Value.ToString());
-            taskentity.CaseId = new Guid(cmbCase.Value.ToString());
+            //taskentity.CaseId = new Guid(cmbCase.Value.ToString());
 
             DataSet taskCalculateDataSet = currentTask.CalculateTask(taskentity);
 
@@ -245,12 +246,12 @@ namespace DairyManager
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-         this.ClearFormFields();
+            this.ClearFormFields();
         }
 
         protected void cmbCase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty( dtDate.Text ) || string.IsNullOrEmpty(cmbFeeEarner.Text))
+            if (string.IsNullOrEmpty(dtDate.Text) || string.IsNullOrEmpty(cmbFeeEarner.Text))
             {
                 cmbCase.SelectedIndex = -1;
                 return;
@@ -263,26 +264,26 @@ namespace DairyManager
         {
             bool result = true;
 
-            string maximumRecording = "0";
-            string consumedHours = "0";
+            decimal maximumRecording = 0;
+            decimal consumedHours = 0;
 
-            maximumRecording = lblMaximumRecording.Text;
+            maximumRecording = decimal.Parse(lblMaximumRecording.Text);
 
             if (gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]) != null)
             {
-                consumedHours = gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString();
+                consumedHours = decimal.Parse(gvHistory.GetTotalSummaryValue(gvHistory.TotalSummary["TotalHours", DevExpress.Data.SummaryItemType.Sum]).ToString());
             }
 
-            if (maximumRecording == consumedHours)
+            if (maximumRecording <= consumedHours)
             {
                 result = false;
                 Master.ShowMessage(Diary.Common.Constant.Message_AllTimeConsumed);
-                
+                return result;
             }
-            
+
             //// Check for over to maximum readin time
 
-            decimal totalHours =0;
+            decimal totalHours = 0;
             decimal maximumRecordingTime = 0;
 
             if (seTotalHours.Text != string.Empty)
@@ -292,10 +293,11 @@ namespace DairyManager
 
             maximumRecordingTime = Convert.ToDecimal(maximumRecording);
 
-            if (totalHours > maximumRecordingTime)
+            if (totalHours+consumedHours > maximumRecordingTime)
             {
                 result = false;
                 Master.ShowMessage(Diary.Common.Constant.Message_MoreThanReadingHours);
+                return result;
             }
 
 
@@ -316,7 +318,7 @@ namespace DairyManager
                 {
                     result = false;
                     Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
-
+                    return result;
                 }
 
             }
@@ -339,7 +341,7 @@ namespace DairyManager
                 {
                     result = false;
                     Master.ShowMessage(Diary.Common.Constant.Message_TimeNotAllowed);
-
+                    return result;
                 }
 
             }
@@ -350,6 +352,19 @@ namespace DairyManager
         protected void teStartTime_DateChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void cmbFeeEarner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(dtDate.Text))
+            {
+                cmbFeeEarner.SelectedIndex = -1;
+                return;
+            }
+
+       
+
+            this.LoadTaskGrid();
         }
     }
 }

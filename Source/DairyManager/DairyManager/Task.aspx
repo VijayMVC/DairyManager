@@ -2,6 +2,9 @@
     MasterPageFile="~/Site.master" %>
 
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxLoadingPanel" TagPrefix="dx" %>
+
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
@@ -30,14 +33,15 @@
                 </dx:ASPxDateEdit>
             </div>
         </div>
-        <div class="form-group" style="display:none">
+        <div class="form-group" style="display: none">
             <div>
                 <span>Task Creator</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbTaskCreator" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains" Visible=false>
+                <dx:ASPxComboBox ID="cmbTaskCreator" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains"
+                    Visible="false">
                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
-                        <RequiredField ErrorText="Required" IsRequired="False"  />
+                        <RequiredField ErrorText="Required" IsRequired="False" />
                     </ValidationSettings>
                 </dx:ASPxComboBox>
             </div>
@@ -47,7 +51,8 @@
                 <span>Fee Earner</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxComboBox ID="cmbFeeEarner" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains">
+                <dx:ASPxComboBox ID="cmbFeeEarner" runat="server" ValueType="System.String" IncrementalFilteringMode="Contains"
+                    AutoPostBack="True" OnSelectedIndexChanged="cmbFeeEarner_SelectedIndexChanged">
                     <ValidationSettings ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
@@ -60,8 +65,7 @@
             </div>
             <div class="input-group">
                 <dx:ASPxComboBox ID="cmbCase" runat="server" IncrementalFilteringMode="Contains"
-                    TextFormatString="{0} ({1})" AutoPostBack="True" 
-                    OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
+                    TextFormatString="{0} ({1})" AutoPostBack="True" OnSelectedIndexChanged="cmbCase_SelectedIndexChanged">
                     <Columns>
                         <dx:ListBoxColumn Caption="UFN" FieldName="Code" />
                         <dx:ListBoxColumn Caption="Clients" FieldName="Name" Width="250px" />
@@ -88,18 +92,15 @@
                             <dx:GridViewDataTextColumn Caption="Task Description" FieldName="TaskDescription"
                                 VisibleIndex="0">
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTimeEditColumn Caption="Start Time" FieldName="StartTime" 
-                                VisibleIndex="2">
+                            <dx:GridViewDataTimeEditColumn Caption="Start Time" FieldName="StartTime" VisibleIndex="2">
                                 <PropertiesTimeEdit DisplayFormatString="">
                                 </PropertiesTimeEdit>
                             </dx:GridViewDataTimeEditColumn>
-                            <dx:GridViewDataTimeEditColumn Caption="End Time" FieldName="EndTime" 
-                                VisibleIndex="3">
+                            <dx:GridViewDataTimeEditColumn Caption="End Time" FieldName="EndTime" VisibleIndex="3">
                                 <PropertiesTimeEdit DisplayFormatString="">
                                 </PropertiesTimeEdit>
                             </dx:GridViewDataTimeEditColumn>
-                            <dx:GridViewDataTextColumn Caption="Total Hours" FieldName="TotalHours" 
-                                VisibleIndex="4">
+                            <dx:GridViewDataTextColumn Caption="Total Hours" FieldName="TotalHours" VisibleIndex="4">
                             </dx:GridViewDataTextColumn>
                         </Columns>
                         <Settings ShowFooter="True" />
@@ -148,12 +149,12 @@
                 <span>Task Description</span> <em>*</em>
             </div>
             <div class="input-group">
-                <dx:ASPxMemo ID="txtTaskDescription" runat="server" Height="71px" Width="170px" MaxLength="100" >
-                 <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
+                <dx:ASPxMemo ID="txtTaskDescription" runat="server" Height="71px" Width="170px" MaxLength="100">
+                    <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
                     </ValidationSettings>
                 </dx:ASPxMemo>
-             <%--   <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" 
+                <%--   <dx:ASPxTextBox ID="txtTaskDescription" runat="server" Width="170px" 
                     MaxLength="100" Height="100px">
                     <ValidationSettings Display="Dynamic" ErrorDisplayMode="ImageWithTooltip" ValidationGroup="vgSave">
                         <RequiredField ErrorText="Required" IsRequired="True" />
@@ -256,7 +257,7 @@
             </div>
             <div>
                 <dx:ASPxButton ID="btnClear" runat="server" Text="Clear" CausesValidation="False"
-                    OnClick="btnClear_Click" >
+                    OnClick="btnClear_Click">
                     <ClientSideEvents Click="function(s, e) {
 
 e.processOnServer = confirm('Do you wish to clear the form?');
@@ -268,10 +269,14 @@ e.processOnServer = confirm('Do you wish to clear the form?');
                 </dx:ASPxButton>
             </div>
         </div>
+   <dx:ASPxLoadingPanel ID="LoadingPanel" runat="server" ClientInstanceName="LoadingPanel"
+        Modal="True">
+    </dx:ASPxLoadingPanel>
+
     </div>
     <script type="text/javascript">
 
-  
+
 
 
         function calculateHours() {
