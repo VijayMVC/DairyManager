@@ -16,9 +16,9 @@ namespace Diary.BLL
             return reportDao.GetReportTypes();
         }
 
-        public DataSet ReportCaseInfo()
+        public DataSet ReportCaseInfo(DateTime @FromDate, DateTime @ToDate)
         {
-            return reportDao.ReportCaseInfo();
+            return reportDao.ReportCaseInfo(@FromDate, @ToDate);
         }
     }
 }

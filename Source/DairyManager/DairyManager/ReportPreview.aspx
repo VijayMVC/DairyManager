@@ -24,12 +24,6 @@
         <div>
             <dx:ASPxFilterControl ID="ASPxFilterControl1" runat="server" ClientInstanceName="filter">
                 <Columns>
-                    <dx:FilterControlDateColumn ColumnType="DateTime" DisplayName="Task Date" PropertyName="TaskDate">
-                        <PropertiesDateEdit DisplayFormatInEditMode="True" 
-                            DisplayFormatString="dd-MMM-yy" EditFormat="Custom" 
-                            EditFormatString="dd-MMM-yy">
-                        </PropertiesDateEdit>
-                    </dx:FilterControlDateColumn>
                     <dx:FilterControlTextColumn ColumnType="String" DisplayName="UFN" PropertyName="UFN">
                     </dx:FilterControlTextColumn>
                 </Columns>

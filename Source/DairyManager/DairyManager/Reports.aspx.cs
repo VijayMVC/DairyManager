@@ -23,7 +23,17 @@ namespace DairyManager
                 return;
             }
 
+            var now = DateTime.Now;
+            var startOfMonth = new DateTime(now.Year, now.Month, 1);
+            
             this.LoadReportList();
+
+            if (!IsPostBack)
+            {
+                deFromDate.Value = startOfMonth;
+                deToDate.Value = DateTime.Today;
+            }
+
         }
 
         private void LoadReportList()
@@ -55,7 +65,11 @@ namespace DairyManager
             reportEntity.ReportType = Diary.Common.Enum.ReportTypes.CaseInfo.ToString();
 
             DataSet ds = new DataSet();
-            ds=reports.ReportCaseInfo();
+
+            DateTime fromDate =DateTime.Parse(deFromDate.Value.ToString());
+            DateTime toDate = DateTime.Parse(deToDate.Value.ToString());
+
+            ds = reports.ReportCaseInfo(fromDate, toDate);
             reportEntity.ReportData = ds;
             Session["CurrentReport"] = reportEntity;
             

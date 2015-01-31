@@ -75,6 +75,7 @@ namespace DairyManager
                 {
                     case "PDF":
                         gvExporter.GridViewID = gvReports.ID;
+                        gvExporter.Landscape = true;
                         gvExporter.WritePdfToResponse();
                         break;
 

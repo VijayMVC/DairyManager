@@ -22,6 +22,24 @@ namespace DairyManager {
         protected global::DevExpress.Web.ASPxEditors.ASPxComboBox cmbReportTyppe;
         
         /// <summary>
+        /// deFromDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit deFromDate;
+        
+        /// <summary>
+        /// deToDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxDateEdit deToDate;
+        
+        /// <summary>
         /// btnGenerate control.
         /// </summary>
         /// <remarks>
