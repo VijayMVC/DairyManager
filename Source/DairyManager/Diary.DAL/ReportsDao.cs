@@ -23,12 +23,15 @@ namespace Diary.DAL
 
         }
 
-        public DataSet ReportCaseInfo()
+        public DataSet ReportCaseInfo(DateTime @FromDate, DateTime @ToDate)
         {
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
-            DbCommand command = db.GetStoredProcCommand("usp_ReportCaseInfo");
-                   
-            return db.ExecuteDataSet(command);
+            DbCommand dbcommand = db.GetStoredProcCommand("usp_ReportCaseInfo");
+
+            db.AddInParameter(dbcommand, "@FromDate", DbType.Date, @FromDate);
+            db.AddInParameter(dbcommand, "@ToDate", DbType.Date, @ToDate);
+
+            return db.ExecuteDataSet(dbcommand);
         }
 
     }
