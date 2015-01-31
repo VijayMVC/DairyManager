@@ -14,6 +14,7 @@ namespace DairyManager
 {
     public partial class Dashboard : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Master.LoggedUser == null)
@@ -57,6 +58,7 @@ namespace DairyManager
             //Scheduler.Storage.Appointments.Mappings.Description = "Label";
             Scheduler.Storage.Appointments.Mappings.Description = "Label";
 
+            Scheduler.Storage.Appointments.CustomFieldMappings.Add(new ASPxAppointmentCustomFieldMapping("TaskId", "TaskId"));
 
             Scheduler.DataBind();
         }

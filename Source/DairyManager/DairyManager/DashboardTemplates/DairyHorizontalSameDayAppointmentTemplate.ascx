@@ -74,10 +74,6 @@
                         </td>
                         <td colspan="4">
                             <asp:HyperLink ID="hlTitleLink" NavigateUrl="~/Task.aspx" runat="server"><%#((HorizontalAppointmentTemplateContainer)Container).Items.Title.Text%></asp:HyperLink>
-                            <%--<dxe:ASPxLabel runat="server" EnableViewState="false" EncodeHtml="true" ID="lblTitle"
-                                Text='<%#((HorizontalAppointmentTemplateContainer)Container).Items.Title.Text%>'
-                                Wrap="True">
-                            </dxe:ASPxLabel>--%>
                         </td>
                     </tr>
                 </table>

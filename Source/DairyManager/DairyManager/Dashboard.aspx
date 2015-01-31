@@ -24,7 +24,7 @@
             OnPopupMenuShowing="ASPxScheduler1_PopupMenuShowing" ClientIDMode="AutoID" Start="2014-09-08"
             EnableTheming="True">
             <Views>
-                <DayView>
+                <DayView ShowAllAppointmentsAtTimeCells="True">
                     <Templates>
                         <VerticalAppointmentTemplate>
                             <dva:DairyVerticalAppointment runat="server" />
@@ -51,10 +51,10 @@
                         </HorizontalSameDayAppointmentTemplate>
                     </Templates>
                     <AppointmentDisplayOptions EndTimeVisibility="Always" StartTimeVisibility="Always"
-                        TimeDisplayType="Text" AppointmentHeight="40" ShowRecurrence="False" ShowReminder="False" />
+                        TimeDisplayType="Text" AppointmentHeight="40" ShowRecurrence="False" ShowReminder="False" ShowBordersForSameDayAppointments="True" />
                 </WeekView>
                 <MonthView CompressWeekend="False">
-                    <AppointmentDisplayOptions StartTimeVisibility="Always" AppointmentHeight="100" EndTimeVisibility="Always" />
+                    <AppointmentDisplayOptions StartTimeVisibility="Always" AppointmentHeight="100" EndTimeVisibility="Always" ShowBordersForSameDayAppointments="True" TimeDisplayType="Text" />
                     <Templates>
                         <HorizontalSameDayAppointmentTemplate>
                             <dva:DairyHorizontalSameDayAppointment runat="server" />

@@ -46,8 +46,11 @@ public partial class HorizontalSameDayAppointmentTemplate : DevExpress.Web.ASPxS
 
         lblStartTime.ControlStyle.MergeWith(Items.StartTimeText.Style);
         lblEndTime.ControlStyle.MergeWith(Items.EndTimeText.Style);
-        //lblTitle.ControlStyle.MergeWith(Items.Title.Style);
-        //lblDescription.ControlStyle.MergeWith(Items.Description.Style);
+        
+        object TaskId = Container.AppointmentViewInfo.Appointment.CustomFields["TaskId"];
+
+        hlTitleLink.NavigateUrl = string.Format("~/Task.aspx?TaskId={0}", TaskId.ToString());
+        hlTitleLink.ControlStyle.MergeWith(Items.Title.Style);
         
         LayoutAppointmentImages();
 
