@@ -260,8 +260,8 @@ namespace Diary.DAL
             Database db = DatabaseFactory.CreateDatabase(Constant.DiaryDBConnectionString);
             DbCommand command = db.GetStoredProcCommand("usp_TaskSelectDashboardDataByDateRange");
 
-            db.AddInParameter(command, "FromDate", DbType.Time, fromDate);
-            db.AddInParameter(command, "ToDate", DbType.Time, toDate);
+            db.AddInParameter(command, "FromDate", DbType.DateTime, fromDate);
+            db.AddInParameter(command, "ToDate", DbType.DateTime, toDate);
 
             return db.ExecuteDataSet(command);
         }
